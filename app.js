@@ -22,6 +22,13 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/testAPI", testAPIRouter);
 
+app.use(express.static(path.join(__dirname, "client/build")));
+app.get("*", (req, res) => {
+  let url = path.join(__dirname, "client/build", "index.html");
+  if (!url.startsWith("/app")) url = url.substring(1);
+  res.sendFile(url);
+});
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
