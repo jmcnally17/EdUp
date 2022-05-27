@@ -10,6 +10,7 @@ class App extends Component {
 
   callAPI() {
     console.log(process.env.HEROKU_URL);
+    console.log9(process.env.MONGODB_URL);
     fetch(
       `${process.env.HEROKU_URL}/testApi` || "http://localhost:9000/testApi"
     )
