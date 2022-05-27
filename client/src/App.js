@@ -10,7 +10,7 @@ class App extends Component {
 
   callAPI() {
     fetch(
-      `${process.env.HEROKU_URL}/testAPI` || "http://localhost:9000/testApi"
+      `${process.env.HEROKU_URL}/testApi` || "http://localhost:9000/testApi"
     )
       .then((res) => res.text())
       .then((res) => this.setState({ apiResponse: res }))
