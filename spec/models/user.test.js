@@ -15,5 +15,6 @@ describe(User, () => {
     });
 
     expect(user.email).toBe("test1@test.com");
+    expect(user.password).toBe("password");
   });
 });
