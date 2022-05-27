@@ -22,6 +22,8 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/testAPI", testAPIRouter);
 
+// client Build
+
 app.use(express.static(path.join(__dirname, "client/build")));
 app.get("*", (req, res) => {
   let url = path.join(__dirname, "client/build", "index.html");
