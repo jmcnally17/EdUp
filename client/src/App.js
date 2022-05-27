@@ -9,7 +9,7 @@ class App extends Component {
   }
 
   callAPI() {
-    fetch("https://school-communication-app.herokuapp.com//testAPI")
+    fetch("https://school-communication-app.herokuapp.com/testAPI")
       .then((res) => res.text())
       .then((res) => this.setState({ apiResponse: res }))
       .catch((err) => err);
