@@ -6,11 +6,13 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = { apiResponse: "" };
+    this.url =
+      process.env.REACT_APP_HEROKU_URL || "http://localhost:9000/testApi";
   }
 
   callAPI() {
-    console.log(process.env.REACT_APP_HEROKU_URL);
-    fetch("/testApi" || "http://localhost:9000/testApi")
+    console.log(this.url);
+    fetch(this.url)
       .then((res) => res.text())
       .then((res) => this.setState({ apiResponse: res }))
       .catch((err) => err);
