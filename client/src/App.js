@@ -9,6 +9,7 @@ class App extends Component {
   }
 
   callAPI() {
+    console.log(process.env.HEROKU_URL);
     fetch(
       `${process.env.HEROKU_URL}/testApi` || "http://localhost:9000/testApi"
     )
