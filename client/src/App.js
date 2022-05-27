@@ -9,10 +9,10 @@ class App extends Component {
   }
 
   callAPI() {
-    console.log(process.env.HEROKU_URL);
-    console.log(process.env.MONGODB_URL);
+    console.log(process.env.REACT_APP_HEROKU_URL);
     fetch(
-      `${process.env.HEROKU_URL}/testApi` || "http://localhost:9000/testApi"
+      `${process.env.REACT_APP_HEROKU_URL}/testApi` ||
+        "http://localhost:9000/testApi"
     )
       .then((res) => res.text())
       .then((res) => this.setState({ apiResponse: res }))
