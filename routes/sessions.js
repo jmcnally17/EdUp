@@ -3,13 +3,21 @@ let router = express.Router();
 const User = require('../models/user');
 
 router.post('/', (req, res) => {
-  console.log(req.body);
   const email = req.body.email
   const password = req.body.password
 
   User.findOne({email: email}).then((user) => {
-    console.log(`hi ${user.email}`);
-    res.json({ user: user.email });
+    if (user && (password === user.password)) {
+      console.log(`${user.id}`);
+      res.json({
+        user: {
+          id: user.id, 
+          email: user.email
+        }
+      })
+    } else {
+      console.log('test2');
+    }
   })
 
 })
