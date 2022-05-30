@@ -1,37 +1,16 @@
-import logo from "./logo.svg";
 import "./App.css";
-import React, { Component } from "react";
+import React from "react";
+import { Routes, Route } from 'react-router-dom';
+import Home from "./components/home/home.js";
+import Noticeboard from "./components/noticeboard/noticeboard.js";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { apiResponse: "" };
-    this.url =
-      process.env.REACT_APP_HEROKU_TEST_URL || "http://localhost:9000/testApi";
-  }
-
-  callAPI() {
-    fetch(this.url)
-      .then((res) => res.text())
-      .then((res) => this.setState({ apiResponse: res }))
-      .catch((err) => err);
-  }
-
-  componentDidMount() {
-    this.callAPI();
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">{this.state.apiResponse}</p>
-      </div>
-    );
-  }
+export default function App() {
+  return (
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/noticeboard" element={<Noticeboard />} />
+      </Routes>
+    </div>
+  );
 }
-
-export default App;
