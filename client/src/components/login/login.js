@@ -4,7 +4,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const User = () => {
+  const handleSubmit = () => {
     fetch("http://localhost:9000/sessions", {
       method: "post",
       headers: {'Content-Type':'application/json'},
@@ -12,9 +12,9 @@ const Login = () => {
           email,
           password
       })
-    }).then(response => console.log(response.data))
+    }).then(response => response.json())
     .then(data => {
-      
+      localStorage.setItem("user", JSON.stringify(data.user))
     })
   }
 
@@ -29,7 +29,7 @@ const Login = () => {
         <input id="passwordInput" type="password" onChange = {(p) => setPassword(p.target.value)} />
       </div>
       <div>
-        <button onClick={User}> Submit </button>
+        <button onClick={handleSubmit}> Submit </button>
       </div>
   </div>
   )

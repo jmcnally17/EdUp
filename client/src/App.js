@@ -2,11 +2,12 @@ import logo from "./logo.svg";
 import "./App.css";
 import React, { Component } from "react";
 import Login from './components/login/login';
+import Welcome from './components/welcomeUser/welcomeUser';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { apiResponse: "" };
+    this.state = { apiResponse: "", loginStatus: false };
     this.url =
       process.env.REACT_APP_HEROKU_TEST_URL || "http://localhost:9000/testApi";
   }
@@ -25,12 +26,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <h1><Welcome /></h1>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">{this.state.apiResponse}</p>
-        <Login />
+        <Login onSuccess={() => {
+          this.setState({ loginStatus: true })
+        }}/>
       </div>
     );
   }
