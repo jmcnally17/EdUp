@@ -24,6 +24,7 @@ function Header() {
   if (loggedIn) {
     const jsonUser = JSON.parse(user)
     const email = jsonUser.email
+    console.log(jsonUser.id);
     header = (
       <div>
         hi {email}
