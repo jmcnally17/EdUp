@@ -18,8 +18,8 @@ export default function New() {
     await fetch("http://localhost:9000/notices", {
     method: "POST",
     body: JSON.stringify({
-      title: title,
-      description: description,
+       title,
+       description,
   })
 });
   }
