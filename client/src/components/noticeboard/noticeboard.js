@@ -25,6 +25,7 @@ export default function Noticeboard() {
       </div>
       <div class="row center">
         <a href="https://makers.tech" id="download-button" class="btn-large waves-effect waves-light orange">School website</a>
+        <a href="/noticeboard/new" id="download-button" class="btn-large waves-effect waves-light orange">Add New Notice</a>
       </div>
   
 

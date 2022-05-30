@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 import logo from "../../logo.svg";
+import { Link } from 'react-router-dom'
 
-const url = process.env.REACT_APP_HEROKU_TEST_URL || "http://localhost:9000/testApi";
+let url;
+if (process.env.REACT_APP_HEROKU_TEST_URL) {
+  url = `${process.env.REACT_APP_HEROKU_TEST_URL}testApi`;
+} else {
+  url = "http://localhost:9000/testApi";
+}
 
 export default function Home() {
   const [data, setData] = useState();
@@ -24,6 +30,9 @@ export default function Home() {
         <h1 className="App-title">Welcome to React</h1>
       </header>
       <p className="App-intro">{data}</p>
+      <Link to="/noticeboard">
+        <button>Noticeboard</button>
+      </Link>
     </div>
   )
 }
