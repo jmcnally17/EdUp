@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 
 const NoticeSchema = new mongoose.Schema({
   title: String,
-  subTitle: String,
   description: String,
 });
 
