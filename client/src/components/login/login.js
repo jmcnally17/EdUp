@@ -10,11 +10,12 @@ const Login = () => {
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({
           email,
-          password
+          password,
       })
     }).then(response => response.json())
     .then(data => {
-      localStorage.setItem("user", JSON.stringify(data.user))
+      localStorage.setItem("user", JSON.stringify(data.user));
+      window.location = '/';
     })
   }
 

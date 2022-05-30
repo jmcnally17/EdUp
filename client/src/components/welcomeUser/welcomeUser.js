@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 
 function Header() {
-  const user = localStorage.getItem('user');
+  const userStorage = localStorage.getItem('user');
+  const user = JSON.parse(userStorage)
   const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
@@ -22,9 +23,8 @@ function Header() {
     )
 
   if (loggedIn) {
-    const jsonUser = JSON.parse(user)
-    const email = jsonUser.email
-    console.log(jsonUser.id);
+    const email = user.email
+    console.log(user.id);
     header = (
       <div>
         hi {email}

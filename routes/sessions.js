@@ -8,7 +8,6 @@ router.post('/', (req, res) => {
 
   User.findOne({email: email}).then((user) => {
     if (user && (password === user.password)) {
-      console.log(`${user.id}`);
       res.json({
         user: {
           id: user.id, 

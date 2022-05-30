@@ -32,9 +32,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">{this.state.apiResponse}</p>
-        <Login onSuccess={() => {
-          this.setState({ loginStatus: true })
-        }}/>
+        <Login />
       </div>
     );
   }
