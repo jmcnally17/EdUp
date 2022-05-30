@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import React, { Component } from "react";
+import Login from './components/login/login';
 
 class App extends Component {
   constructor(props) {
@@ -29,6 +30,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">{this.state.apiResponse}</p>
+        <Login />
       </div>
     );
   }
