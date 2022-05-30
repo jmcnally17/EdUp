@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 
-// const url = "https://school-communication-app.herokuapp.com/notice";
+let url;
+if (process.env.REACT_APP_HEROKU_TEST_URL) {
+  url = `${process.env.REACT_APP_HEROKU_TEST_URL}notices`;
+} else {
+  url = "http://localhost:9000/notices";
+}
 
 export default function New() {
   const [title, setTitle] = useState("");
@@ -14,9 +19,10 @@ export default function New() {
     setDescription(target.value);
   }
 
-  const handleSubmit = async() => {
-    await fetch("http://localhost:9000/notices", {
+  const handleSubmit = () => {
+    fetch(url, {
     method: "POST",
+    headers: {'Content-Type':'application/json'},
     body: JSON.stringify({
        title,
        description,
