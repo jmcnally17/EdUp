@@ -21,16 +21,28 @@ function App() {
   };
 
   const login = () => {
-    Axios({
+    fetch("http://localhost:9000/login", {
       method: "POST",
-      data: {
-        username: loginUsername,
-        password: loginPassword,
-      },
-      withCredentials: true,
-      url: "http://localhost:9000/login",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        loginUsername,
+        loginPassword,
+      }),
     }).then((res) => console.log(res));
   };
+
+  // const login = () => {
+  //   Axios({
+  //     method: "POST",
+  //     data: {
+  //       username: loginUsername,
+  //       password: loginPassword,
+  //     },
+  //     withCredentials: true,
+  //     url: "http://localhost:9000/login",
+  //   }).then((res) => console.log(res));
+  // };
+
   const getUser = () => {
     Axios({
       method: "GET",
