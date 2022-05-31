@@ -17,14 +17,18 @@ export default function EventModal() {
   const [selectedLabel, setSelectedLabel] = useState(labelClasses[0])
 
   const handleSubmit = () => {
-    const date = daySelected.format("DD-MM-YY")
+    const day = daySelected.format("DD")
+    const month = daySelected.format("MM")
+    const year = daySelected.format("YY")
     fetch("http://localhost:9000/calendar", {
       method: "POST",
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({
         title,
         description,
-        date,
+        day,
+        month,
+        year
       })
     });
   }
