@@ -32,12 +32,14 @@ app.get("*", (req, res) => {
   res.sendFile(url);
 });
 
-app.use(
-  cors({
-    origin: url, // <-- location of the react app we're connecting too.
-    credentials: true,
-  })
-);
+app.use(cors());
+
+// app.use(
+//   cors({
+//     origin: url, // <-- location of the react app we're connecting too.
+//     credentials: true,
+//   })
+// );
 
 app.use(
   session({
