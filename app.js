@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // client Build
 app.use(express.static(path.join(__dirname, "client/build")));
 
-app.get(url, (req, res) => {
+app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/client/build/index.html"));
 });
 
