@@ -1,11 +1,18 @@
 import React, { useState } from "react";
 
+let url;
+if (process.env.REACT_APP_HEROKU_TEST_URL) {
+  url = `${process.env.REACT_APP_HEROKU_TEST_URL}users`;
+} else {
+  url = "http://localhost:9000/users";
+}
+
 export default function Registration() {
   const [registerUsername, setRegisterUsername] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
 
   const register = () => {
-    fetch("http://localhost:9000/users", {
+    fetch(url, {
       method: "POST",
       credentials: "include",
       headers: { "Content-Type": "application/json" },
@@ -24,6 +31,7 @@ export default function Registration() {
         onChange={(e) => setRegisterUsername(e.target.value)}
       ></input>
       <input
+        type="password"
         placeholder="password"
         onChange={(e) => setRegisterPassword(e.target.value)}
       ></input>

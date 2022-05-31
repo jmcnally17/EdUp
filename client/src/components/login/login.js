@@ -1,12 +1,26 @@
 import React, { useState } from "react";
 
+let urlSessions;
+if (process.env.REACT_APP_HEROKU_TEST_URL) {
+  urlSessions = `${process.env.REACT_APP_HEROKU_TEST_URL}sessions`;
+} else {
+  urlSessions = "http://localhost:9000/sessions";
+}
+
+let urlUsers;
+if (process.env.REACT_APP_HEROKU_TEST_URL) {
+  urlUsers = `${process.env.REACT_APP_HEROKU_TEST_URL}users`;
+} else {
+  urlUsers = "http://localhost:9000/users";
+}
+
 export default function Login() {
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [data, setData] = useState(null);
 
   const login = () => {
-    fetch("http://localhost:9000/sessions", {
+    fetch(urlSessions, {
       method: "POST",
       credentials: "include",
       headers: { "Content-Type": "application/json" },
@@ -18,7 +32,7 @@ export default function Login() {
   };
 
   const getUser = () => {
-    fetch("http://localhost:9000/users", {
+    fetch(urlUsers, {
       method: "GET",
       credentials: "include",
       headers: { "Content-Type": "application/json" },
@@ -38,6 +52,7 @@ export default function Login() {
           onChange={(e) => setLoginUsername(e.target.value)}
         ></input>
         <input
+          type="password"
           placeholder="password"
           onChange={(e) => setLoginPassword(e.target.value)}
         ></input>

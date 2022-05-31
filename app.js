@@ -11,6 +11,8 @@ let sessionsRouter = require("./routes/sessions");
 
 var app = express();
 
+var url = process.env.REACT_APP_HEROKU_TEST_URL || "http://localhost:3000";
+
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -19,13 +21,13 @@ app.use(express.static(path.join(__dirname, "public")));
 // client Build
 app.use(express.static(path.join(__dirname, "client/build")));
 
-app.get("http://localhost:3000", (req, res) => {
+app.get(url, (req, res) => {
   res.sendFile(path.join(__dirname + "/client/build/index.html"));
 });
 
 app.use(
   cors({
-    origin: "http://localhost:3000", // <-- location of the react app were connecting to
+    origin: url, // <-- location of the react app were connecting to
     credentials: true,
   })
 );
