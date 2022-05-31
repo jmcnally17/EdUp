@@ -15,6 +15,7 @@ export default function New() {
   const handleTitle = ({ target }) => {
     setTitle(target.value);
   }
+  const alert = () => { window.alert("New Notice has been created")}
 
   const handleDescription = ({ target }) => {
     setDescription(target.value);
@@ -29,6 +30,7 @@ export default function New() {
        description,
     })
   });
+  {alert()};
 }
 
   return (
