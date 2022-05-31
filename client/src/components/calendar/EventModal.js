@@ -11,10 +11,21 @@ const labelClasses = [
 ];
 
 export default function EventModal() {
-  const { setShowEventModal, daySelected } = useContext(CalendarGlobalContext)
+  const { setShowEventModal, daySelected, dispatchCalEvent, selectedEvent } = useContext(CalendarGlobalContext)
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [selectedLabel, setSelectedLabel] = useState(labelClasses[0])
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const calendarEvent = {
+      title,
+      description,
+      label: selectedLabel,
+      day: daySelected.valueOf(),
+      id: selectedEvent ? selectedEvent.id : Date.now(),
+    };
+  }
 
   return (
     <div className="h-screen w-full fixed left-0 top-0 flex justify-center items-center">
@@ -67,7 +78,7 @@ export default function EventModal() {
         <footer className="flex justify-end border-t p-3 mt-5">
           <button
             type="submit"
-            // onClick={handleSubmit}
+            onClick={handleSubmit}
             className="bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded text-white"
           >
             Save

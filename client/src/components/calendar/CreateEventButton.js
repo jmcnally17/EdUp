@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import CalendarGlobalContext from '../../context/CalendarGlobalContext'
+import "../../index.css";
 
 export default function CreateEventButton() {
   const {setShowEventModal} = useContext(CalendarGlobalContext)
