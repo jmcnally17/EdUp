@@ -10,7 +10,9 @@ const CalendarGlobalContext = React.createContext({
   daySelected: null,
   setDaySelected: (day) => { },
   showEventModal: false,
-  setShowEventModal: () => {}
+  setShowEventModal: () => { },
+  showEventDescription: false,
+  setShowEventDescription: () => { }
 })
 
 export default CalendarGlobalContext

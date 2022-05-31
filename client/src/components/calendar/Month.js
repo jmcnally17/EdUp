@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react'
 import Day from './Day'
 
 export default function Month({ month }) {
+
   const [data, setData] = useState([])
   useEffect(()=>{
     async function fetchMyAPI() {

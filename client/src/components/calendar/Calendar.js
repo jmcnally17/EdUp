@@ -8,7 +8,7 @@ import EventModal from "./EventModal";
 
 export default function Calendar() {
   const [currentMonth, setCurrentMonth] = useState(getMonth())
-  const { monthIndex, showEventModal } = useContext(CalendarGlobalContext)
+  const { monthIndex, showEventModal, showEventDescription } = useContext(CalendarGlobalContext)
   useEffect(() => {
     setCurrentMonth(getMonth(monthIndex))
   }, [monthIndex])

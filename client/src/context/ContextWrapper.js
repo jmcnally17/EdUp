@@ -6,7 +6,7 @@ export default function ContextWrapper(props) {
   const [monthIndex, setMonthIndex] = useState(dayjs().month())
   const [smallCalendarMonth, setSmallCalendarMonth] = useState(null)
   const [daySelected, setDaySelected] = useState(dayjs())
-  const [showEventModal, setShowEventModal] = useState(false)
+  const [showEventModal, setShowEventModal, setShowEventDescription] = useState(false)
 
   // Updates the main calendar if date is slected on smaller calendar
   useEffect(() => {
@@ -23,7 +23,8 @@ export default function ContextWrapper(props) {
       daySelected,
       setDaySelected,
       showEventModal,
-      setShowEventModal
+      setShowEventModal,
+      setShowEventDescription
     }}>
       {props.children}
     </CalendarGlobalContext.Provider>
