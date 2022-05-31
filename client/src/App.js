@@ -50,14 +50,11 @@ function App() {
       method: "GET",
       credentials: "include",
       headers: { "Content-Type": "application/json" },
-    }).then((res) => {
-      // console.log(res.data.username);
-      JSON.parse(res).then((res) => {
-        console.log(res.data);
-        console.log(data.data);
-        setData(res.data);
-      });
-    });
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => setData(data));
   };
 
   // const getUser = () => {
