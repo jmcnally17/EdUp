@@ -40,7 +40,7 @@ export default function Login() {
       .then((res) => {
         return res.json();
       })
-      .then((data) => console.log(setData(data)));
+      .then((data) => console.log(data));
   };
 
   return (
