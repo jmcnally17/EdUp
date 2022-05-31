@@ -8,10 +8,6 @@ import Login from "./components/login/login";
 import Registration from "./components/registration/registration";
 import Noticeboard from "./components/noticeboard/noticeboard.js";
 import New from "./components/noticeboard/new.js";
-import "./css/materialize.css";
-import "./css/materialize.min.css";
-import "./css/style.css";
-import 'material-icons/iconfont/material-icons.css';
 
 export default function App() {
   return (
