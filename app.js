@@ -7,7 +7,8 @@ const passport = require("passport");
 const session = require("express-session");
 
 var usersRouter = require("./routes/users");
-let sessionsRouter = require("./routes/sessions");
+var sessionsRouter = require("./routes/sessions");
+var noticesRouter = require("./routes/notices")
 
 var app = express();
 
@@ -48,6 +49,7 @@ require("./passportConfig")(passport);
 
 app.use("/users", usersRouter);
 app.use("/sessions", sessionsRouter);
+app.use("/notices", noticesRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
