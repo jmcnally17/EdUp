@@ -5,7 +5,7 @@ export default function Registration() {
   const [registerPassword, setRegisterPassword] = useState("");
 
   const register = () => {
-    fetch("http://localhost:9000/register", {
+    fetch("http://localhost:9000/users", {
       method: "POST",
       credentials: "include",
       headers: { "Content-Type": "application/json" },

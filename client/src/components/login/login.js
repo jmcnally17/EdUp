@@ -6,7 +6,7 @@ export default function Login() {
   const [data, setData] = useState(null);
 
   const login = () => {
-    fetch("http://localhost:9000/login", {
+    fetch("http://localhost:9000/sessions", {
       method: "POST",
       credentials: "include",
       headers: { "Content-Type": "application/json" },
@@ -18,7 +18,7 @@ export default function Login() {
   };
 
   const getUser = () => {
-    fetch("http://localhost:9000/user", {
+    fetch("http://localhost:9000/users", {
       method: "GET",
       credentials: "include",
       headers: { "Content-Type": "application/json" },
