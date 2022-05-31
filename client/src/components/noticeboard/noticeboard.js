@@ -1,8 +1,18 @@
-import React from "react";
+import { useState, useEffect } from "react";
+
+
 
 export default function Noticeboard() {
+  const [data, setData] = useState({})
+  useEffect(()=>{
+    fetch("http://localhost:9000/notices/index")
+    .then(res => res.json())
+    .then(data => setData(data))
+  }, [])
   return (
     <div>
+      <div>{console.log(data)}</div>
+      {/* <div>{data.forEach( notice => console.log(notice))}</div> */}
       <nav class="light-blue lighten-1" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
       <ul class="right hide-on-med-and-down">
@@ -38,8 +48,8 @@ export default function Noticeboard() {
       <div class="row">
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">Software development</i></h2>
-            <h5 class="center">Learn software development</h5>
+            <h2 class="center light-blue-text"><i class="material-icons">{data.title}</i></h2>
+            <h5 class="center">{data.description}</h5>
 
             <p class="light">Join Maker's distance learning course. They will pay commission to the school. </p>
           </div>
