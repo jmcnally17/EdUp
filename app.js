@@ -8,11 +8,13 @@ const session = require("express-session");
 
 var usersRouter = require("./routes/users");
 var sessionsRouter = require("./routes/sessions");
-var noticesRouter = require("./routes/notices")
+var noticesRouter = require("./routes/notices");
 
 var app = express();
 
 var url = process.env.REACT_APP_HEROKU_TEST_URL || "http://localhost:3000";
+
+console.log(process.env.REACT_APP_HEROKU_TEST_URL);
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -22,9 +24,9 @@ app.use(express.static(path.join(__dirname, "public")));
 // client Build
 app.use(express.static(path.join(__dirname, "client/build")));
 
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname + "/client/build/index.html"));
-// });
+app.get("url", (_req, res) => {
+  res.sendFile(path.join(__dirname + "/client/build/index.html"));
+});
 
 app.use(
   cors({
