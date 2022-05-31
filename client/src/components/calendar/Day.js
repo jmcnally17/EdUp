@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import dayjs from 'dayjs'
+import CalendarGlobalContext from '../../context/CalendarGlobalContext'
 
 export default function Day({ day, rowIdx }) {
   function getCurrentDayClass() {
     return day.format("DD-MM-YY") === dayjs().format("DD-MM-YY") ? 'bg-blue-600 text-white rounded-full w-7'
       : ''
   }
+  const {setDaySelected, setShowEventModal} = useContext(CalendarGlobalContext)
   return (
     <div className="border border-gray-200 flex flex-col">
       <header className="flex flex-col items-center">
@@ -15,7 +17,12 @@ export default function Day({ day, rowIdx }) {
         <p className={`text-sm p-1 my-1 text-center ${getCurrentDayClass()}`}>
           {day.format('DD')}
         </p>
-        </header>
+      </header>
+      <div className="flex-1 cursor-pointer" onClick={() => {
+        setDaySelected(day)
+        setShowEventModal(true)
+      }}>
+      </div>
     </div>
   )
 }

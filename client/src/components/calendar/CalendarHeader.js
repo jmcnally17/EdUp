@@ -1,6 +1,7 @@
 import React, {useContext} from 'react'
 import CalendarGlobalContext from '../../context/CalendarGlobalContext'
 import dayjs from 'dayjs'
+import logo192 from '../../logo/logo192.png'
 
 export default function CalendarHeader() {
   const { monthIndex, setMonthIndex } = useContext(CalendarGlobalContext)
@@ -11,11 +12,12 @@ export default function CalendarHeader() {
     setMonthIndex(monthIndex + 1)
   }
   function handleReset() {
-    setMonthIndex(dayjs().month())
-  }
+    setMonthIndex(monthIndex === dayjs().month() ? monthIndex + Math.random()
+      : dayjs().month())
+  };
   return (
     <header className="px-4 py-2 flex items-center">
-      <img src="" alt="calendar" className="mr-2 w-12 h-12" />
+      <img src={logo192} alt="calendar" className="mr-2 w-20 h-20" />
       <h1 className="mr-10 text-xl text-gray-500 fond-bold">
         Calendar
       </h1>

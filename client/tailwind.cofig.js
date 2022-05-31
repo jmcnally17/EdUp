@@ -1,4 +1,4 @@
-const labelsClasses = [
+const labelClasses = [
   "indigo",
   "gray",
   "green",
