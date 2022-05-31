@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useState } from "react";
-import Axios from "axios";
+// import Axios from "axios";
 
 function App() {
   const [registerUsername, setRegisterUsername] = useState("");
@@ -12,10 +12,11 @@ function App() {
   const register = () => {
     fetch("http://localhost:9000/register", {
       method: "POST",
+      credentials: "include",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        registerUsername,
-        registerPassword,
+        username: registerUsername,
+        password: registerPassword,
       }),
     }).then((response) => console.log(response.body));
   };
@@ -23,10 +24,11 @@ function App() {
   const login = () => {
     fetch("http://localhost:9000/login", {
       method: "POST",
+      credentials: "include",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        loginUsername,
-        loginPassword,
+        username: loginUsername,
+        password: loginPassword,
       }),
     }).then((res) => console.log(res));
   };
@@ -44,15 +46,29 @@ function App() {
   // };
 
   const getUser = () => {
-    Axios({
+    fetch("http://localhost:9000/user", {
       method: "GET",
-      withCredentials: true,
-      url: "http://localhost:9000/user",
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
     }).then((res) => {
-      setData(res.data);
-      console.log(res.data);
+      // console.log(res.data.username);
+      JSON.parse(res).then((res) => {
+        console.log(res.data);
+        console.log(data.data);
+        setData(res.data);
+      });
     });
   };
+
+  // const getUser = () => {
+  //   Axios({
+  //     method: "GET",
+  //     withCredentials: true,
+  //     url: "http://localhost:9000/user",
+  //   }).then((res) => {
+  //     setData(res.data);
+  //     console.log(res.data);
+  //   });
   return (
     <div className="App">
       <div>
