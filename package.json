@@ -23,6 +23,12 @@
     "passport-local": "^1.0.0",
     "jest": "^28.1.0",
     "materialize": "^1.0.0",
-    "materialize-css": "^1.0.0-rc.2"
+    "materialize-css": "^1.0.0-rc.2",
+    "mongoose": "^6.3.4",
+    "mongose": "^0.0.2-security",
+    "morgan": "~1.9.1",
+    "react-alert": "^7.0.3",
+    "react-alert-template-basic": "^1.0.2"
+
   }
 }
