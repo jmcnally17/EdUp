@@ -2,13 +2,12 @@ const CalendarEvents = require('../models/calendarEvent.js');
 
 const CalendarController ={ 
   Index: (req, res) => {
-    CalendarEvents.find().populate().exec((err, notices) => {
+    CalendarEvents.find().populate().exec((err, events) => {
       if (err) {
         throw err;
       }
-      let reverse = notices.reverse()
       res.json( { 
-        notices: reverse,
+        events: events,
       });
     
     });

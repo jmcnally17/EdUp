@@ -3,7 +3,9 @@ const mongoose = require("mongoose");
 const CalendarSchema = new mongoose.Schema({
   title: String,
   description: String,
-  date: String,
+  day: String,
+  month: String,
+  year: String,
 });
 
 const Calendar = mongoose.model("Calendar", CalendarSchema);
