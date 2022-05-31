@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import Notice from './notice';
-
 
 export default function Noticeboard() {
   const [data, setData] = useState([])
@@ -13,22 +11,19 @@ export default function Noticeboard() {
     fetchMyAPI()
   }, [])
   return (
-    <div>
-      <div className="Notice-container">
-      </div>
-      <div>{data.forEach( notice => console.log(notice.title))}</div>
+    <div>     
       <nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
+      <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="#">Navbar Link</a></li>
+        </ul>
 
-      <ul id="nav-mobile" class="sidenav">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
-      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
+        <ul id="nav-mobile" class="sidenav">
+          <li><a href="#">Navbar Link</a></li>
+        </ul>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      </div>
+    </nav>
       
     <div class="section no-pad-bot" id="index-banner">
     <div class="container">
@@ -52,7 +47,6 @@ export default function Noticeboard() {
       <div class="row">
         {data.map((noticeInfo, key) => {
           return (
-            // <Notice noticeInfo = {noticeInfo} />
             <div class="col s12 m4">
               <div class="icon-block">
                 <h5 class="center">{ noticeInfo.title } </h5>
@@ -62,53 +56,7 @@ export default function Noticeboard() {
             </div>
           );
         })}
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h5 class="center">Join Makers</h5>
-
-            <p class="light">Join Maker's distance learning course. They will pay commission to the school. </p>
-          </div>
-        </div>
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h5 class="center">Book today</h5>
-
-            <p class="light">Your local Jodo coach is now coaching kids for free at our school. Join classes now. It is on first come first serve bases </p>
-          </div>
-        </div>
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h5 class="center">Speeds up development</h5>
-
-            <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
-          </div>
-        </div>
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h5 class="center">Speeds up development</h5>
-
-            <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h5 class="center">User Experience Focused</h5>
-
-            <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h5 class="center">Easy to work with</h5>
-
-            <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
-          </div>
-        </div>
       </div>
-
     </div>
     
   </div>
