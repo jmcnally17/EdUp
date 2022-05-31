@@ -5,13 +5,16 @@ import { useState, useEffect } from "react";
 export default function Noticeboard() {
   const [data, setData] = useState({})
   useEffect(()=>{
-    fetch("http://localhost:9000/notices/index")
-    .then(res => res.json())
-    .then(data => setData(data))
-  }, [])
+    async function fetchMyAPI() {
+      let response = await fetch("http://localhost:9000/notices/index")
+      response = await response.json()
+      setData(response.notices)
+    }
+    fetchMyAPI()
+  }, [data])
   return (
     <div>
-      <div>{console.log(data)}</div>
+      <div>{JSON.stringify(data)}</div>
       {/* <div>{data.forEach( notice => console.log(notice))}</div> */}
       <nav class="light-blue lighten-1" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
