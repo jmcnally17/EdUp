@@ -14,8 +14,19 @@ export default function Noticeboard() {
   }, [data])
   return (
     <div>
-      <div>{JSON.stringify(data)}</div>
-      {/* <div>{data.forEach( notice => console.log(notice))}</div> */}
+      <div className="Notice-container">
+        {data.map((data, key) => {
+          return (
+            <div key={key}>
+              {data.title +
+                ", " +
+                data.description 
+                }
+            </div>
+          );
+        })}
+      </div>
+      <div>{data.forEach( notice => console.log(notice.title))}</div>
       <nav class="light-blue lighten-1" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
       <ul class="right hide-on-med-and-down">
