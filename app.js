@@ -51,10 +51,18 @@ app.use("/backend/notices", noticesRouter);
 app.use("/backend/users", usersRouter);
 app.use("/backend/calendar", calendarRouter);
 
-app.get("*", (_req, res) => {
-  response.set("Access-Control-Allow-Origin", "*");
-  res.sendFile(path.join(__dirname, "./client/build", "index.html"));
+app.get("*", (req, res) => {
+  let url = path.join(__dirname, "../client/build", "index.html");
+  if (!url.startsWith("/app/"))
+    // since we're on local windows
+    url = url.substring(1);
+  res.sendFile(url);
 });
+
+// app.get("*", (_req, res) => {
+//   response.set("Access-Control-Allow-Origin", "*");
+//   res.sendFile(path.join(__dirname, "./client/build", "index.html"));
+// });
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
