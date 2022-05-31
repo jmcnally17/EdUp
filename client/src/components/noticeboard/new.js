@@ -19,8 +19,10 @@ export default function New() {
   const handleDescription = ({ target }) => {
     setDescription(target.value);
   }
+  const alert = () => { window.alert("New notice has been created")}
 
   const handleSubmit = () => {
+   
     fetch(url, {
     method: "POST",
     headers: {'Content-Type':'application/json'},
@@ -28,7 +30,9 @@ export default function New() {
        title,
        description,
     })
-  });
+    
+  } );
+  {alert()};
 }
 
   return (
@@ -69,11 +73,13 @@ export default function New() {
         </div>
         <button class="btn waves-effect waves-light" type="submit" name="action">Submit 
           <i class="material-icons right">send</i>
+          
         </button>
         <div class="row center"></div>
         <div class="row center"></div>
         <div class="col s6 offset-s6">
         <a href="/noticeboard" id="download-button" class="btn-large waves-effect waves-light orange">Notice Board</a>
+        
         </div>
       </div>
     </form>
