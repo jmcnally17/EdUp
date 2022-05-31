@@ -13,7 +13,7 @@ var noticesRouter = require("./routes/notices");
 
 var app = express();
 
-var url = process.env.REACT_APP_HEROKU_TEST_URL || "http://localhost:3000";
+let url = process.env.REACT_APP_HEROKU_TEST_URL || "http://localhost:3000";
 
 app.use(logger("dev"));
 app.use(express.json());
