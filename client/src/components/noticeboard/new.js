@@ -26,7 +26,7 @@ export default function New() {
     body: JSON.stringify({
        title,
        description,
-  })
+  }).then
 });
   }
 

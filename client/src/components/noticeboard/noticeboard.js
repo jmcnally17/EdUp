@@ -10,6 +10,7 @@ export default function Noticeboard() {
     }
     fetchMyAPI()
   }, [])
+  
   return (
     <div>     
       <nav class="light-blue lighten-1" role="navigation">
