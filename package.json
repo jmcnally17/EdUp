@@ -16,6 +16,7 @@
     "jade": "^0.29.0",
     "materialize": "^1.0.0",
     "materialize-css": "^1.0.0-rc.2",
+    "mongoose": "^6.3.5",
     "morgan": "~1.9.1",
     "tailwind": "^2.2.0"
   },

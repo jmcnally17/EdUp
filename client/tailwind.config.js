@@ -13,9 +13,9 @@ module.exports = {
     //Because we made a dynamic class with the label we need to add those clases
     // to the safe list so the purge does not remove that
     safelist: [
-      ...labelsClasses.map((lbl) => `bg-${lbl}-500`),
-      ...labelsClasses.map((lbl) => `bg-${lbl}-200`),
-      ...labelsClasses.map((lbl) => `text-${lbl}-400`)
+      ...labelClasses.map((lbl) => `bg-${lbl}-500`),
+      ...labelClasses.map((lbl) => `bg-${lbl}-200`),
+      ...labelClasses.map((lbl) => `text-${lbl}-400`)
     ],
   },
   darkMode: false, // or 'media' or 'class'

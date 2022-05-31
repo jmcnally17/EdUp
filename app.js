@@ -7,6 +7,7 @@ let cors = require("cors");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
+var calendarRouter = require("./routes/calendar")
 let testAPIRouter = require("./routes/testApi");
 
 var app = express();
@@ -24,6 +25,7 @@ app.use(express.static(path.join(__dirname, "client/build")));
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/testAPI", testAPIRouter);
+app.use("/calendar", calendarRouter);
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/client/build/index.html"));

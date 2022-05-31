@@ -16,6 +16,19 @@ export default function EventModal() {
   const [description, setDescription] = useState('')
   const [selectedLabel, setSelectedLabel] = useState(labelClasses[0])
 
+  const handleSubmit = () => {
+    const date = daySelected.format("DD-MM-YY")
+    fetch("http://localhost:9000/calendar", {
+      method: "POST",
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({
+        title,
+        description,
+        date,
+      })
+    });
+  }
+
   return (
     <div className="h-screen w-full fixed left-0 top-0 flex justify-center items-center">
       <form className="bg-white rounded-lg shadow-2xl w-1/4">
@@ -67,7 +80,7 @@ export default function EventModal() {
         <footer className="flex justify-end border-t p-3 mt-5">
           <button
             type="submit"
-            // onClick={handleSubmit}
+            onClick={handleSubmit}
             className="bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded text-white"
           >
             Save
