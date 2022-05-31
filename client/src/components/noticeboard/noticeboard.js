@@ -1,10 +1,16 @@
 import { useState, useEffect } from "react";
 
+let url;
+if (process.env.REACT_APP_HEROKU_TEST_URL) {
+  url = `${process.env.REACT_APP_HEROKU_TEST_URL}notices/index`;
+} else {
+  url = "http://localhost:9000/notices/index";
+}
 export default function Noticeboard() {
   const [data, setData] = useState([])
   useEffect(()=>{
     async function fetchMyAPI() {
-      let response = await fetch("http://localhost:9000/notices/index")
+      let response = await fetch(url)
       response = await response.json()
       setData(response.notices)
     }
@@ -35,8 +41,12 @@ export default function Noticeboard() {
       </div>
       <div class="row center">
         <a href="https://makers.tech" id="download-button" class="btn-large waves-effect waves-light orange">School website</a>
+      </div>
+      <div class="row center"></div>
+      <div class="row center">
         <a href="/noticeboard/new" id="download-button" class="btn-large waves-effect waves-light orange">Add New Notice</a>
       </div>
+
   
 
     </div>
@@ -46,14 +56,21 @@ export default function Noticeboard() {
     <div class="section">
 
       <div class="row">
-        {data.map((noticeInfo, key) => {
+        {data.map((noticeInfo, _key) => {
           return (
-            <div class="col s12 m4">
+            <div>
+            <ul class="collection">
+            <li class="collection-item">  
+            <div class="col s12">
               <div class="icon-block">
                 <h5 class="center">{ noticeInfo.title } </h5>
-        
-                <p class="light"> { noticeInfo.description } </p>
+                <p class="center"> { noticeInfo.description } </p>
               </div>
+              </div>
+            
+            </li>
+            </ul>
+            
             </div>
           );
         })}

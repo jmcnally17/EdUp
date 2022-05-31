@@ -46,27 +46,35 @@ export default function New() {
       </div>
     </nav>
 
-    <Link to="/noticeboard">
-      <button>Noticeboard</button>
-    </Link>
+    
  
     <form onSubmit={handleSubmit} class="col s12">
       <div class="container">
+      <div class="row center"></div>
+        <div class="row center"></div>
+        <div class="row center"></div>
+        <div class="row center"></div>
         <div class="row">
           <div class="input-field col s12">
+            <h4>Title</h4>
             <input placeholder="Title" id="title" type="text" class="validate" onChange={handleTitle} />
-            <label for="title">Title</label>
+            
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <input id="description" type="text" class="validate" onChange={handleDescription} />
-            <label for="description">Description</label>
+          <h4>Description</h4>
+            <input placeholder="Description" id="description" type="text" class="validate" onChange={handleDescription} />
           </div>
         </div>
-        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit 
           <i class="material-icons right">send</i>
         </button>
+        <div class="row center"></div>
+        <div class="row center"></div>
+        <div class="col s6 offset-s6">
+        <a href="/noticeboard" id="download-button" class="btn-large waves-effect waves-light orange">Notice Board</a>
+        </div>
       </div>
     </form>
 

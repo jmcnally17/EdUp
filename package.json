@@ -18,6 +18,8 @@
     "materialize-css": "^1.0.0-rc.2",
     "mongoose": "^6.3.4",
     "mongose": "^0.0.2-security",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "react-alert": "^7.0.3",
+    "react-alert-template-basic": "^1.0.2"
   }
 }
