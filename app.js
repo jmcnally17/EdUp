@@ -24,19 +24,14 @@ app.use(express.static(path.join(__dirname, "public")));
 // client Build
 app.use(express.static(path.join(__dirname, "client/build")));
 
-app.get("*", (req, res) => {
-  let url = path.join(__dirname, "./client/build", "index.html");
-  if (!url.startsWith("/app/"))
-    // since we're on local windows
-    url = url.substring(1);
-  res.sendFile(url);
+app.get(url, (_req, res) => {
+  response.set("Access-Control-Allow-Origin", "*");
+  res.sendFile(path.join(__dirname, "./client/build", "index.html"));
 });
-
-// app.use(cors());
 
 app.use(
   cors({
-    origin: url, // <-- location of the react app we're connecting too.
+    origin: "http://localhost:3000", // <-- location of the react app we're connecting too.
     credentials: true,
   })
 );
