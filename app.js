@@ -30,7 +30,7 @@ app.get(url, (_req, res) => {
 
 app.use(
   cors({
-    origin: url, // <-- location of the react app we're connecting too
+    origin: url, // <-- location of the react app we're connecting too.
     credentials: true,
   })
 );
