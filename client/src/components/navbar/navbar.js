@@ -4,7 +4,7 @@ import "materialize-css/dist/css/materialize.min.css";
 // import image1 from "client/public/logo192.png";
 // import image2 from "../../../public/logo512.jpg";
 
-class Sidenav extends Component {
+export default class Sidenav extends Component {
   componentDidMount() {
     const options = {
       inDuration: 250,
@@ -70,9 +70,6 @@ class Sidenav extends Component {
     );
   }
 }
-
-export default Sidenav;
-
 
 // import react from "react";
 
