@@ -29,10 +29,6 @@ app.use(express.urlencoded({ extended: false }));
 // Changed to "public" from "client/build"
 app.use(express.static(path.join(__dirname, "client/build")));
 
-app.get("*", (_req, res) => {
-  res.sendFile(path.join(__dirname, "client/build", "index.html"));
-});
-
 app.use(
   cors({
     origin: url, // <-- location of the react app we're connecting too.
@@ -57,6 +53,10 @@ require("./passportConfig")(passport);
 app.use("/users", usersRouter);
 app.use("/sessions", sessionsRouter);
 app.use("/notices", noticesRouter);
+
+app.get("*", (_req, res) => {
+  res.sendFile(path.join(__dirname, "client/build", "index.html"));
+});
 
 // Route handling for React
 
