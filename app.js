@@ -52,8 +52,10 @@ app.use("/backend/calendar", calendarRouter);
 app.get("*", (req, res) => {
   console.log("Hello world");
   console.log(req);
-  response.set("Access-Control-Allow-Origin", "*");
+  res.set("Access-Control-Allow-Origin", "*");
+  console.log("MAKERS!!!");
   res.sendFile(path.join(__dirname, "client/build", "index.html"));
+  console.log("LAST MESSAGE");
 });
 
 // catch 404 and forward to error handler.
