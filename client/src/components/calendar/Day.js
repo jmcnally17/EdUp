@@ -9,6 +9,13 @@ export default function Day({ day, _key, rowIdx, data }) {
     return day.format("DD-MM-YY") === dayjs().format("DD-MM-YY") ? 'bg-blue-600 text-white rounded-full w-7'
       : ''
   }
+
+  function handleDelete(eventId) {
+    fetch(`http://localhost:9000/calendar/delete/${eventId}`, {
+      method: "DELETE",
+    })
+  }
+
   const {setDaySelected, setShowEventModal } = useContext(CalendarGlobalContext)
   return (
     <div className="border border-gray-200 flex flex-col">
@@ -21,26 +28,31 @@ export default function Day({ day, _key, rowIdx, data }) {
         </p>
         {data.map((event) => {
           let shorten;
-          let colouredLabel = `${event.selectedLabel}`
           if (event.title.length > 12) {
             shorten = `${event.title.slice(0,12)}...`
           } else {
             shorten = event.title
           }
-
+ 
           return (
-            <Popup trigger={<button className={`bg-${event.selectedLabel}-200 w-full`}>{event.day === day.format("DD") && event.month === day.format("MM") && event.year === day.format("YY") ? shorten : null}</button>}
-            position="top"
+            <Popup trigger={<button className={`bg-${event.selectedLabel}-200 w-full`}>
+              {event.day === day.format("DD") && event.month === day.format("MM") && event.year === day.format("YY") ? shorten : null}</button>}
+              position="left center"
               on="click">
               <div>
                 <div class="col s12 m7 width-2">
                   <div class="card horizontal">
                     <div class="card-image">
                     </div>
-                    <div class="card-stacked">
+                    <div className="card-stacked max-w-md ">
                       <div class="card-content">
                         <p className="font-bold">{event.title}:</p>
                         <p>{event.description}</p>
+                        {/* <button type="submit" onSubmit={handleDelete(event._id)}> */}
+                          <span className="material-icons-outlined text-gray-400">
+                            delete
+                          </span>
+                        {/* </button> */}
                       </div>
                     </div>
                   </div>

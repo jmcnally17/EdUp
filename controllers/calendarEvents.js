@@ -21,6 +21,14 @@ const CalendarController ={
       }
       res.status(201).redirect("/");
     });
+  },
+
+  Delete: (req,res) => {
+    CalendarEvents.findByIdAndRemove(req.params.id,
+      function(err, docs) {
+        if(err) res.json(err);
+        else res.status(201)
+      })
   }
 }
 

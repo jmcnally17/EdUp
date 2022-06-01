@@ -8,7 +8,6 @@ export default function Month({ month }) {
     async function fetchMyAPI() {
       let response = await fetch("http://localhost:9000/calendar/index")
       response = await response.json()
-      // console.log(response.events.filter((event) => event.month === (month[0][0].format("MM") || month[1][0].format("MM") || month[4][6].format("MM"))));
       setData(response.events.filter((event) => event.month === month[1][0].format("MM")))
     }
     fetchMyAPI()
