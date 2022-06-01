@@ -6,7 +6,7 @@ export default function Month({ month }) {
   const [data, setData] = useState([])
   useEffect(()=>{
     async function fetchMyAPI() {
-      let response = await fetch("http://localhost:9000/calendar/index")
+      let response = await fetch("http://localhost:9000/backend/calendar/index")
       response = await response.json()
       setData(response.events.filter((event) => event.month === month[1][0].format("MM")))
     }

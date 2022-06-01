@@ -20,7 +20,7 @@ export default function EventModal() {
     const day = daySelected.format("DD")
     const month = daySelected.format("MM")
     const year = daySelected.format("YY")
-    fetch("http://localhost:9000/calendar", {
+    fetch("http://localhost:9000/backend/calendar", {
       method: "POST",
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({

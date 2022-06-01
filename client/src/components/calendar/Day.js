@@ -10,8 +10,8 @@ export default function Day({ day, _key, rowIdx, data }) {
       : ''
   }
 
-  function handleDelete(eventId) {
-    fetch(`http://localhost:9000/calendar/delete/${eventId}`, {
+  const handleDelete = (eventId) => {
+    fetch(`http://localhost:9000/backend/calendar/delete/${eventId}`, {
       method: "DELETE",
     })
   }
@@ -40,19 +40,17 @@ export default function Day({ day, _key, rowIdx, data }) {
               position="left center"
               on="click">
               <div>
-                <div class="col s12 m7 width-2">
-                  <div class="card horizontal">
-                    <div class="card-image">
+                <div className="col s12 m7 width-2">
+                  <div className="card horizontal">
+                    <div className="card-image">
                     </div>
                     <div className="card-stacked max-w-md ">
-                      <div class="card-content">
+                      <div className="card-content">
                         <p className="font-bold">{event.title}:</p>
                         <p>{event.description}</p>
-                        {/* <button type="submit" onSubmit={handleDelete(event._id)}> */}
-                          <span className="material-icons-outlined text-gray-400">
-                            delete
-                          </span>
-                        {/* </button> */}
+                        <button type="submit" onClick={() => {handleDelete(event._id)}}>
+                          delete
+                        </button>
                       </div>
                     </div>
                   </div>
