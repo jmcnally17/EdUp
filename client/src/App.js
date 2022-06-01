@@ -8,7 +8,7 @@ import Login from "./components/login/login";
 import Registration from "./components/registration/registration";
 import Noticeboard from "./components/noticeboard/noticeboard.js";
 import New from "./components/noticeboard/new.js";
-import NavBar from "./components/noticeboard/navbar";
+import Sidenav from "./components/navbar/navbar";
 
 export default function App() {
   return (

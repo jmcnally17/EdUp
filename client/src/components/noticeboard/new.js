@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom'
 // import Sidenav from "./Sidenav";
-import Sidenav from "./navbar";
+import Sidenav from "../navbar/navbar";
+import SchoolFooter from "../footer/footer";
 import "../../css/style.css";
 
 let url;
@@ -83,8 +84,11 @@ export default function New() {
         </div>
       </div>
     </form>
-
-    <footer class="page-footer orange" style= {{position: "fixed",  bottom: "0", left: "0", width: "100%" }} >
+    <footer>
+      <SchoolFooter />
+    </footer>
+      
+    {/* <footer class="page-footer orange" style= {{position: "fixed",  bottom: "0", left: "0", width: "100%" }} >
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
@@ -116,7 +120,7 @@ export default function New() {
         Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
       </div>
     </div>
-  </footer>
+  </footer> */}
   </div>
 </div>
 )}
