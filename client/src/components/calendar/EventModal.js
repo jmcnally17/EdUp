@@ -28,7 +28,8 @@ export default function EventModal() {
         description,
         day,
         month,
-        year
+        year,
+        selectedLabel,
       })
     });
   }

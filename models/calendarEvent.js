@@ -6,6 +6,7 @@ const CalendarSchema = new mongoose.Schema({
   day: String,
   month: String,
   year: String,
+  label: String,
 });
 
 const Calendar = mongoose.model("Calendar", CalendarSchema);
