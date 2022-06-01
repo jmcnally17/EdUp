@@ -47,7 +47,9 @@ app.use("/users", usersRouter);
 app.use("/sessions", sessionsRouter);
 app.use("/notices", noticesRouter);
 
-app.get("*", (_req, res) => {
+app.get("*", (req, res) => {
+  console.log("Hello world");
+  console.log(req);
   response.set("Access-Control-Allow-Origin", "*");
   res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
