@@ -52,11 +52,11 @@ app.use("/backend/users", usersRouter);
 app.use("/backend/calendar", calendarRouter);
 
 app.get("*", (req, res) => {
-  let url = path.join(__dirname, "./client/build", "index.html");
-  if (!url.startsWith("/app/"))
+  let urls = path.join(__dirname, "./client/build", "index.html");
+  if (!urls.startsWith("/app/"))
     // since we're on local windows
-    url = url.substring(1);
-  res.sendFile(url);
+    urls = urls.substring(1);
+  res.sendFile(urls);
 });
 
 // app.get("*", (_req, res) => {
