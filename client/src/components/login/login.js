@@ -3,14 +3,14 @@ import Axios from "axios";
 
 let urlSessions;
 if (process.env.REACT_APP_HEROKU_TEST_URL) {
-  urlSessions = `${process.env.REACT_APP_HEROKU_TEST_URL}sessions`;
+  urlSessions = `${process.env.REACT_APP_HEROKU_TEST_URL}/sessions`;
 } else {
   urlSessions = "http://localhost:9000/sessions";
 }
 
 let urlUsers;
 if (process.env.REACT_APP_HEROKU_TEST_URL) {
-  urlUsers = `${process.env.REACT_APP_HEROKU_TEST_URL}users`;
+  urlUsers = `${process.env.REACT_APP_HEROKU_TEST_URL}/users`;
 } else {
   urlUsers = "http://localhost:9000/users";
 }
