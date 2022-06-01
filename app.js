@@ -24,12 +24,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "client/build")));
 
 console.log(url);
-app.use(
-  cors({
-    origin: "*", // <-- location of the react app were connecting to
-    credentials: true,
-  })
-);
+
+if (process.env.NODE_ENV === "development") {
+  app.use(
+    cors({
+      origin: "*", // <-- location of the react app were connecting to
+      credentials: true,
+    })
+  );
+}
 
 app.use(
   session({
