@@ -2,7 +2,6 @@ import React, { useContext, useState, useEffect } from 'react'
 import dayjs from 'dayjs'
 import CalendarGlobalContext from '../../context/CalendarGlobalContext'
 import Popup from 'reactjs-popup';
-import { useNavigate } from "react-router-dom";
 
 export default function Day({ day, _key, rowIdx, data }) {
 
@@ -10,9 +9,7 @@ export default function Day({ day, _key, rowIdx, data }) {
     return day.format("DD-MM-YY") === dayjs().format("DD-MM-YY") ? 'bg-blue-600 text-white rounded-full w-7'
       : ''
   }
-
-  const navigate = useNavigate();
-
+  
   const handleDelete = (eventId) => {
     fetch(`http://localhost:9000/backend/calendar/delete/${eventId}`, {
       method: "DELETE",
