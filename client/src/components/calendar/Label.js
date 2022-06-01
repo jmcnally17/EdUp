@@ -13,11 +13,11 @@ export default function Label() {
       <br>
       </br>
       <button disabled className={`bg-indigo-200 w-full`}>General</button>
-      <button disabled className={`bg-red-200 w-full`}>Label 1</button>
-      <button disabled className={`bg-blue-200 w-full`}>Label 2</button>
-      <button disabled className={`bg-green-200 w-full`}>Label 4</button>
-      <button disabled className={`bg-purple-200 w-full`}>Label 4</button>
-      <button disabled className={`bg-gray-200 w-full`}>Label 4</button>
+      <button disabled className={`bg-red-200 w-full`}>Maths</button>
+      <button disabled className={`bg-blue-200 w-full`}>Sports</button>
+      <button disabled className={`bg-green-200 w-full`}>Languages</button>
+      <button disabled className={`bg-purple-200 w-full`}>History</button>
+      <button disabled className={`bg-gray-200 w-full`}>Geography</button>
     </div>
   )
 }
