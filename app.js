@@ -56,18 +56,18 @@ app.use("/backend/calendar", calendarRouter);
 
 // Route handling for React
 
-app.get("*", (req, res) => {
-  let urls = path.join(__dirname, "./client/build", "index.html");
-  if (!urls.startsWith("/app/"))
-    // since we're on local windows
-    urls = urls.substring(1);
-  res.sendFile(urls);
-});
-
-// app.get("*", (_req, res) => {
-//   response.set("Access-Control-Allow-Origin", "*");
-//   res.sendFile(path.join(__dirname, "./client/build", "index.html"));
+// app.get("*", (req, res) => {
+//   let urls = path.join(__dirname, "./client/build", "index.html");
+//   if (!urls.startsWith("/app/"))
+//     // since we're on local windows
+//     urls = urls.substring(1);
+//   res.sendFile(urls);
 // });
+
+app.get("*", (_req, res) => {
+  //response.set("Access-Control-Allow-Origin", "*");
+  res.sendFile(path.join(__dirname, "./client/build", "index.html"));
+});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
