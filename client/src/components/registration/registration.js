@@ -25,17 +25,27 @@ export default function Registration() {
 
   return (
     <div>
+       <div class="container">
       <h1>Register</h1>
+      <div class="input-field col s12">
+        <h4>Username</h4>
       <input
         placeholder="username"
         onChange={(e) => setRegisterUsername(e.target.value)}
       ></input>
+      <h4>Password</h4>
       <input
         type="password"
         placeholder="password"
         onChange={(e) => setRegisterPassword(e.target.value)}
       ></input>
-      <button onClick={register}>Submit</button>
+      </div>
+      <button class="btn waves-effect waves-light" type="submit" name="action" onClick={register}>Submit
+      <i class="material-icons right">send</i>  
+      </button>
+      </div>
+      <div class="row center"></div>
+          <div class="row center"></div>
     </div>
   );
 }
