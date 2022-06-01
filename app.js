@@ -30,10 +30,6 @@ app.use(express.urlencoded({ extended: false }));
 // Changed to "public" from "client/build"
 app.use(express.static(path.join(__dirname, "client/build")));
 
-app.get("*", (_req, res) => {
-  res.sendFile(path.join(__dirname, "client/build", "index.html"));
-});
-
 app.use(
   cors({
     origin: url, // <-- location of the react app we're connecting too.
@@ -59,6 +55,10 @@ app.use("/backend/sessions", sessionsRouter);
 app.use("/backend/notices", noticesRouter);
 app.use("/backend/users", usersRouter);
 app.use("/backend/calendar", calendarRouter);
+
+app.get("*", (_req, res) => {
+  res.sendFile(path.join(__dirname, "client/build", "index.html"));
+});
 
 // Route handling for React
 
