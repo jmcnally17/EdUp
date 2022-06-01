@@ -5,7 +5,6 @@ var logger = require("morgan");
 let cors = require("cors");
 const passport = require("passport");
 const session = require("express-session");
-var cookieParser = require("cookie-parser");
 
 var usersRouter = require("./routes/users");
 var sessionsRouter = require("./routes/sessions");
@@ -13,17 +12,23 @@ var noticesRouter = require("./routes/notices");
 
 var app = express();
 
-let url = process.env.REACT_APP_HEROKU_TEST_URL || "http://localhost:3000";
+var url = process.env.REACT_APP_HEROKU_TEST_URL || "http://localhost:3000";
 
 app.use(logger("dev"));
 app.use(express.json());
-app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
+// client Build
+app.use(express.static(path.join(__dirname, "client/build")));
+
+app.get("*", (_req, res) => {
+  res.sendFile(path.join(__dirname, "client/build", "index.html"));
+});
+
 app.use(
   cors({
-    origin: url, // <-- location of the react app we're connecting too.
+    origin: url, // <-- location of the react app were connecting to
     credentials: true,
   })
 );
@@ -45,25 +50,6 @@ require("./passportConfig")(passport);
 app.use("/users", usersRouter);
 app.use("/sessions", sessionsRouter);
 app.use("/notices", noticesRouter);
-
-// Route handling for React
-
-// app.get("*", (req, res) => {
-//   let urls = path.join(__dirname, "./client/build", "index.html");
-//   if (!urls.startsWith("/app/"))
-//     // since we're on local windows
-//     urls = urls.substring(1);
-//   res.sendFile(urls);
-// });
-
-// app.get("*", (_req, res) => {
-//   //response.set("Access-Control-Allow-Origin", "*");
-//   res.sendFile(path.join(__dirname, "./client/build", "index.html"));
-// });
-
-app.get("*", (_req, res) => {
-  res.sendFile(path.join(__dirname, "client/build", "index.html"));
-});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
