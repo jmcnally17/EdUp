@@ -3,9 +3,9 @@ import Sidenav from "../navbar/navbar";
 
 let url;
 if (process.env.REACT_APP_HEROKU_TEST_URL) {
-  url = `${process.env.REACT_APP_HEROKU_TEST_URL}notices/index`;
+  url = `${process.env.REACT_APP_HEROKU_TEST_URL}/backend/notices/index`;
 } else {
-  url = "http://localhost:9000/notices/index";
+  url = "http://localhost:9000/backend/notices/index";
 }
 export default function Noticeboard() {
   const [data, setData] = useState([]);

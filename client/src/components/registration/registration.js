@@ -2,9 +2,9 @@ import React, { useState } from "react";
 
 let url;
 if (process.env.REACT_APP_HEROKU_TEST_URL) {
-  url = `${process.env.REACT_APP_HEROKU_TEST_URL}users`;
+  url = `${process.env.REACT_APP_HEROKU_TEST_URL}/backend/users`;
 } else {
-  url = "http://localhost:9000/users";
+  url = "http://localhost:9000/backend/users";
 }
 
 export default function Registration() {
