@@ -2,16 +2,16 @@ import React, { useState } from "react";
 
 let urlSessions;
 if (process.env.REACT_APP_HEROKU_TEST_URL) {
-  urlSessions = `${process.env.REACT_APP_HEROKU_TEST_URL}sessions`;
+  urlSessions = `${process.env.REACT_APP_HEROKU_TEST_URL}/backend/sessions`;
 } else {
-  urlSessions = "http://localhost:9000/sessions";
+  urlSessions = "http://localhost:9000/backend/sessions";
 }
 
 let urlUsers;
 if (process.env.REACT_APP_HEROKU_TEST_URL) {
-  urlUsers = `${process.env.REACT_APP_HEROKU_TEST_URL}users`;
+  urlUsers = `${process.env.REACT_APP_HEROKU_TEST_URL}/backend/users`;
 } else {
-  urlUsers = "http://localhost:9000/users";
+  urlUsers = "http://localhost:9000/backend/users";
 }
 
 export default function Login() {

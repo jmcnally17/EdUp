@@ -4,9 +4,9 @@ import "../../css/style.css";
 
 let url;
 if (process.env.REACT_APP_HEROKU_TEST_URL) {
-  url = `${process.env.REACT_APP_HEROKU_TEST_URL}notices`;
+  url = `${process.env.REACT_APP_HEROKU_TEST_URL}/backend/notices`;
 } else {
-  url = "http://localhost:9000/notices";
+  url = "http://localhost:9000/backend/notices";
 }
 
 export default function New() {

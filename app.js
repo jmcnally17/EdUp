@@ -7,7 +7,7 @@ const passport = require("passport");
 const session = require("express-session");
 
 var usersRouter = require("./routes/users");
-var calendarRouter = require("./routes/calendar")
+var calendarRouter = require("./routes/calendar");
 var sessionsRouter = require("./routes/sessions");
 var noticesRouter = require("./routes/notices");
 
