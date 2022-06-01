@@ -6,29 +6,32 @@ let cors = require("cors");
 const passport = require("passport");
 const session = require("express-session");
 
+// new
+//var cookieParser = require("cookie-parser");
+////
+
 var usersRouter = require("./routes/users");
 var sessionsRouter = require("./routes/sessions");
 var noticesRouter = require("./routes/notices");
 
 var app = express();
 
-var url = process.env.REACT_APP_HEROKU_TEST_URL || "http://localhost:3000";
+let url = process.env.REACT_APP_HEROKU_TEST_URL || "http://localhost:3000";
 
 app.use(logger("dev"));
 app.use(express.json());
+
+// New
+//app.use(cookieParser());
+////
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, "public")));
 
-// client Build
+// Changed to "public" from "client/build"
 app.use(express.static(path.join(__dirname, "client/build")));
-
-app.get("*", (_req, res) => {
-  res.sendFile(path.join(__dirname, "client/build", "index.html"));
-});
 
 app.use(
   cors({
-    origin: url, // <-- location of the react app were connecting to
+    origin: url, // <-- location of the react app we're connecting too.
     credentials: true,
   })
 );
@@ -51,6 +54,25 @@ app.use("/users", usersRouter);
 app.use("/sessions", sessionsRouter);
 app.use("/notices", noticesRouter);
 
+// Route handling for React
+
+// app.get("*", (req, res) => {
+//   let urls = path.join(__dirname, "./client/build", "index.html");
+//   if (!urls.startsWith("/app/"))
+//     // since we're on local windows
+//     urls = urls.substring(1);
+//   res.sendFile(urls);
+// });
+
+// app.get("*", (_req, res) => {
+//   //response.set("Access-Control-Allow-Origin", "*");
+//   res.sendFile(path.join(__dirname, "./client/build", "index.html"));
+// });
+
+app.get("*", (_req, res) => {
+  res.sendFile(path.join(__dirname, "client/build", "index.html"));
+});
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
@@ -64,3 +86,37 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
+
+//// Yesterdays version of code
+
+// client Build
+// app.use(express.static(path.join(__dirname, "client/build")));
+
+// app.get("*", (_req, res) => {
+//   res.sendFile(path.join(__dirname, "client/build", "index.html"));
+// });
+
+// app.use(
+//   cors({
+//     origin: url, // <-- location of the react app were connecting to
+//     credentials: true,
+//   })
+// );
+
+// app.use(
+//   session({
+//     secret: "secretcode",
+//     resave: false,
+//     saveUninitialized: true,
+//   })
+// );
+
+// app.use(passport.initialize());
+// app.use(passport.session());
+
+// app.use(express.urlencoded({ extended: false }));
+// require("./passportConfig")(passport);
+
+// app.use("/users", usersRouter);
+// app.use("/sessions", sessionsRouter);
+// app.use("/notices", noticesRouter);
