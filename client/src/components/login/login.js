@@ -45,24 +45,33 @@ export default function Login() {
 
   return (
     <div>
-      <div>
+      <div className="container">
+        
         <h1>Login</h1>
-        <input
-          placeholder="username"
-          onChange={(e) => setLoginUsername(e.target.value)}
-        ></input>
-        <input
-          type="password"
-          placeholder="password"
-          onChange={(e) => setLoginPassword(e.target.value)}
-        ></input>
-        <button onClick={login}>Submit</button>
-      </div>
-      <div>
-        <h1>Get User</h1>
-        <button onClick={getUser}>Submit</button>
-        {data ? <h1>Welcome Back {data.username}</h1> : null}
-      </div>
+        <div className="input-field col s12">
+          <h4>Username</h4>
+            
+            <input
+              placeholder="username"
+              onChange={(e) => setLoginUsername(e.target.value)}
+            ></input>
+             <h4>Password</h4>
+            <input
+              type="password"
+              placeholder="password"
+              onChange={(e) => setLoginPassword(e.target.value)}
+            ></input>
+            <button className="btn waves-effect waves-light" type="submit" name="action" onClick={login}>Submit
+              <i className="material-icons right">send</i>  
+            </button>
+            
+          </div>
+          <div>
+            <h1>Get User</h1>
+            <button onClick={getUser}>Submit</button>
+            {data ? <h1>Welcome Back {data.username}</h1> : null}
+          </div>
+      </div>  
     </div>
   );
 }
