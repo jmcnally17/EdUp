@@ -49,7 +49,9 @@ app.use("/backend/notices", noticesRouter);
 app.use("/backend/users", usersRouter);
 app.use("/backend/calendar", calendarRouter);
 
-app.get("*", (_req, res) => {
+app.get("*", (req, res) => {
+  console.log("Hello world");
+  console.log(req);
   response.set("Access-Control-Allow-Origin", "*");
   res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
