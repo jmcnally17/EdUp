@@ -22,10 +22,10 @@ app.use(cors());
 // client Build
 app.use(express.static(path.join(__dirname, "client/build")));
 
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
-app.use("/testAPI", testAPIRouter);
-app.use("/calendar", calendarRouter);
+app.use("/backend", indexRouter);
+app.use("/backend/users", usersRouter);
+app.use("/backend/testAPI", testAPIRouter);
+app.use("/backend/calendar", calendarRouter);
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/client/build/index.html"));
