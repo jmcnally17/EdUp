@@ -48,7 +48,7 @@ export default function Login() {
     Axios({
       method: "GET",
       withCredentials: true,
-      url: urlUsers,
+      url: "http://localhost:9000/users",
     }).then((res) => {
       setData(res.data);
       console.log(res.data);
