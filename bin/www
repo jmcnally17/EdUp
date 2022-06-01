@@ -7,7 +7,7 @@
 var app = require("../app");
 var debug = require("debug")("backend:server");
 var http = require("http");
-let mongoose = require("mongoose")
+var mongoose = require("mongoose");
 
 /**
  * Get port from environment and store in Express.
@@ -16,7 +16,20 @@ let mongoose = require("mongoose")
 var port = normalizePort(process.env.PORT || "9000");
 app.set("port", port);
 
-var mongoDbUrl = process.env.MONGODB_URL || "mongodb://127.0.0.1/school-app";
+var mongoDbUrl = process.env.MONGODB_URL || "mongodb://127.0.0.1/edup";
+mongoose.connect(mongoDbUrl, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+var db = mongoose.connection;
+db.on("error", console.error.bind(console, "MongoDB connection error:"));
+
+/**
+ * Connect to MongoDB
+ **/
+
+var mongoDbUrl = process.env.MONGODB_URL || "mongodb://127.0.0.1/edup_app";
 mongoose.connect(mongoDbUrl, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
