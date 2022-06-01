@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom'
+// import Sidenav from "./Sidenav";
+import Sidenav from "./navbar";
+import "../../css/style.css";
 
 let url;
 if (process.env.REACT_APP_HEROKU_TEST_URL) {
@@ -37,21 +40,18 @@ export default function New() {
 
   return (
     <div>
+      
     <div class="row">
       <nav class="light-blue lighten-1" role="navigation">
       <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
-        <ul class="right hide-on-med-and-down">
-          <li><a href="#">Navbar Link</a></li>
-        </ul>
-        <ul id="nav-mobile" class="sidenav">
-          <li><a href="#">Navbar Link</a></li>
-        </ul>
+      
         <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       </div>
+     
     </nav>
 
+    <Sidenav />
     
- 
     <form onSubmit={handleSubmit} class="col s12">
       <div class="container">
       <div class="row center"></div>
