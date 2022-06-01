@@ -24,10 +24,13 @@ app.use(express.static(path.join(__dirname, "client/build")));
 
 console.log(url);
 
+console.log(process.env.NODE_ENV);
+
 if (process.env.NODE_ENV === "development") {
+  console.log("inside if block");
   app.use(
     cors({
-      origin: "*", // <-- location of the react app were connecting to
+      origin: url, // <-- location of the react app were connecting to
       credentials: true,
     })
   );
