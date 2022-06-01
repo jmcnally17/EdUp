@@ -15,13 +15,6 @@ var app = express();
 
 let url = process.env.REACT_APP_HEROKU_TEST_URL || "http://localhost:3000";
 
-app.use(
-  cors({
-    origin: url, // <-- location of the react app we're connecting too.
-    credentials: true,
-  })
-);
-
 app.use(logger("dev"));
 app.use(express.json());
 app.use(cookieParser());
@@ -30,6 +23,13 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // client Build
 app.use(express.static(path.join(__dirname, "client/build")));
+
+app.use(
+  cors({
+    origin: url, // <-- location of the react app we're connecting too.
+    credentials: true,
+  })
+);
 
 app.use(
   session({
