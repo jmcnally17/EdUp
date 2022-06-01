@@ -23,10 +23,6 @@ app.use(express.urlencoded({ extended: false }));
 //app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "client/build")));
 
-console.log(url);
-
-console.log(process.env.NODE_ENV);
-
 if (process.env.NODE_ENV === "development") {
   console.log("inside if block");
   app.use(
