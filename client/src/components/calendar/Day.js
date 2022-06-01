@@ -21,14 +21,15 @@ export default function Day({ day, _key, rowIdx, data }) {
         </p>
         {data.map((event) => {
           let shorten;
+          let colouredLabel = `${event.selectedLabel}`
           if (event.title.length > 12) {
             shorten = `${event.title.slice(0,12)}...`
           } else {
             shorten = event.title
           }
-          
+
           return (
-            <Popup trigger={<button>{event.day === day.format("DD") && event.month === day.format("MM") && event.year === day.format("YY") ? shorten : null}</button>}
+            <Popup trigger={<button className={`bg-${event.selectedLabel}-200 w-full`}>{event.day === day.format("DD") && event.month === day.format("MM") && event.year === day.format("YY") ? shorten : null}</button>}
             position="top"
               on="click">
               <div>

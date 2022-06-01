@@ -1,13 +1,13 @@
 import React, { useContext, useState } from 'react'
 import CalendarGlobalContext from '../../context/CalendarGlobalContext';
 
-const labelClasses = [
+export const labelClasses = [
   "indigo",
   "gray",
   "green",
   "blue",
   "red",
-  "purple",
+  "purple"
 ];
 
 export default function EventModal() {
