@@ -21,12 +21,6 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
-// client Build
-
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
-
 app.use(
   cors({
     origin: url, // <-- location of the react app we're connecting too.
@@ -62,9 +56,13 @@ app.use("/notices", noticesRouter);
 //   res.sendFile(urls);
 // });
 
+// app.get("*", (_req, res) => {
+//   //response.set("Access-Control-Allow-Origin", "*");
+//   res.sendFile(path.join(__dirname, "./client/build", "index.html"));
+// });
+
 app.get("*", (_req, res) => {
-  //response.set("Access-Control-Allow-Origin", "*");
-  res.sendFile(path.join(__dirname, "./client/build", "index.html"));
+  res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
 
 // catch 404 and forward to error handler
