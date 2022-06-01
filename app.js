@@ -22,9 +22,10 @@ app.use(express.urlencoded({ extended: false }));
 //app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "client/build")));
 
+console.log(url);
 app.use(
   cors({
-    origin: url, // <-- location of the react app were connecting to
+    origin: "*", // <-- location of the react app were connecting to
     credentials: true,
   })
 );
