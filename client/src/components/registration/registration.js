@@ -25,9 +25,9 @@ export default function Registration() {
 
   return (
     <div>
-       <div class="container">
+       <div className="container">
       <h1>Register</h1>
-      <div class="input-field col s12">
+      <div className="input-field col s12">
         <h4>Username</h4>
       <input
         placeholder="username"
@@ -40,12 +40,12 @@ export default function Registration() {
         onChange={(e) => setRegisterPassword(e.target.value)}
       ></input>
       </div>
-      <button class="btn waves-effect waves-light" type="submit" name="action" onClick={register}>Submit
-      <i class="material-icons right">send</i>  
+      <button className="btn waves-effect waves-light" type="submit" name="action" onClick={register}>Submit
+      <i className="material-icons right">send</i>  
       </button>
       </div>
-      <div class="row center"></div>
-          <div class="row center"></div>
+      <div className="row center"></div>
+          <div className="row center"></div>
     </div>
   );
 }

@@ -48,7 +48,7 @@ export default function Login() {
       <div className="container">
         
         <h1>Login</h1>
-        <div class="input-field col s12">
+        <div className="input-field col s12">
           <h4>Username</h4>
             
             <input
@@ -61,8 +61,8 @@ export default function Login() {
               placeholder="password"
               onChange={(e) => setLoginPassword(e.target.value)}
             ></input>
-            <button class="btn waves-effect waves-light" type="submit" name="action" onClick={login}>Submit
-              <i class="material-icons right">send</i>  
+            <button className="btn waves-effect waves-light" type="submit" name="action" onClick={login}>Submit
+              <i className="material-icons right">send</i>  
             </button>
             
           </div>
