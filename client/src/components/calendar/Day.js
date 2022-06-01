@@ -9,6 +9,14 @@ export default function Day({ day, _key, rowIdx, data }) {
     return day.format("DD-MM-YY") === dayjs().format("DD-MM-YY") ? 'bg-blue-600 text-white rounded-full w-7'
       : ''
   }
+  
+  const handleDelete = (eventId) => {
+    fetch(`http://localhost:9000/backend/calendar/delete/${eventId}`, {
+      method: "DELETE",
+    })
+    window.location.reload(false);
+  }
+
   const {setDaySelected, setShowEventModal } = useContext(CalendarGlobalContext)
   return (
     <div className="border border-gray-200 flex flex-col">
@@ -20,27 +28,38 @@ export default function Day({ day, _key, rowIdx, data }) {
           {day.format('DD')}
         </p>
         {data.map((event) => {
+          let shorten;
+          if (event.title.length > 12) {
+            shorten = `${event.title.slice(0,12)}...`
+          } else {
+            shorten = event.title
+          }
+ 
           return (
-            <Popup trigger={<button>{event.day === day.format("DD") && event.month === day.format("MM") ? event.title : null}</button>}
-            position="top"
+            <Popup trigger={<button className={`bg-${event.selectedLabel}-200 w-full`}>
+              {event.day === day.format("DD") && event.month === day.format("MM") && event.year === day.format("YY") ? shorten : null}</button>}
+              position="left center"
               on="click">
               <div>
-                <div class="col s12 m7 width-2">
-                    <div class="card horizontal">
-                      <div class="card-image">
-                      </div>
-                      <div class="card-stacked">
-                        <div class="card-content">
-                          <p>{event.description}</p>
-                        </div>
-                        <div class="card-action">
-                          <a href="#">More Info</a>
-                        </div>
+                <div className="col s12 m7 width-2">
+                  <div className="card horizontal">
+                    <div className="card-image">
+                    </div>
+                    <div className="card-stacked max-w-md ">
+                      <div className="card-content">
+                        <p className="font-bold">{event.title}:</p>
+                        <p>{event.description}</p>
+                        <button type="submit" onClick={() => {handleDelete(event._id)}}>
+                        <span className="material-icons-outlined text-gray-400">
+                          delete
+                        </span>
+                        </button>
                       </div>
                     </div>
                   </div>
-                  </div>
-          </Popup>
+                </div>
+              </div>
+            </Popup>
           )
         })}
       </header>

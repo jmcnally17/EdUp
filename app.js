@@ -48,10 +48,10 @@ app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
 require("./passportConfig")(passport);
 
-app.use("/users", usersRouter);
-app.use("/sessions", sessionsRouter);
-app.use("/notices", noticesRouter);
-app.use("/calendar", calendarRouter);
+app.use("/backend/sessions", sessionsRouter);
+app.use("/backend/notices", noticesRouter);
+app.use("/backend/users", usersRouter);
+app.use("/backend/calendar", calendarRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

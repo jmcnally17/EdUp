@@ -1,13 +1,13 @@
 import React, { useContext, useState } from 'react'
 import CalendarGlobalContext from '../../context/CalendarGlobalContext';
 
-const labelClasses = [
+export const labelClasses = [
   "indigo",
   "gray",
   "green",
   "blue",
   "red",
-  "purple",
+  "purple"
 ];
 
 export default function EventModal() {
@@ -20,7 +20,7 @@ export default function EventModal() {
     const day = daySelected.format("DD")
     const month = daySelected.format("MM")
     const year = daySelected.format("YY")
-    fetch("http://localhost:9000/calendar", {
+    fetch("http://localhost:9000/backend/calendar", {
       method: "POST",
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({
@@ -28,7 +28,8 @@ export default function EventModal() {
         description,
         day,
         month,
-        year
+        year,
+        selectedLabel,
       })
     });
   }

@@ -12,7 +12,10 @@ const CalendarGlobalContext = React.createContext({
   showEventModal: false,
   setShowEventModal: () => { },
   showEventDescription: false,
-  setShowEventDescription: () => { }
+  setShowEventDescription: () => { },
+  labels: [],
+  setLabels: () => { },
+  updateLabel: () => {}
 })
 
 export default CalendarGlobalContext
