@@ -1,42 +1,39 @@
-import { useState, useEffect } from "react";
-import { io } from "socket.io-client";
+import React from "react";
+import { ChannelList } from "./channelList";
+import { MessagesPanel } from "./messagesPanel";
 
 let url;
 if (process.env.REACT_APP_HEROKU_TEST_URL) {
-  url = `${process.env.REACT_APP_HEROKU_TEST_URL}/backend/chat`;
+  url = `${process.env.REACT_APP_HEROKU_TEST_URL}/backend/chat/getChannels`;
 } else {
-  url = "http://localhost:9000/backend/chat";
+  url = "http://localhost:9000/backend/chat/getChannels";
 }
 
-export default function Chat() {
-  const [data, setData] = useState("");
-  const [time, setTime] = useState("fetching");
+export default class Chat extends React.Component {
+  state = {
+    channels: [{ id: 1, name: "first", participants: 10 }],
+  };
 
-  useEffect(() => {
-    async function fetchTest() {
-      let response = await fetch(url);
-      response = await response.json();
-      setData(response.test);
-    }
-    fetchTest();
-  }, []);
+  componentDidMount() {
+    this.loadChannels();
+  }
 
-  useEffect(() => {
-    const socket = io("http://localhost:9000");
-
-    socket.on("connect", () => console.log(socket.id));
-    socket.on('connect_error', () => {
-      setTimeout(() => socket.connect(), 5000)
+  loadChannels = async () => {
+    fetch(url).then(async (response) => {
+      let data = await response.json();
+      this.setState({ channels: data.channels });
     });
+  };
 
-    socket.on("time", (data) => setTime(data));
-    socket.on("disconnect", () => setTime("server disconnected"));
-  }, []);
-
-  return (
-    <div>
-      <h1>{data}</h1>
-      <h2>{time}</h2>
-    </div>
-  );
+  render() {
+    return (
+      <div className="chat-app">
+        <ChannelList
+          channels={this.state.channels}
+          onSelectChannel={this.handleChannelSelect}
+        />
+        <MessagesPanel />
+      </div>
+    );
+  }
 }
