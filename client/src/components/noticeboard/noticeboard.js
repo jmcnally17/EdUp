@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import Sidenav from "../navbar/navbar";
 
 let url;
 if (process.env.REACT_APP_HEROKU_TEST_URL) {
