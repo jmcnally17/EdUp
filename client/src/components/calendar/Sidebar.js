@@ -1,7 +1,7 @@
-import React from 'react'
-import CreateEventButton from './CreateEventButton'
-import SmallCalendar from './SmallCalendar'
-import Label from './Label'
+import React from "react";
+import CreateEventButton from "./CreateEventButton";
+import SmallCalendar from "./SmallCalendar";
+import Label from "./Label";
 
 export default function Sidebar() {
   return (
@@ -10,5 +10,5 @@ export default function Sidebar() {
       <SmallCalendar />
       <Label />
     </aside>
-  )
+  );
 }

@@ -14,6 +14,6 @@ const SessionsController = {
       }
     })(req, res, next);
   },
-}
+};
 
 module.exports = SessionsController;

@@ -1,5 +1,5 @@
-import React from 'react'
-import Calendar from './Calendar'
+import React from "react";
+import Calendar from "./Calendar";
 import { render, screen, cleanup } from "@testing-library/react";
 
 afterEach(cleanup);
