@@ -57,7 +57,7 @@ export default function Payments() {
   return (
     <div>
       <div className="product">
-        <h3>Oustanding Payments:</h3>
+        <h3>Outstanding Payments:</h3>
           {invoices.map((invoice) => {
             return (
               <div>
