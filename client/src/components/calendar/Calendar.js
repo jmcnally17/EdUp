@@ -12,6 +12,24 @@ export default function Calendar() {
   useEffect(() => {
     setCurrentMonth(getMonth(monthIndex))
   }, [monthIndex])
+
+  let urlUsers;
+  if (process.env.REACT_APP_HEROKU_TEST_URL) {
+    urlUsers = `${process.env.REACT_APP_HEROKU_TEST_URL}/backend/users`;
+  } else {
+    urlUsers = "http://localhost:9000/backend/users";
+  }
+
+  const [data, setData] = useState([])
+  useEffect(()=>{
+    async function fetchMyAPI() {
+      let response = await fetch(urlUsers, { method: "GET", credentials: "include", headers: { "Content-Type": "application/json" }, })
+      response = await response.json()
+      setData(response)
+    }
+    fetchMyAPI()
+  }, [urlUsers])
+
   return (
     <React.Fragment>
       {showEventModal && <EventModal />}
@@ -19,7 +37,7 @@ export default function Calendar() {
         <CalendarHeader />
         <div className="flex flex-1">
           <Sidebar />
-          <Month month={currentMonth} />
+          <Month month={currentMonth} user={data}/>
         </div>
       </div>
     </React.Fragment>

@@ -17,7 +17,6 @@ if (process.env.REACT_APP_HEROKU_TEST_URL) {
 export default function Login() {
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
-  const [data, setData] = useState(null);
 
   const login = () => {
     fetch(urlSessions, {
@@ -31,17 +30,16 @@ export default function Login() {
     }).then((res) => console.log(res));
   };
 
+  const [data, setData] = useState(null)
+
   const getUser = () => {
-    fetch(urlUsers, {
-      method: "GET",
-      credentials: "include",
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => setData(data));
-  };
+    async function fetchMyAPI() {
+      let response = await fetch(urlUsers, { method: "GET", credentials: "include", headers: { "Content-Type": "application/json" }, })
+      response = await response.json()
+      setData(response)
+    }
+    fetchMyAPI()
+  }
 
   return (
     <div>
@@ -68,7 +66,9 @@ export default function Login() {
           </div>
           <div>
             <h1>Get User</h1>
-            <button onClick={getUser}>Submit</button>
+            <button onClick={getUser}>
+              Submit
+            </button>
             {data ? <h1>Welcome Back {data.username}</h1> : null}
           </div>
       </div>  

@@ -19,6 +19,7 @@ export default function Registration() {
       body: JSON.stringify({
         username: registerUsername,
         password: registerPassword,
+        admin: false,
       }),
     }).then((response) => console.log(response.body));
   };
