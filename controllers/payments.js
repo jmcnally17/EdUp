@@ -1,4 +1,3 @@
-const { default: payments } = require('../client/src/components/payments/payments');
 const Payments = require('../models/payments')
 require('dotenv').config()
 const stripe = require('stripe')(process.env.API_KEY);
