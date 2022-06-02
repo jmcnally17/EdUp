@@ -52,6 +52,8 @@ export default function Payments() {
     fetchMyAPI()
   }, [invoicesUrl])
 
+  let total = 0;
+
   return (
     <div>
       <div className="product">
@@ -70,6 +72,17 @@ export default function Payments() {
               </div>
             )
           })}
+        <h3>Pay All:</h3>
+        {invoices.forEach((invoice) => {
+          total += invoice.price
+        })}
+        <p>{total}</p>
+        <br></br>
+        <form action={`http://localhost:9000/backend/payments/checkout/all/${total}`} method="POST">
+          <button type="submit">
+            Checkout
+          </button>
+        </form>
       </div>
 
       Create Invoice:
