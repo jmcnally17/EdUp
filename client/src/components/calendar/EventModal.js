@@ -10,6 +10,13 @@ export const labelClasses = [
   "purple",
 ];
 
+let url;
+if (process.env.REACT_APP_HEROKU_TEST_URL) {
+  url = `${process.env.REACT_APP_HEROKU_TEST_URL}/backend/calendar`;
+} else {
+  url = "http://localhost:9000/backend/calendar";
+}
+
 export default function EventModal() {
   const { setShowEventModal, daySelected } = useContext(CalendarGlobalContext);
   const [title, setTitle] = useState("");
@@ -17,10 +24,10 @@ export default function EventModal() {
   const [selectedLabel, setSelectedLabel] = useState(labelClasses[0]);
 
   const handleSubmit = () => {
-    const day = daySelected.format("DD");
-    const month = daySelected.format("MM");
-    const year = daySelected.format("YY");
-    fetch("http://localhost:9000/backend/calendar", {
+    const day = daySelected.format("DD")
+    const month = daySelected.format("MM")
+    const year = daySelected.format("YY")
+    fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

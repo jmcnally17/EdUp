@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Axios from "axios";
 
 let urlSessions;
 if (process.env.REACT_APP_HEROKU_TEST_URL) {
@@ -20,27 +21,26 @@ export default function Login() {
   const [data, setData] = useState(null);
 
   const login = () => {
-    fetch(urlSessions, {
+    Axios({
       method: "POST",
-      credentials: "include",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
+      data: {
         username: loginUsername,
         password: loginPassword,
-      }),
+      },
+      withCredentials: true,
+      url: urlSessions,
     }).then((res) => console.log(res));
   };
 
   const getUser = () => {
-    fetch(urlUsers, {
+    Axios({
       method: "GET",
-      credentials: "include",
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => setData(data));
+      withCredentials: true,
+      url: urlUsers,
+    }).then((res) => {
+      setData(res.data);
+      console.log(res.data);
+    });
   };
 
   return (

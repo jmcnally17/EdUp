@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from "react";
 import Day from "./Day";
 
+let url;
+if (process.env.REACT_APP_HEROKU_TEST_URL) {
+  url = `${process.env.REACT_APP_HEROKU_TEST_URL}/backend/calendar/index`;
+} else {
+  url = "http://localhost:9000/backend/calendar/index";
+}
+
 export default function Month({ month }) {
   const [data, setData] = useState([]);
   useEffect(() => {
     async function fetchMyAPI() {
-      let response = await fetch(
-        "http://localhost:9000/backend/calendar/index"
-      );
+      let response = await fetch(url);
       response = await response.json();
       setData(
         response.events.filter(
