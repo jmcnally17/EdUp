@@ -5,7 +5,7 @@ const stripe = require('stripe')(process.env.API_KEY);
 const PaymentsController = {
 
   Index: (req, res) => {
-    Payments.find().exec((err, payments) => {
+    Payments.find({ paid: false }).exec((err, payments) => {
       if (err) {
         throw err;
       }
@@ -14,12 +14,13 @@ const PaymentsController = {
       })
     });
   },
+
   Create: async (req, res) => {
     let successUrl;
     if (process.env.REACT_APP_HEROKU_TEST_URL) {
       successUrl = `${process.env.REACT_APP_HEROKU_TEST_URL}`; // change to cancel url when made
     } else {
-      successUrl = "http://localhost:9000/backend/payments/invoice"; // change to success url when made
+      successUrl = "http://localhost:3000"; // change to success url when made
     }
 
     let cancelUrl;
@@ -28,27 +29,24 @@ const PaymentsController = {
     } else {
       cancelUrl = "http://localhost:3000/noticeboard"; // change to cancel url when made
     }
-    
+
     const sessions = await stripe.checkout.sessions.create({
       line_items: [
         {
           price_data: {
             currency: "gbp",
             product_data: {
-              name: "test",
+              name: req.params.title,
             },
-            unit_amount: 100,
+            unit_amount: req.params.price,
           },
-          quantity: 2,
+          quantity: 1,
         }
       ],
       mode: 'payment',
-      success_url: successUrl,
+      success_url: `${successUrl}`,
       cancel_url: cancelUrl,
     });
-    res.redirect(303, sessions.url)
-  },
-  Invoice: (req, res) => {
     Payments.updateOne(
       { _id: req.params.id },
       { paid: true },
@@ -57,15 +55,16 @@ const PaymentsController = {
         if (err) {
           throw err;
         }
-        res.redirect('http://localhost:3000/');
-    }
+        res.redirect(303, sessions.url)
+      }
     )
   },
+
   CreateInvoice: (req, res) => {
     const item = {
       title: req.body.title,
       price: req.body.price,
-      paid: false
+      paid: true
     };
     const payment = new Payments(item)
     payment.save((err) => {
