@@ -3,6 +3,8 @@ import dayjs from 'dayjs'
 import CalendarGlobalContext from '../../context/CalendarGlobalContext'
 import Popup from 'reactjs-popup';
 
+
+
 export default function Day({ day, _key, rowIdx, data }) {
 
   function getCurrentDayClass() {
@@ -11,7 +13,13 @@ export default function Day({ day, _key, rowIdx, data }) {
   }
   
   const handleDelete = (eventId) => {
-    fetch(`http://localhost:9000/backend/calendar/delete/${eventId}`, {
+    let url;
+    if (process.env.REACT_APP_HEROKU_TEST_URL) {
+      url = `${process.env.REACT_APP_HEROKU_TEST_URL}/backend/calendar/delete/${eventId}`;
+    } else {
+      url = `http://localhost:9000/backend/calendar/delete/${eventId}`;
+    }
+    fetch(url, {
       method: "DELETE",
     })
     window.location.reload(false);
