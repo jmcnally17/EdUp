@@ -35,6 +35,29 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 var server = http.createServer(app);
 
+// Socket.io setup
+
+const { Server } = require("socket.io");
+const io = new Server(server, {
+  cors: {
+    origin: "http://localhost:3000"
+  }
+});
+
+io.on("connection", (socket) => {
+  console.log("a user connected");
+
+  socket.join("clock-room");
+
+  socket.on("disconnect", () => {
+    console.log("user disconnected");
+  });
+});
+
+setInterval(() => {
+  io.to("clock-room").emit("time", new Date())
+}, 1);
+
 /**
  * Listen on provided port, on all network interfaces.
  */
