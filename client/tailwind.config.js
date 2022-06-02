@@ -1,11 +1,4 @@
-const labelClasses = [
-  "indigo",
-  "gray",
-  "green",
-  "blue",
-  "red",
-  "purple",
-];
+const labelClasses = ["indigo", "gray", "green", "blue", "red", "purple"];
 
 module.exports = {
   purge: {
@@ -15,22 +8,22 @@ module.exports = {
     safelist: [
       ...labelClasses.map((lbl) => `bg-${lbl}-500`),
       ...labelClasses.map((lbl) => `bg-${lbl}-200`),
-      ...labelClasses.map((lbl) => `text-${lbl}-400`)
+      ...labelClasses.map((lbl) => `text-${lbl}-400`),
     ],
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Open Sans"]
+        sans: ["Open Sans"],
       },
       gridTemplateColumns: {
-        "1/5": "1fr 5fr"
-      }
+        "1/5": "1fr 5fr",
+      },
     },
   },
   variants: {
     extend: {},
   },
   plugins: [require("@tailwindcss/forms")],
-}
+};

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Sidenav from "../navbar/navbar";
-import "../../css/style.css";
 
 let url;
 if (process.env.REACT_APP_HEROKU_TEST_URL) {

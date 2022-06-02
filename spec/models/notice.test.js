@@ -1,6 +1,6 @@
 const Notice = require("../../models/notice");
 require("../mongodb_helper");
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 describe(Notice, () => {
   beforeEach((done) => {
@@ -12,7 +12,7 @@ describe(Notice, () => {
   it("has title, subtitle and description", () => {
     const notice = new Notice({
       title: "School fair",
-      description: "have fun"
+      description: "have fun",
     });
 
     expect(notice.title).toBe("School fair");

@@ -14,7 +14,7 @@ const UsersController = {
       if (doc) res.send("User Already Exists");
       if (!doc) {
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
-  
+
         const newUser = new User({
           username: req.body.username,
           password: hashedPassword,
@@ -24,6 +24,6 @@ const UsersController = {
       }
     });
   },
-}
+};
 
 module.exports = UsersController;

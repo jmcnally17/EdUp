@@ -1,21 +1,21 @@
 // Controls the states
 
-import React from 'react'
+import React from "react";
 
 const CalendarGlobalContext = React.createContext({
   monthIndex: 0,
-  setMonthIndex: (index) => { },
-  smallCalendarMonth: 0, 
-  setSmallCalendarMonth: (index) => { },
+  setMonthIndex: (index) => {},
+  smallCalendarMonth: 0,
+  setSmallCalendarMonth: (index) => {},
   daySelected: null,
-  setDaySelected: (day) => { },
+  setDaySelected: (day) => {},
   showEventModal: false,
-  setShowEventModal: () => { },
+  setShowEventModal: () => {},
   showEventDescription: false,
-  setShowEventDescription: () => { },
+  setShowEventDescription: () => {},
   labels: [],
-  setLabels: () => { },
-  updateLabel: () => {}
-})
+  setLabels: () => {},
+  updateLabel: () => {},
+});
 
-export default CalendarGlobalContext
+export default CalendarGlobalContext;

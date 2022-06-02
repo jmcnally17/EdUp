@@ -8,7 +8,7 @@ import Login from "./components/login/login";
 import Registration from "./components/registration/registration";
 import Noticeboard from "./components/noticeboard/noticeboard.js";
 import New from "./components/noticeboard/new.js";
-import Sidenav from "./components/navbar/navbar";
+// import Sidenav from "./components/navbar/navbar";
 import Header from "./components/header/header";
 import SchoolFooter from "./components/footer/footer";
 import Calendar from "./components/calendar/Calendar";

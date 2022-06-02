@@ -1,26 +1,27 @@
-import React, {useContext} from 'react'
-import CalendarGlobalContext from '../../context/CalendarGlobalContext'
-import dayjs from 'dayjs'
-import logo192 from '../../logo/logo192.png'
+import React, { useContext } from "react";
+import CalendarGlobalContext from "../../context/CalendarGlobalContext";
+import dayjs from "dayjs";
+import logo192 from "../../logo/logo192.png";
 
 export default function CalendarHeader() {
-  const { monthIndex, setMonthIndex } = useContext(CalendarGlobalContext)
+  const { monthIndex, setMonthIndex } = useContext(CalendarGlobalContext);
   function handlePrevMonth() {
-    setMonthIndex(monthIndex - 1)
+    setMonthIndex(monthIndex - 1);
   }
   function handleNexMonth() {
-    setMonthIndex(monthIndex + 1)
+    setMonthIndex(monthIndex + 1);
   }
   function handleReset() {
-    setMonthIndex(monthIndex === dayjs().month() ? monthIndex + Math.random()
-      : dayjs().month())
-  };
+    setMonthIndex(
+      monthIndex === dayjs().month()
+        ? monthIndex + Math.random()
+        : dayjs().month()
+    );
+  }
   return (
     <header className="px-4 py-2 flex items-center">
       <img src={logo192} alt="calendar" className="mr-2 w-20 h-20" />
-      <h1 className="mr-10 text-xl text-gray-500 fond-bold">
-        Calendar
-      </h1>
+      <h1 className="mr-10 text-xl text-gray-500 fond-bold">Calendar</h1>
       <button onClick={handleReset} className="border rounded py-2 px-4 mr-5">
         Today
       </button>
@@ -38,5 +39,5 @@ export default function CalendarHeader() {
         {dayjs(new Date(dayjs().year(), monthIndex)).format("MMMM YYYY")}
       </h2>
     </header>
-  )
+  );
 }

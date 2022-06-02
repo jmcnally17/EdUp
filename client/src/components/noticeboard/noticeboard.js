@@ -55,9 +55,9 @@ export default function Noticeboard() {
       <div className="container">
         <div className="section">
           <div className="row">
-            {data.map((noticeInfo, _key) => {
+            {data.map((noticeInfo, key) => {
               return (
-                <div>
+                <div key={key}>
                   <ul className="collection">
                     <li className="collection-item">
                       <div className="col s12">
