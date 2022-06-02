@@ -64,7 +64,7 @@ const PaymentsController = {
     const item = {
       title: req.body.title,
       price: req.body.price,
-      paid: true
+      paid: false
     };
     const payment = new Payments(item)
     payment.save((err) => {
