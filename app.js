@@ -79,8 +79,6 @@ app.use(function (err, req, res, next) {
 
 module.exports = app;
 
-module.exports = app;
-
 //// Yesterdays version of code
 
 // var createError = require("http-errors");
