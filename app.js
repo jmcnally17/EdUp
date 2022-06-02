@@ -10,6 +10,7 @@ var usersRouter = require("./routes/users");
 var calendarRouter = require("./routes/calendar");
 var sessionsRouter = require("./routes/sessions");
 var noticesRouter = require("./routes/notices");
+var paymentsRouter = require('./routes/payments')
 
 var app = express();
 
@@ -52,6 +53,7 @@ app.use("/backend/sessions", sessionsRouter);
 app.use("/backend/notices", noticesRouter);
 app.use("/backend/users", usersRouter);
 app.use("/backend/calendar", calendarRouter);
+app.use("./backend/payments", paymentsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

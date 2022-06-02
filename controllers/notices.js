@@ -1,4 +1,5 @@
 const Notice = require('../models/notice.js');
+const stripe = require('stripe')('sk_test_26PHem9AhJZvU623DfE1x4sd');
 
 const NoticesController ={ 
   Index: (req, res) => {
