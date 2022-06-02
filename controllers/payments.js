@@ -1,5 +1,6 @@
 const Payments = require('../models/payments')
-const stripe = require('stripe')('sk_test_51L6A0RJdrsld1vEeAAJJDzd7MwohVMLgR3bKo5dwiKW8Pg34GaUhvDXxTu6zx56IY3rRVIOBkvncftha7G7oFsd1008nbBnjm9');
+require('dotenv').config()
+const stripe = require('stripe')(process.env.API_KEY);
 
 const PaymentsController = {
 
@@ -14,17 +15,25 @@ const PaymentsController = {
     });
   },
   Create: async (req, res) => {
+    
     const sessions = await stripe.checkout.sessions.create({
       line_items: [
         {
-          price: '20',
-          quantity: 1,
-        },
+          price_data: {
+            currency: "gbp",
+            product_data: {
+              name: "test",
+            },
+            unit_amount: 100,
+          },
+          quantity: 2,
+        }
       ],
       mode: 'payment',
-      success_url: 'https:localhost:9000/?success=true',
-      cancel_url: 'https:localhost:9000/?canceled=true',
+      success_url: 'http://localhost:3000',
+      cancel_url: 'http://localhost:3000/noticeboard',
     });
+    console.log(sessions.url);
     res.redirect(303, sessions.url)
   }
 }
