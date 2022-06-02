@@ -39,7 +39,7 @@ export default function App() {
         <Header />
         {user ? <Sidenav /> : null}
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<Login user={user}/>} />
           <Route path="/registration" element={<Registration />} />
           <Route path="/noticeboard" element={<Noticeboard />} />
           <Route path="/noticeboard/new" element={<New />} />

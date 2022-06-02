@@ -15,7 +15,7 @@ if (process.env.REACT_APP_HEROKU_TEST_URL) {
   urlUsers = "http://localhost:9000/backend/users";
 }
 
-export default function Login() {
+export default function Login({user}) {
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [data, setData] = useState(null);
@@ -29,19 +29,18 @@ export default function Login() {
       },
       withCredentials: true,
       url: urlSessions,
-    }).then((res) => console.log(res));
+    }).then((res) => console.log('hi'));
   };
 
-  const getUser = () => {
-    Axios({
-      method: "GET",
-      withCredentials: true,
-      url: urlUsers,
-    }).then((res) => {
-      setData(res.data);
-      console.log(res.data);
-    });
-  };
+  // const getUser = () => {
+  //   Axios({
+  //     method: "GET",
+  //     withCredentials: true,
+  //     url: urlUsers,
+  //   }).then((res) => {
+  //     setData(res.data);
+  //   });
+  // };
 
   return (
     <div>
@@ -72,8 +71,8 @@ export default function Login() {
         </div>
         <div>
           <h1>Get User</h1>
-          <button onClick={getUser}>Submit</button>
-          {data ? <h1>Welcome Back {data.username}</h1> : null}
+          {/* <button onClick={getUser}>Submit</button> */}
+          {user ? <h1>Welcome Back {user.username}</h1> : null}
         </div>
       </div>
     </div>
