@@ -1,3 +1,4 @@
+const { default: payments } = require('../client/src/components/payments/payments');
 const Payments = require('../models/payments')
 require('dotenv').config()
 const stripe = require('stripe')(process.env.API_KEY);
@@ -19,7 +20,7 @@ const PaymentsController = {
     if (process.env.REACT_APP_HEROKU_TEST_URL) {
       successUrl = `${process.env.REACT_APP_HEROKU_TEST_URL}`; // change to cancel url when made
     } else {
-      successUrl = "http://localhost:3000/"; // change to success url when made
+      successUrl = "http://localhost:9000/backend/payments/invoice"; // change to success url when made
     }
 
     let cancelUrl;
@@ -46,8 +47,34 @@ const PaymentsController = {
       success_url: successUrl,
       cancel_url: cancelUrl,
     });
-    console.log(sessions.url);
     res.redirect(303, sessions.url)
+  },
+  Invoice: (req, res) => {
+    Payments.updateOne(
+      { _id: req.params.id },
+      { paid: true },
+      {},
+      (err, payment) => {
+        if (err) {
+          throw err;
+        }
+        res.redirect('http://localhost:3000/');
+    }
+    )
+  },
+  CreateInvoice: (req, res) => {
+    const item = {
+      title: req.body.title,
+      price: req.body.price,
+      paid: false
+    };
+    const payment = new Payments(item)
+    payment.save((err) => {
+      if (err) {
+        throw err;
+      }
+      res.status(200)
+    })
   }
 }
 
