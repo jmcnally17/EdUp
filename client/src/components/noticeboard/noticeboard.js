@@ -21,7 +21,6 @@ export default function Noticeboard() {
 
   return (
     <div>
-      <Sidenav />
       <div className="section no-pad-bot" id="index-banner">
         <div className="container">
           <h1 className="header center orange-text">School Notice Board</h1>

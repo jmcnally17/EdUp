@@ -37,7 +37,6 @@ export default function New() {
 
   return (
     <div>
-      <Sidenav />
       <div className="row">
         <form onSubmit={handleSubmit} className="col s12">
           <div className="container">

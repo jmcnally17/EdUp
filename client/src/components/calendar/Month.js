@@ -8,7 +8,7 @@ if (process.env.REACT_APP_HEROKU_TEST_URL) {
   url = "http://localhost:9000/backend/calendar/index";
 }
 
-export default function Month({ month }) {
+export default function Month({ month, user }) {
   const [data, setData] = useState([]);
   useEffect(() => {
     async function fetchMyAPI() {
@@ -28,7 +28,7 @@ export default function Month({ month }) {
       {month.map((row, i) => (
         <React.Fragment key={i}>
           {row.map((day, idx) => (
-            <Day day={day} key={idx} rowIdx={i} data={data} />
+            <Day day={day} key={idx} rowIdx={i} data={data} user={user} />
           ))}
         </React.Fragment>
       ))}
