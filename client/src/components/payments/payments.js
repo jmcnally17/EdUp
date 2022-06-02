@@ -55,34 +55,43 @@ export default function Payments() {
   let total = 0;
 
   return (
-    <div>
       <div className="product">
-        <h3>Outstanding Payments:</h3>
+      <h3>Oustanding Payments:</h3>
+      <div>
           {invoices.map((invoice) => {
             return (
               <div>
-                <p>{invoice.title}</p>
-                <p>{invoice.price}</p>
-                <form action={`http://localhost:9000/backend/payments/checkout/${invoice._id}/${invoice.title}/${invoice.price}`} method="POST">
-                  <button type="submit">
-                    Checkout
-                  </button>
-                </form>
+    <div class="shadow-lg bg-white rounded-md overflow-hidden max-w-xs mx-auto">
+    <div class="w-2/3 p-4">
+    <div class="text-gray-900 font-bold text-2xl">
+    <span>{invoice.title}</span>
+      {/* <button class="text-blue-500 capitalize border border-gray-300 rounded-md py-1 px-3">view stats</button> */}
+    </div>
+    
+      <h1 class="text-gray-700 font-bold text-xl">£{invoice.price}</h1>
+      <hr class="mt-3 mb-5" />
+         <div>
+          <form action={`http://localhost:9000/backend/payments/checkout/${invoice._id}/${invoice.title}/${invoice.price}`} method="POST">
+                        <button type="submit" class="px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded">Checkout</button>
+                        </form>
+        {/* <button class="text-gray-500 ml-2">Unpublish</button> */}
+      </div>
+    </div>
+  </div>
                 <br></br>
               </div>
             )
           })}
+        
         <h3>Pay All:</h3>
+        
         {invoices.forEach((invoice) => {
           total += invoice.price
         })}
-        <p>{total}</p>
-        <br></br>
+        <h5>{total}</h5>
         <form action={`http://localhost:9000/backend/payments/checkout/all/${total}`} method="POST">
-          <button type="submit">
-            Checkout
-          </button>
-        </form>
+            <button type="submit" class="px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded">Checkout</button>
+          </form>
       </div>
 
       Create Invoice:
