@@ -37,6 +37,18 @@ var server = http.createServer(app);
 
 // Socket.io setup
 
+var STATIC_CHANNELS = [{
+  name: 'Global chat',
+  participants: 0,
+  id: 1,
+  sockets: []
+}, {
+  name: 'Funny',
+  participants: 0,
+  id: 2,
+  sockets: []
+}];
+
 const { Server } = require("socket.io");
 const io = new Server(server, {
   cors: {
@@ -46,17 +58,12 @@ const io = new Server(server, {
 
 io.on("connection", (socket) => {
   console.log("a user connected");
-
-  socket.join("clock-room");
+  socket.emit("connection", null);
 
   socket.on("disconnect", () => {
     console.log("user disconnected");
   });
 });
-
-setInterval(() => {
-  io.to("clock-room").emit("time", new Date())
-}, 1);
 
 /**
  * Listen on provided port, on all network interfaces.

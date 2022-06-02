@@ -1,9 +1,9 @@
 var express = require("express");
 var router = express.Router();
 
-router.get("/", (req, res) => {
+router.get("/getChannels", (req, res) => {
   res.json({
-    test: "Hello World",
+    channels: STATIC_CHANNELS,
   });
 });
 

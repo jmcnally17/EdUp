@@ -12,7 +12,7 @@ import Sidenav from "./components/navbar/navbar";
 import Header from "./components/header/header";
 import SchoolFooter from "./components/footer/footer";
 import Calendar from "./components/calendar/Calendar";
-import Chat from "./components/chat/chat";
+import ChatParent from "./components/chat/chatParent";
 
 export default function App() {
   return (
@@ -25,7 +25,7 @@ export default function App() {
           <Route path="/noticeboard" element={<Noticeboard />} />
           <Route path="/noticeboard/new" element={<New />} />
           <Route path="/calendar" element={<Calendar />} />
-          <Route path="/chat" element={<Chat />} />
+          <Route path="/chat" element={<ChatParent />} />
         </Routes>
         <SchoolFooter />
       </div>
