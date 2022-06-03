@@ -123,7 +123,7 @@ export default function Payments( {user}) {
   
       Create Invoice:
 
-      {parents.map((parent) => parent.username)}
+      {/* {parents.map((parent) => parent.username)} */}
       
       <input name="title" type="text" placeholder="Title" onChange={handleTitle} />
       <input name="price" type="number" placeholder="Price" onChange={handlePrice} />
