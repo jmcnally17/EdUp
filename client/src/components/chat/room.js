@@ -9,8 +9,8 @@ import TextContainer from "./textContainer";
 import "./room.css";
 
 let url;
-if (process.env.REACT_APP_HEROKU_TEST_URL) {
-  url = process.env.REACT_APP_HEROKU_TEST_URL;
+if (process.env.HEROKU_URL) {
+  url = process.env.HEROKU_URL;
 } else {
   url = "http://localhost:9000";
 }
