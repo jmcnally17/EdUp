@@ -2,7 +2,7 @@ import React from "react";
 
 import ScrollToBottom from "react-scroll-to-bottom";
 import Message from "./message";
-import "./Messages.css";
+import "./messages.css";
 
 function Messages({ messages, name }) {
   return (

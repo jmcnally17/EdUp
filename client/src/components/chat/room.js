@@ -6,7 +6,7 @@ import Input from "./input";
 import Messages from "./messages";
 import TextContainer from "./textContainer";
 
-import "./Chat.css";
+import "./room.css";
 
 let url;
 if (process.env.REACT_APP_HEROKU_TEST_URL) {

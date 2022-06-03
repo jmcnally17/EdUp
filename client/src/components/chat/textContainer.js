@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-import "./TextContainer.css";
+import "./textContainer.css";
 
 export default function TextContainer({ users }) {
   return (
