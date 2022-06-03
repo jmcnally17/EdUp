@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import Sidenav from "../navbar/navbar";
-import "../../css/style.css";
 
 let url;
 if (process.env.REACT_APP_HEROKU_TEST_URL) {
@@ -38,7 +36,6 @@ export default function New() {
 
   return (
     <div>
-      <Sidenav />
       <div className="row">
         <form onSubmit={handleSubmit} className="col s12">
           <div className="container">

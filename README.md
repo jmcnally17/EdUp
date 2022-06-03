@@ -1,4 +1,3 @@
 # School Communication App
 
 ## Instructions
-

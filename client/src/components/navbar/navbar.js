@@ -1,21 +1,17 @@
 import React, { Component } from "react";
 import M from "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
-// import image1 from "client/public/logo192.png";
-// import image2 from "../../../public/logo512.jpg";
 
 export default class Sidenav extends Component {
   componentDidMount() {
     const options = {
       inDuration: 250,
       outDuration: 200,
-      draggable: true
+      draggable: true,
     };
     M.Sidenav.init(this.Sidenav, options);
 
-    let instance = M.Sidenav.getInstance(this.Sidenav);
-    // instance.open();
-    console.log(instance.isOpen);
+    // let instance = M.Sidenav.getInstance(this.Sidenav);
   }
   render() {
     return (
@@ -29,12 +25,8 @@ export default class Sidenav extends Component {
         >
           <li>
             <div className="user-view">
-              <div className="background">
-                {/* <img src={image2} /> */}
-              </div>
-              <a href="#user">
-                {/* <img className="circle" src={image1} /> */}
-              </a>
+              <div className="background"></div>
+              <a href="#user"></a>
               <a href="#name">
                 <span className="white-text name">John Doe</span>
               </a>

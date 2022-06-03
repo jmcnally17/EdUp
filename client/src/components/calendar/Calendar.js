@@ -6,22 +6,24 @@ import { getMonth } from "../../util";
 import CalendarGlobalContext from "../../context/CalendarGlobalContext";
 import EventModal from "./EventModal";
 
-export default function Calendar() {
-  const [currentMonth, setCurrentMonth] = useState(getMonth())
-  const { monthIndex, showEventModal, showEventDescription } = useContext(CalendarGlobalContext)
+export default function Calendar({user}) {
+  const [currentMonth, setCurrentMonth] = useState(getMonth());
+  const { monthIndex, showEventModal } = useContext(
+    CalendarGlobalContext
+  );
   useEffect(() => {
-    setCurrentMonth(getMonth(monthIndex))
-  }, [monthIndex])
+    setCurrentMonth(getMonth(monthIndex));
+  }, [monthIndex]);
   return (
     <React.Fragment>
       {showEventModal && <EventModal />}
-      <div className="h-screen flex flex-col" >
+      <div className="h-screen flex flex-col">
         <CalendarHeader />
         <div className="flex flex-1">
-          <Sidebar />
-          <Month month={currentMonth} />
+          <Sidebar user={user}/>
+          <Month month={currentMonth} user={user}/>
         </div>
       </div>
     </React.Fragment>
-  )
+  );
 }

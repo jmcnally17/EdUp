@@ -1,5 +1,5 @@
-import React, { useContext, useState } from 'react'
-import CalendarGlobalContext from '../../context/CalendarGlobalContext';
+import React, { useContext, useState } from "react";
+import CalendarGlobalContext from "../../context/CalendarGlobalContext";
 
 export const labelClasses = [
   "indigo",
@@ -7,22 +7,29 @@ export const labelClasses = [
   "green",
   "blue",
   "red",
-  "purple"
+  "purple",
 ];
 
+let url;
+if (process.env.REACT_APP_HEROKU_TEST_URL) {
+  url = `${process.env.REACT_APP_HEROKU_TEST_URL}/backend/calendar`;
+} else {
+  url = "http://localhost:9000/backend/calendar";
+}
+
 export default function EventModal() {
-  const { setShowEventModal, daySelected } = useContext(CalendarGlobalContext)
-  const [title, setTitle] = useState('')
-  const [description, setDescription] = useState('')
-  const [selectedLabel, setSelectedLabel] = useState(labelClasses[0])
+  const { setShowEventModal, daySelected } = useContext(CalendarGlobalContext);
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [selectedLabel, setSelectedLabel] = useState(labelClasses[0]);
 
   const handleSubmit = () => {
     const day = daySelected.format("DD")
     const month = daySelected.format("MM")
     const year = daySelected.format("YY")
-    fetch("http://localhost:9000/backend/calendar", {
+    fetch(url, {
       method: "POST",
-      headers: {'Content-Type':'application/json'},
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         title,
         description,
@@ -30,9 +37,9 @@ export default function EventModal() {
         month,
         year,
         selectedLabel,
-      })
+      }),
     });
-  }
+  };
 
   return (
     <div className="h-screen w-full fixed left-0 top-0 flex justify-center items-center">
@@ -42,9 +49,7 @@ export default function EventModal() {
             drag_handle
           </span>
           <button onClick={() => setShowEventModal(false)}>
-            <span className="material-icons-outlined text-gray-400">
-              close
-            </span>
+            <span className="material-icons-outlined text-gray-400">close</span>
           </button>
         </header>
         <div className="p-3">
@@ -57,7 +62,8 @@ export default function EventModal() {
               value={title}
               required
               className="pt-3 border-0 text-gray-600 text-xl font-semibold pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
-              onChange={(e) => setTitle(e.target.value)} />
+              onChange={(e) => setTitle(e.target.value)}
+            />
             <span className="material-icons-outlined text-gray-400">
               schedule
             </span>
@@ -72,20 +78,23 @@ export default function EventModal() {
               value={description}
               required
               className="pt-3 border-0 text-gray-600 pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
-              onChange={(e) => setDescription(e.target.value)} />
-              <span className="material-icons-outlined text-gray-400">
+              onChange={(e) => setDescription(e.target.value)}
+            />
+            <span className="material-icons-outlined text-gray-400">
               bookmark_border
             </span>
             <div className="flex gap-x-2">
               {labelClasses.map((lblClass, i) => (
-                <span key={i}
+                <span
+                  key={i}
                   onClick={() => setSelectedLabel(lblClass)}
-                  className={`bg-${lblClass}-500 w-6 h-6 rounded-full flex items-center justify-center cursor-pointer`}>
-                  {selectedLabel === lblClass &&
+                  className={`bg-${lblClass}-500 w-6 h-6 rounded-full flex items-center justify-center cursor-pointer`}
+                >
+                  {selectedLabel === lblClass && (
                     <span className="material-icons-outlined text-white text-sm">
                       check
                     </span>
-                  }
+                  )}
                 </span>
               ))}
             </div>
@@ -101,7 +110,6 @@ export default function EventModal() {
           </button>
         </footer>
       </form>
-
     </div>
   );
 }

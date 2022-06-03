@@ -1,23 +1,52 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext } from 'react'
 import dayjs from 'dayjs'
 import CalendarGlobalContext from '../../context/CalendarGlobalContext'
 import Popup from 'reactjs-popup';
 
-export default function Day({ day, _key, rowIdx, data }) {
+export default function Day({ day, _key, rowIdx, data, user }) {
 
   function getCurrentDayClass() {
     return day.format("DD-MM-YY") === dayjs().format("DD-MM-YY") ? 'bg-blue-600 text-white rounded-full w-7'
       : ''
   }
+
+  let deleteUrl;
+  if (process.env.REACT_APP_HEROKU_TEST_URL) {
+    deleteUrl = `${process.env.REACT_APP_HEROKU_TEST_URL}/backend/calendar/delete`;
+  } else {
+    deleteUrl = "http://localhost:9000/backend/calendar/delete";
+  }
   
   const handleDelete = (eventId) => {
-    fetch(`http://localhost:9000/backend/calendar/delete/${eventId}`, {
+    fetch(`${deleteUrl}/${eventId}`, {
       method: "DELETE",
     })
     window.location.reload(false);
   }
 
+  const ifAdmin = (eventId) => {
+    if (user.admin) {
+      return (
+        <button type="submit" onClick={() => {handleDelete(eventId)}}>
+          <span className="material-icons-outlined text-gray-400">
+            delete
+          </span>
+        </button>
+      )
+    }
+  }
+
+  const ifAdmin2 = () => {
+    if (user.admin) {
+      setDaySelected(day)
+      setShowEventModal(true)
+    } else {
+      setDaySelected(day)
+    }
+  }
+
   const {setDaySelected, setShowEventModal } = useContext(CalendarGlobalContext)
+
   return (
     <div className="border border-gray-200 flex flex-col">
       <header className="flex flex-col items-center">
@@ -34,10 +63,11 @@ export default function Day({ day, _key, rowIdx, data }) {
           } else {
             shorten = event.title
           }
- 
+   
           return (
             <Popup trigger={<button className={`bg-${event.selectedLabel}-200 w-full`}>
-              {event.day === day.format("DD") && event.month === day.format("MM") && event.year === day.format("YY") ? shorten : null}</button>}
+              {event.day === day.format("DD") && event.month === day.format("MM") && event.year === day.format("YY") ? shorten : null}
+            </button>}
               position="left center"
               on="click">
               <div>
@@ -49,11 +79,7 @@ export default function Day({ day, _key, rowIdx, data }) {
                       <div className="card-content">
                         <p className="font-bold">{event.title}:</p>
                         <p>{event.description}</p>
-                        <button type="submit" onClick={() => {handleDelete(event._id)}}>
-                        <span className="material-icons-outlined text-gray-400">
-                          delete
-                        </span>
-                        </button>
+                        {ifAdmin(event._id)}
                       </div>
                     </div>
                   </div>
@@ -63,11 +89,9 @@ export default function Day({ day, _key, rowIdx, data }) {
           )
         })}
       </header>
-      <div className="flex-1 cursor-pointer" onClick={() => {
-        setDaySelected(day)
-        setShowEventModal(true)
-      }}>
+      <div className="flex-1 cursor-pointer" onClick = {ifAdmin2}>
       </div>
+
     </div>
   )
 }

@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import Sidenav from "../navbar/navbar";
 
 let url;
 if (process.env.REACT_APP_HEROKU_TEST_URL) {
@@ -21,9 +20,6 @@ export default function Noticeboard() {
 
   return (
     <div>
-
-      <Sidenav />
-      
       <div className="section no-pad-bot" id="index-banner">
         <div className="container">
           <h1 className="header center orange-text">School Notice Board</h1>
@@ -57,9 +53,9 @@ export default function Noticeboard() {
       <div className="container">
         <div className="section">
           <div className="row">
-            {data.map((noticeInfo, _key) => {
+            {data.map((noticeInfo, key) => {
               return (
-                <div>
+                <div key={key}>
                   <ul className="collection">
                     <li className="collection-item">
                       <div className="col s12">
