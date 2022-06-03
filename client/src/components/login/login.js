@@ -73,6 +73,7 @@ export default function Login({user}) {
             <div>
               <label className="block text-gray-700">Username</label>
               <input
+                aria-label="username"
                 placeholder="Enter Username"
                 onChange={(e) => setLoginUsername(e.target.value)}
                 className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autoFocus required>
@@ -81,6 +82,7 @@ export default function Login({user}) {
             <div className="mt-4">
               <label className="block text-gray-700">Password</label>
               <input
+                aria-label="password"
                 type="password"
                 placeholder="Enter Password"
                 onChange={(e) => setLoginPassword(e.target.value)}
