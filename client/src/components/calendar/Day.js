@@ -11,8 +11,8 @@ export default function Day({ day, _key, rowIdx, data, user }) {
   }
 
   let deleteUrl;
-  if (process.env.REACT_APP_HEROKU_TEST_URL) {
-    deleteUrl = `${process.env.REACT_APP_HEROKU_TEST_URL}/backend/calendar/delete`;
+  if (process.env.HEROKU_URL) {
+    deleteUrl = `${process.env.HEROKU_URL}/backend/calendar/delete`;
   } else {
     deleteUrl = "http://localhost:9000/backend/calendar/delete";
   }
