@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import illustration4 from "../../images/illustration4.png"
+
 import Typical from 'react-typical'
 
 let urlSessions;
@@ -52,10 +53,12 @@ export default function Login({user}) {
         flex items-center justify-center">
         <div class="w-full h-100 object-position: top;">
           <h5 className="font-bold font-serif object-position: top">Keeping you connected to your...</h5>
+
           <p><Typical className="font-serif text-xl" wrapper="span" steps={steps}
         loop={Infinity}
             />
           </p>
+
           <h1 class="text-xl md:text-2xl font-bold leading-tight mt-12">Log in to your account</h1>
             <div>
               <label class="block text-gray-700">Username</label>
