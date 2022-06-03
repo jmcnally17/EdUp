@@ -29,7 +29,6 @@
     "passport-local": "^1.0.0",
     "react-alert": "^7.0.3",
     "react-alert-template-basic": "^1.0.2",
-    "react-typed": "^1.2.0",
     "stripe": "^9.6.0",
     "tailwind": "^2.2.0"
   },
