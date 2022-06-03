@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import illustration4 from "../../images/illustration4.png"
-// import Typed from "react-typed"
+
+import Typical from 'react-typical'
 
 let urlSessions;
 if (process.env.REACT_APP_HEROKU_TEST_URL) {
@@ -20,6 +21,13 @@ if (process.env.REACT_APP_HEROKU_TEST_URL) {
 export default function Login({user}) {
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
+
+  const steps = [
+    'Kids', 1500,
+    'School', 1500,
+    'Teachers', 1500,
+    'Community', 1500,
+  ];
 
   const login = () => {
     Axios({
@@ -45,16 +53,12 @@ export default function Login({user}) {
         flex items-center justify-center">
         <div class="w-full h-100 object-position: top;">
           <h5 className="font-bold font-serif object-position: top">Keeping you connected to your...</h5>
-          {/* <p><Typed className="font-serif"
-            strings={[
-              "Kids",
-              "School",
-              "Community"
-            ]}
-            typeSpeed={50}
-            backSpeed={50}
-            loop />
-          </p> */}
+
+          <p><Typical className="font-serif text-xl" wrapper="span" steps={steps}
+        loop={Infinity}
+            />
+          </p>
+
           <h1 class="text-xl md:text-2xl font-bold leading-tight mt-12">Log in to your account</h1>
             <div>
               <label class="block text-gray-700">Username</label>
