@@ -1,11 +1,10 @@
 import React from "react";
 
 const InfoBar = ({ room }) => {
-  <div className="infoBar">
-    <div className="leftInnerContainer">
+  <div>
+    <div>
       <h3>{room}</h3>
     </div>
-    <div className="rightInnerContainer"></div>
   </div>;
 };
 

@@ -5,18 +5,22 @@ export default function Join() {
   const [name, setName] = useState("");
   const [room, setRoom] = useState("");
 
-  const handleName = (target) => {
+  const handleName = ({ target }) => {
     setName(target.value);
   };
 
-  const handleRoom = (target) => {
+  const handleRoom = ({ target }) => {
     setRoom(target.value);
   };
 
-  const handleClick = (e) => (room && name ? null : e.preventDefault());
+  const handleClick = (e) => {
+    console.log(room);
+    console.log(name);
+    return room && name ? null : e.preventDefault();
+  };
 
   return (
-    <div className="container">
+    <div>
       <h1>Join</h1>
       <div>
         <input placeholder="Name" type="text" onChange={handleName} />
@@ -24,7 +28,7 @@ export default function Join() {
       <div>
         <input placeholder="Room" type="text" onChange={handleRoom} />
       </div>
-      <Link to={`/chat?name=${name}&room=${room}`} onClick={handleClick}>
+      <Link to={`/chat/room?name=${name}&room=${room}`} onClick={handleClick}>
         <button type="submit">Sign in</button>
       </Link>
     </div>

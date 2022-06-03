@@ -1,9 +1,8 @@
 import React from "react";
 
 const Input = ({ setMessage, sendMessage, message }) => {
-  <form className="form">
+  <form>
     <input
-      className="input"
       type="text"
       placeholder="Type a message.."
       value={message}
@@ -12,7 +11,7 @@ const Input = ({ setMessage, sendMessage, message }) => {
         event.key === "Enter" ? sendMessage(event) : null
       }
     />
-    <button className="sendButton" onClick={(e) => sendMessage(e)}>
+    <button onClick={(e) => sendMessage(e)}>
       Send
     </button>
   </form>;

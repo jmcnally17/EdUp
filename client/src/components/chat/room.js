@@ -8,13 +8,15 @@ import TextContainer from "./textContainer";
 
 let socket;
 
-export default function Chat({ location }) {
-  let url;
+let url;
   if (process.env.REACT_APP_HEROKU_TEST_URL) {
     url = `${process.env.REACT_APP_HEROKU_TEST_URL}/backend/chat`;
   } else {
     url = "http://localhost:9000/backend/chat";
   }
+
+export default function Chat() {
+  const ENDPOINT = url;
 
   const [name, setName] = useState("");
   const [room, setRoom] = useState("");
@@ -23,8 +25,10 @@ export default function Chat({ location }) {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    socket = io(url);
-    const { name, room } = queryString.parse(location.search);
+    socket = io(ENDPOINT);
+    // const { name, room } = queryString.parse(location.search);
+    const name = "Joe";
+    const room = "Makers";
 
     setRoom(room);
     setName(name);
@@ -32,10 +36,10 @@ export default function Chat({ location }) {
       if (error) alert(error);
     });
     return () => {
-      socket.emit("disconnect");
+      socket.disconnect();
       socket.off();
     };
-  }, [url, location.search]);
+  }, [ENDPOINT]);
 
   useEffect(() => {
     socket.on("message", (message) => {
@@ -59,7 +63,7 @@ export default function Chat({ location }) {
   }
 
   return (
-    <div className="container">
+    <div>
       <div>
         <InfoBar room={room} />
         <Messages messages={messages} name={name} />

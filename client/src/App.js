@@ -13,7 +13,7 @@ import Header from "./components/header/header";
 import SchoolFooter from "./components/footer/footer";
 import Calendar from "./components/calendar/Calendar";
 import Join from "./components/chat/join";
-// import Room from "./components/chat/room";
+import Room from "./components/chat/room";
 import Axios from "axios";
 
 export default function App() {
@@ -47,7 +47,7 @@ export default function App() {
           <Route path="/noticeboard/new" element={<New />} />
           <Route path="/calendar" element={<Calendar user={user}/>} />
           <Route path="/chat" element={<Join />} />
-          {/* <Route path="/chat/room" element={<Room />} /> */}
+          <Route path="/chat/room" element={<Room />} />
         </Routes>
         <SchoolFooter />
       </div>
