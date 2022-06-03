@@ -59,7 +59,7 @@ const PaymentsController = {
         }
       ],
       mode: 'payment',
-      success_url: `${successUrl}/${req.params.id}`,
+      success_url: `${successUrl}/backend/payments/update/${req.params.id}`,
       cancel_url: cancelUrl,
     });
     res.redirect(303, sessions.url)
