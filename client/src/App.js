@@ -46,10 +46,10 @@ export default function App() {
           <Route path="/registration" element={<Registration />} />
           <Route path="/noticeboard" element={<Noticeboard />} />
           <Route path="/noticeboard/new" element={<New />} />
-          <Route path="/calendar" element={<Calendar user={user} />} />
+          <Route path="/calendar" element={<Calendar user={user}/>} />
+          <Route path="/payments" element={<Payments user={user}/>} />
           <Route path="/chat" element={<Join />} />
           <Route path="/chat/room" element={<Room />} />
-          <Route path="/payments" element={<Payments />} />
         </Routes>
         <SchoolFooter />
       </div>

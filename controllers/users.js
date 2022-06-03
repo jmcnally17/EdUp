@@ -16,12 +16,24 @@ const UsersController = {
         const newUser = new User({
           username: req.body.username,
           password: hashedPassword,
+          admin: req.body.admin,
         });
         await newUser.save();
         res.send("User Created");
       }
     });
   },
+
+  Parents: (req, res) => {
+    User.find({ admin: false }).exec((err, parents) => {
+      if (err) {
+        throw err;
+      }
+      res.json({
+        parents: parents
+      })
+    }
+  )}
 };
 
 module.exports = UsersController;

@@ -85,8 +85,7 @@ export default function Login({user}) {
             {/* <p class="mt-8">Need an account? <a href="#" class="text-blue-500 hover:text-blue-700 font-semibold">Create an
                     account</a></p> */}
             <p class="text-sm text-gray-500 font-serif mt-12">&copy; 2022 EdUp - All Rights Reserved.</p>
-              {/* {user ? <h5>Welcome Back {user.username}</h5> : null} */}
-        
+              {user ? <h5>Welcome Back {user.username}</h5> : null}
           </div>
         </div>
       </section>
