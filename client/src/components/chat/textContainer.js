@@ -1,10 +1,8 @@
 import React, { useEffect } from "react";
 
-export default function TextContainer({ users }) {
-  useEffect(() => {
-    console.log(users);
-  });
+import "./TextContainer.css";
 
+export default function TextContainer({ users }) {
   return (
     <div>
       {users ? (

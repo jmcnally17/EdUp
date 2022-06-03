@@ -14,8 +14,6 @@ export default function Join() {
   };
 
   const handleClick = (e) => {
-    console.log(room);
-    console.log(name);
     return room && name ? null : e.preventDefault();
   };
 

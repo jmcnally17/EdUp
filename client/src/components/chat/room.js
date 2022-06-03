@@ -6,18 +6,19 @@ import Input from "./input";
 import Messages from "./messages";
 import TextContainer from "./textContainer";
 
-let socket;
+import "./Chat.css";
 
 let url;
-  if (process.env.REACT_APP_HEROKU_TEST_URL) {
-    url = `${process.env.REACT_APP_HEROKU_TEST_URL}/backend/chat`;
-  } else {
-    url = "http://localhost:9000/backend/chat";
-  }
+if (process.env.REACT_APP_HEROKU_TEST_URL) {
+  url = process.env.REACT_APP_HEROKU_TEST_URL;
+} else {
+  url = "http://localhost:9000";
+}
 
-export default function Chat() {
+let socket;
+
+function Chat() {
   const ENDPOINT = url;
-
   const [name, setName] = useState("");
   const [room, setRoom] = useState("");
   const [message, setMessage] = useState("");
@@ -26,9 +27,7 @@ export default function Chat() {
 
   useEffect(() => {
     socket = io(ENDPOINT);
-    // const { name, room } = queryString.parse(location.search);
-    const name = "Joe";
-    const room = "Makers";
+    const { name, room } = queryString.parse(window.location.search);
 
     setRoom(room);
     setName(name);
@@ -63,8 +62,8 @@ export default function Chat() {
   }
 
   return (
-    <div>
-      <div>
+    <div className="outerContainers">
+      <div className="containers">
         <InfoBar room={room} />
         <Messages messages={messages} name={name} />
         <Input
@@ -77,3 +76,5 @@ export default function Chat() {
     </div>
   );
 }
+
+export default Chat;
