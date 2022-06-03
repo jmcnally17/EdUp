@@ -54,6 +54,13 @@ export default function Payments() {
 
   let total = 0;
 
+  let paymentUrl;
+  if (process.env.REACT_APP_HEROKU_TEST_URL) {
+    paymentUrl = `${process.env.REACT_APP_HEROKU_TEST_URL}/backend/payments/checkout`;
+  } else {
+    paymentUrl = "http://localhost:9000/backend/payments/checkout";
+  }
+
   return (
       <div className="product">
       <h3>Oustanding Payments:</h3>
@@ -71,7 +78,8 @@ export default function Payments() {
       <h1 class="text-gray-700 font-bold text-xl">£{invoice.price}</h1>
       <hr class="mt-3 mb-5" />
          <div>
-          <form action={`http://localhost:9000/backend/payments/checkout/${invoice._id}/${invoice.title}/${invoice.price}`} method="POST">
+
+          <form action={`${paymentUrl}/${invoice._id}/${invoice.title}/${invoice.price}`} method="POST">
                         <button type="submit" class="px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded">Checkout</button>
                         </form>
         {/* <button class="text-gray-500 ml-2">Unpublish</button> */}
@@ -89,7 +97,7 @@ export default function Payments() {
           total += invoice.price
         })}
         <h5>{total}</h5>
-        <form action={`http://localhost:9000/backend/payments/checkout/all/${total}`} method="POST">
+        <form action={`${paymentUrl}/all/${total}`} method="POST">
             <button type="submit" class="px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded">Checkout</button>
           </form>
       </div>
