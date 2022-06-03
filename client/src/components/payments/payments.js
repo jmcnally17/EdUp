@@ -98,8 +98,9 @@ export default function Payments( {user}) {
             <img class="rounded-lg" src={payment} alt="" />
           </div>
           <div class="flex flex-col justify-center mt-5 mb-8 md:mt-0 sm:w-1/2 md:w-7/12 sm:pr-16">
-                <h3 class="mt-2 text-2xl sm:text-left md:text-4xl">Payments Made Easy</h3>
-                <p class="mt-5 text-lg text-gray-700 text md:text-left">Say goodbye to cash-stuffed envelopes and mysteriously vanishing school letters. Here you can pay for your child's tuition, sports clubs, activities and more!</p>
+                <h3 class="mt-2 text-2xl sm:text-left md:text-4xl">Hello {user.username}!</h3>
+                <p class="mt-5 text-lg text-gray-700 text md:text-left">Here you can pay for your child's tuition, sports fee's, activities and more!
+                You can view your statements below.</p>
             </div>
         </div>
           </div>
