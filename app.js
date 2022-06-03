@@ -11,6 +11,7 @@ var usersRouter = require("./routes/users");
 var calendarRouter = require("./routes/calendar");
 var sessionsRouter = require("./routes/sessions");
 var noticesRouter = require("./routes/notices");
+var chatRouter = require("./routes/chat");
 var paymentsRouter = require('./routes/payments')
 
 var app = express();
@@ -50,6 +51,7 @@ app.use("/backend/sessions", sessionsRouter);
 app.use("/backend/notices", noticesRouter);
 app.use("/backend/users", usersRouter);
 app.use("/backend/calendar", calendarRouter);
+app.use("/backend/chat", chatRouter);
 app.use("/backend/payments", paymentsRouter);
 
 app.get("*", (req, res) => {

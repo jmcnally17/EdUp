@@ -12,6 +12,8 @@ import Sidenav from "./components/navbar/navbar";
 import Header from "./components/header/header";
 import SchoolFooter from "./components/footer/footer";
 import Calendar from "./components/calendar/Calendar";
+import Join from "./components/chat/join";
+import Room from "./components/chat/room";
 import Payments from "./components/payments/payments"
 import Axios from "axios";
 
@@ -23,8 +25,8 @@ export default function App() {
     urlUsers = "http://localhost:9000/backend/users";
   }
 
-  const [user, setUser] = useState({})
-  useEffect(()=>{
+  const [user, setUser] = useState({});
+  useEffect(() => {
     Axios({
       method: "GET",
       withCredentials: true,
@@ -32,7 +34,7 @@ export default function App() {
     }).then((res) => {
       setUser(res.data);
     });
-  }, [urlUsers])
+  }, [urlUsers]);
 
   return (
     <React.Fragment>
@@ -40,12 +42,14 @@ export default function App() {
         <Header />
         {user ? <Sidenav /> : null}
         <Routes>
-          <Route path="/" element={<Login user={user}/>} />
+          <Route path="/" element={<Login user={user} />} />
           <Route path="/registration" element={<Registration />} />
           <Route path="/noticeboard" element={<Noticeboard />} />
           <Route path="/noticeboard/new" element={<New />} />
           <Route path="/calendar" element={<Calendar user={user}/>} />
-          <Route path="/payments" element={<Payments />} />
+          <Route path="/payments" element={<Payments user={user}/>} />
+          <Route path="/chat" element={<Join />} />
+          <Route path="/chat/room" element={<Room />} />
         </Routes>
         <SchoolFooter />
       </div>
