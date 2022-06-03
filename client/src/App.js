@@ -45,7 +45,7 @@ export default function App() {
           <Route path="/noticeboard" element={<Noticeboard />} />
           <Route path="/noticeboard/new" element={<New />} />
           <Route path="/calendar" element={<Calendar user={user}/>} />
-          <Route path="/payments" element={<Payments />} />
+          <Route path="/payments" element={<Payments user={user}/>} />
         </Routes>
         <SchoolFooter />
       </div>

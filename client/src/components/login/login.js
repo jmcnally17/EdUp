@@ -82,7 +82,6 @@ export default function Login({user}) {
                     account</a></p> */}
             <p class="text-sm text-gray-500 font-serif mt-12">&copy; 2022 EdUp - All Rights Reserved.</p>
               {user ? <h5>Welcome Back {user.username}</h5> : null}
-        
           </div>
         </div>
       </section>

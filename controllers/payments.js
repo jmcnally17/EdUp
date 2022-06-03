@@ -19,7 +19,8 @@ const PaymentsController = {
     const item = {
       title: req.body.title,
       price: req.body.price,
-      paid: false
+      payee: req.body.payee,
+      paid: false,
     };
     const payment = new Payments(item)
     payment.save((err) => {
@@ -69,7 +70,7 @@ const PaymentsController = {
   PayAll: async (req, res) => {
     let successUrl;
     if (process.env.REACT_APP_HEROKU_TEST_URL) {
-      successUrl = `${process.env.REACT_APP_HEROKU_TEST_URL}/backend/payments/updatemany`; // change to cancel url when made
+      successUrl = `${process.env.REACT_APP_HEROKU_TEST_URL}/backend/payments/updatemany/`; // change to cancel url when made
     } else {
       successUrl = "http://localhost:9000/backend/payments/updatemany"; // change to success url when made
     }
@@ -95,7 +96,7 @@ const PaymentsController = {
         }
       ],
       mode: 'payment',
-      success_url: successUrl,
+      success_url: `${successUrl}/${req.params.payee}`,
       cancel_url: cancelUrl,
     });
     res.redirect(303, sessions.url)
@@ -131,7 +132,7 @@ const PaymentsController = {
       redirectUrl = "http://localhost:3000/payments"; // change to success url when made
     }
     Payments.updateMany(
-      {},
+      { payee: req.params.payee },
       { "$set": { paid: true }},
       {},
       (err, payment) => {
