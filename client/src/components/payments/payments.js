@@ -226,7 +226,7 @@ export default function Payments( {user}) {
       </form> */}
   
       <button onClick={handleSubmit} type="submit">Submit</button>
-
+      </section>
     </div>
   
   )
