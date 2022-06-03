@@ -4,6 +4,7 @@ const PaymentsController = require('../controllers/payments')
 
 router.get("/payments", PaymentsController.Index);
 router.get("/update/:id", PaymentsController.Update);
+router.get("/updatemany", PaymentsController.UpdateMany);
 router.post('/checkout/:id/:title/:price', PaymentsController.Pay);
 router.post('/createInvoice', PaymentsController.CreateInvoice);
 router.post('/checkout/all/:price', PaymentsController.PayAll);
