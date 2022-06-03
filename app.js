@@ -50,7 +50,7 @@ app.use("/backend/sessions", sessionsRouter);
 app.use("/backend/notices", noticesRouter);
 app.use("/backend/users", usersRouter);
 app.use("/backend/calendar", calendarRouter);
-app.use("/chat", chatRouter);
+app.use("/backend/chat", chatRouter);
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client/build", "index.html"));

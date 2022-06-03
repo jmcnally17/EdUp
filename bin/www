@@ -47,8 +47,8 @@ server.on("listening", onListening);
  * Socket io - Chat
  */
 
-const socketio = requie("socket.io");
-const { addUser, removeUser, getUser, getUsersInRoom } = require("./Users");
+const socketio = require("socket.io");
+const { addUser, removeUser, getUser, getUsersInRoom } = require("../models/Users");
 const io = socketio(server, {
   cors: {
     origin: "*",

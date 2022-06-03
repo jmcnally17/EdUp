@@ -3,8 +3,6 @@ const bcrypt = require("bcryptjs");
 
 const UsersController = {
   Index: (req, res) => {
-    console.log("Username");
-    console.log(req.user);
     res.send(req.user); // The req.user stores the entire user that has been authenticated inside of it.
   },
 
