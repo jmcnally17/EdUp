@@ -31,11 +31,13 @@ export default function Registration() {
         <div className="input-field col s12">
           <h4>Username</h4>
           <input
+            aria-label="username"
             placeholder="username"
             onChange={(e) => setRegisterUsername(e.target.value)}
           ></input>
           <h4>Password</h4>
           <input
+            aria-label="password"
             type="password"
             placeholder="password"
             onChange={(e) => setRegisterPassword(e.target.value)}

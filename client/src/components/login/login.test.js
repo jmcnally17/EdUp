@@ -5,7 +5,7 @@ import userEvent from "@testing-library/user-event";
 
 afterEach(cleanup);
 
-test("Login has input fields for name and password", async() => {
+test("Login has input fields for name and password", async () => {
   render(<Login />);
   expect(screen.getByText("Log in to your account")).toBeInTheDocument();
 
