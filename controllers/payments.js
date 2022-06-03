@@ -20,7 +20,7 @@ const PaymentsController = {
     if (process.env.REACT_APP_HEROKU_TEST_URL) {
       successUrl = `${process.env.REACT_APP_HEROKU_TEST_URL}`; // change to cancel url when made
     } else {
-      successUrl = "http://localhost:3000"; // change to success url when made
+      successUrl = "http://localhost:9000/backend/payments/update"; // change to success url when made
     }
 
     let cancelUrl;
@@ -44,9 +44,14 @@ const PaymentsController = {
         }
       ],
       mode: 'payment',
-      success_url: `${successUrl}`,
+      success_url: `${successUrl}/${req.params.id}`,
       cancel_url: cancelUrl,
     });
+    res.redirect(303, sessions.url)
+  
+  },
+
+  Update: (req,res) => {
     Payments.updateOne(
       { _id: req.params.id },
       { paid: true },
@@ -55,7 +60,7 @@ const PaymentsController = {
         if (err) {
           throw err;
         }
-        res.redirect(303, sessions.url)
+        res.redirect(303, "http://localhost:3000/payments")
       }
     )
   },
