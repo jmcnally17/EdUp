@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import illustration4 from "../../images/illustration4.png"
-import Typed from "react-typed"
+import Typical from 'react-typical'
 
 let urlSessions;
 if (process.env.REACT_APP_HEROKU_TEST_URL) {
@@ -20,6 +20,13 @@ if (process.env.REACT_APP_HEROKU_TEST_URL) {
 export default function Login({user}) {
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
+
+  const steps = [
+    'Kids', 1500,
+    'School', 1500,
+    'Teachers', 1500,
+    'Community', 1500,
+  ];
 
   const login = () => {
     Axios({
@@ -45,15 +52,9 @@ export default function Login({user}) {
         flex items-center justify-center">
         <div class="w-full h-100 object-position: top;">
           <h5 className="font-bold font-serif object-position: top">Keeping you connected to your...</h5>
-          <p><Typed className="font-serif"
-            strings={[
-              "Kids",
-              "School",
-              "Community"
-            ]}
-            typeSpeed={50}
-            backSpeed={50}
-            loop />
+          <p><Typical className="font-serif text-xl" wrapper="span" steps={steps}
+        loop={Infinity}
+            />
           </p>
           <h1 class="text-xl md:text-2xl font-bold leading-tight mt-12">Log in to your account</h1>
             <div>
@@ -81,7 +82,7 @@ export default function Login({user}) {
             {/* <p class="mt-8">Need an account? <a href="#" class="text-blue-500 hover:text-blue-700 font-semibold">Create an
                     account</a></p> */}
             <p class="text-sm text-gray-500 font-serif mt-12">&copy; 2022 EdUp - All Rights Reserved.</p>
-              {user ? <h5>Welcome Back {user.username}</h5> : null}
+              {/* {user ? <h5>Welcome Back {user.username}</h5> : null} */}
         
           </div>
         </div>
