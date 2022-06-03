@@ -3,10 +3,10 @@ import CreateEventButton from "./CreateEventButton";
 import SmallCalendar from "./SmallCalendar";
 import Label from "./Label";
 
-export default function Sidebar() {
+export default function Sidebar({ user }) {
   return (
     <aside className="border p-5 w-72">
-      <CreateEventButton />
+      {user.admin ? <CreateEventButton /> : null}
       <SmallCalendar />
       <Label />
     </aside>
