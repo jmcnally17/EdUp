@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Axios from "axios";
 import illustration4 from "../../images/illustration4.png"
 
-import Typed from "react-typed"
+// import Typed from "react-typed"
 
 
 
@@ -24,12 +24,12 @@ export default function Login({user}) {
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
 
-  const steps = [
-    'Kids', 1500,
-    'School', 1500,
-    'Teachers', 1500,
-    'Community', 1500,
-  ];
+  // const steps = [
+  //   'Kids', 1500,
+  //   'School', 1500,
+  //   'Teachers', 1500,
+  //   'Community', 1500,
+  // ];
 
   const login = () => {
     Axios({
@@ -56,7 +56,7 @@ export default function Login({user}) {
         <div class="w-full h-100 object-position: top;">
           <h5 className="font-bold font-serif object-position: top">Keeping you connected to your...</h5>
 
-          <p><Typed className="font-serif"
+          {/* <p><Typed className="font-serif"
             strings={[
               "Kids",
               "School",
@@ -65,7 +65,7 @@ export default function Login({user}) {
             typeSpeed={50}
             backSpeed={50}
             loop />
-          </p>
+          </p> */}
 
 
 
