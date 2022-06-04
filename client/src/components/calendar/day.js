@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import dayjs from 'dayjs'
-import CalendarGlobalContext from '../../context/CalendarGlobalContext'
+import CalendarGlobalContext from '../../context/calendarGlobalContext'
 import Popup from 'reactjs-popup';
 
 export default function Day({ day, _key, rowIdx, data, user }) {
@@ -11,8 +11,8 @@ export default function Day({ day, _key, rowIdx, data, user }) {
   }
 
   let deleteUrl;
-  if (process.env.REACT_APP_HEROKU_TEST_URL) {
-    deleteUrl = `${process.env.REACT_APP_HEROKU_TEST_URL}/backend/calendar/delete`;
+  if (process.env.REACT_APP_HEROKU_URL) {
+    deleteUrl = `${process.env.REACT_APP_HEROKU_URL}/backend/calendar/delete`;
   } else {
     deleteUrl = "http://localhost:9000/backend/calendar/delete";
   }

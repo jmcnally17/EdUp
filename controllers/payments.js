@@ -34,15 +34,15 @@ const PaymentsController = {
 
   Pay: async (req, res) => {
     let successUrl;
-    if (process.env.REACT_APP_HEROKU_TEST_URL) {
-      successUrl = `${process.env.REACT_APP_HEROKU_TEST_URL}/success`; // change to cancel url when made
+    if (process.env.REACT_APP_HEROKU_URL) {
+      successUrl = `${process.env.REACT_APP_HEROKU_URL}/backend/payments/update`; // change to cancel url when made
     } else {
-      successUrl = "http://localhost:9000/success"; // change to success url when made
+      successUrl = "http://localhost:9000/backend/payments/update"; // change to success url when made
     }
 
     let cancelUrl;
-    if (process.env.REACT_APP_HEROKU_TEST_URL) {
-      cancelUrl = `${process.env.REACT_APP_HEROKU_TEST_URL}`; // change to cancel url when made
+    if (process.env.REACT_APP_HEROKU_URL) {
+      cancelUrl = `${process.env.REACT_APP_HEROKU_URL}`; // change to cancel url when made
     } else {
       cancelUrl = "http://localhost:3000/noticeboard"; // change to cancel url when made
     }
@@ -70,15 +70,15 @@ const PaymentsController = {
 
   PayAll: async (req, res) => {
     let successUrl;
-    if (process.env.REACT_APP_HEROKU_TEST_URL) {
-      successUrl = `${process.env.REACT_APP_HEROKU_TEST_URL}/backend/payments/updatemany/`; // change to cancel url when made
+    if (process.env.REACT_APP_HEROKU_URL) {
+      successUrl = `${process.env.REACT_APP_HEROKU_URL}/backend/payments/updatemany/`; // change to cancel url when made
     } else {
       successUrl = "http://localhost:9000/backend/payments/updatemany"; // change to success url when made
     }
 
     let cancelUrl;
-    if (process.env.REACT_APP_HEROKU_TEST_URL) {
-      cancelUrl = `${process.env.REACT_APP_HEROKU_TEST_URL}`; // change to cancel url when made
+    if (process.env.REACT_APP_HEROKU_URL) {
+      cancelUrl = `${process.env.REACT_APP_HEROKU_URL}`; // change to cancel url when made
     } else {
       cancelUrl = "http://localhost:3000/noticeboard"; // change to cancel url when made
     }
@@ -105,8 +105,8 @@ const PaymentsController = {
 
   Update: (req, res) => {
     let redirectUrl;
-    if (process.env.REACT_APP_HEROKU_TEST_URL) {
-      redirectUrl = `${process.env.REACT_APP_HEROKU_TEST_URL}/success`; // change to cancel url when made
+    if (process.env.REACT_APP_HEROKU_URL) {
+      redirectUrl = `${process.env.REACT_APP_HEROKU_URL}/success`; // change to cancel url when made
     } else {
       redirectUrl = "http://localhost:3000/success"; // change to success url when made
     }
@@ -119,18 +119,29 @@ const PaymentsController = {
         if (err) {
           throw err;
         }
+        const accountSid = process.env.ACC_SID;
+        const authToken = process.env.AUTH_TOKEN;
+        const client = require('twilio')(accountSid, authToken);
+     
+        client.messages
+          .create({
+            body: 'Thank you for your payment to EdUp! ',
+            messagingServiceSid: 'MGdb35758bd8d2c959d3deebafe7d51cb1',
+            to: `+${req.user.phoneNumber}`
+          })
+          .then(message => console.log(message.sid))
+          .done();
         res.redirect(303, redirectUrl)
       }
     )
   },
 
-
   UpdateMany: (req, res) => {
     let redirectUrl;
-    if (process.env.REACT_APP_HEROKU_TEST_URL) {
-      redirectUrl = `${process.env.REACT_APP_HEROKU_TEST_URL}/payments`; // change to cancel url when made
+    if (process.env.REACT_APP_HEROKU_URL) {
+      redirectUrl = `${process.env.REACT_APP_HEROKU_URL}/success`; // change to cancel url when made
     } else {
-      redirectUrl = "http://localhost:3000/payments"; // change to success url when made
+      redirectUrl = "http://localhost:3000/success/"; // change to success url when made
     }
     Payments.updateMany(
       { payee: req.params.payee },
@@ -140,24 +151,23 @@ const PaymentsController = {
         if (err) {
           throw err;
         }
+        console.log(req.user.phoneNumber)
+        const accountSid = process.env.ACC_SID;
+        const authToken = process.env.AUTH_TOKEN;
+        const client = require('twilio')(accountSid, authToken);
+     
+        client.messages
+          .create({
+            body: 'Thank you for your payment to EdUp! ',
+            messagingServiceSid: 'MGdb35758bd8d2c959d3deebafe7d51cb1',
+            to: `+${req.user.phoneNumber}`
+          })
+          .then(message => console.log(message.sid))
+          .done();
         res.redirect(303, redirectUrl)
       }
     )
   },
-  Twilio: (req, res) => {
-    const accountSid = 'ACbd5d9bebb38ff6e46ea9426ec80f0f6d';
-    const authToken = '[AuthToken]';
-    const client = require('twilio')(accountSid, authToken);
- 
-    client.messages
-      .create({
-        body: 'Thank you for your payment to EdUp! ',
-        messagingServiceSid: 'MGdb35758bd8d2c959d3deebafe7d51cb1',
-        to: `+${req.user.phoneNumber}`
-      })
-      .then(message => console.log(message.sid))
-      .done();
-  }
 };
 
 module.exports = PaymentsController

@@ -29,4 +29,4 @@ jobs:
           # Email from Heroku Account
           heroku_email: ${{ secrets.HEROKU_EMAIL }}
           # The appname to use for deploying/updating
-          heroku_app_name: school-communication-app
+          heroku_app_name: edup-schools

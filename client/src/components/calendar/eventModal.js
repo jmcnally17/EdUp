@@ -1,18 +1,18 @@
 import React, { useContext, useState } from "react";
-import CalendarGlobalContext from "../../context/CalendarGlobalContext";
+import CalendarGlobalContext from "../../context/calendarGlobalContext";
 
 export const labelClasses = [
   "indigo",
-  "gray",
-  "green",
-  "blue",
   "red",
+  "blue",
+  "green",
   "purple",
+  "gray",
 ];
 
 let url;
-if (process.env.REACT_APP_HEROKU_TEST_URL) {
-  url = `${process.env.REACT_APP_HEROKU_TEST_URL}/backend/calendar`;
+if (process.env.REACT_APP_HEROKU_URL) {
+  url = `${process.env.REACT_APP_HEROKU_URL}/backend/calendar`;
 } else {
   url = "http://localhost:9000/backend/calendar";
 }

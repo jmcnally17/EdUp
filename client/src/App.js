@@ -6,12 +6,12 @@ import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import Login from "./components/login/login";
 import Registration from "./components/registration/registration";
-import Noticeboard from "./components/noticeboard/noticeboard.js";
+import Noticeboard from "./components/noticeboard/noticeboard";
 import New from "./components/noticeboard/new.js";
 import Sidenav from "./components/navbar/navbar";
 import Header from "./components/header/header";
 import SchoolFooter from "./components/footer/footer";
-import Calendar from "./components/calendar/Calendar";
+import Calendar from "./components/calendar/calendar";
 import Join from "./components/chat/join";
 import Room from "./components/chat/room";
 import Payments from "./components/payments/payments"
@@ -20,8 +20,8 @@ import Axios from "axios";
 
 export default function App() {
   let urlUsers;
-  if (process.env.REACT_APP_HEROKU_TEST_URL) {
-    urlUsers = `${process.env.REACT_APP_HEROKU_TEST_URL}/backend/users`;
+  if (process.env.REACT_APP_HEROKU_URL) {
+    urlUsers = `${process.env.REACT_APP_HEROKU_URL}/backend/users`;
   } else {
     urlUsers = "http://localhost:9000/backend/users";
   }

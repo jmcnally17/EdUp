@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 let url;
-if (process.env.REACT_APP_HEROKU_TEST_URL) {
-  url = `${process.env.REACT_APP_HEROKU_TEST_URL}/backend/notices`;
+if (process.env.REACT_APP_HEROKU_URL) {
+  url = `${process.env.REACT_APP_HEROKU_URL}/backend/notices`;
 } else {
   url = "http://localhost:9000/backend/notices";
 }
@@ -47,6 +47,7 @@ export default function New() {
               <div className="input-field col s12">
                 <h4>Title</h4>
                 <input
+                  aria-label="title"
                   placeholder="Title"
                   id="title"
                   type="text"
@@ -59,6 +60,7 @@ export default function New() {
               <div className="input-field col s12">
                 <h4>Description</h4>
                 <input
+                  aria-label="description"
                   placeholder="Description"
                   id="description"
                   type="text"

@@ -5,6 +5,7 @@ client/.pnp
 client/.pnp.js
 
 # testing
+coverage
 client/coverage
 
 # production

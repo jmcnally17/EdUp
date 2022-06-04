@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 let url;
-if (process.env.REACT_APP_HEROKU_TEST_URL) {
-  url = `${process.env.REACT_APP_HEROKU_TEST_URL}/backend/users`;
+if (process.env.REACT_APP_HEROKU_URL) {
+  url = `${process.env.REACT_APP_HEROKU_URL}/backend/users`;
 } else {
   url = "http://localhost:9000/backend/users";
 }
@@ -33,11 +33,13 @@ export default function Registration() {
         <div className="input-field col s12">
           <h4>Username</h4>
           <input
+            aria-label="username"
             placeholder="username"
             onChange={(e) => setRegisterUsername(e.target.value)}
           ></input>
           <h4>Password</h4>
           <input
+            aria-label="password"
             type="password"
             placeholder="password"
             onChange={(e) => setRegisterPassword(e.target.value)}
