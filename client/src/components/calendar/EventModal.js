@@ -3,11 +3,11 @@ import CalendarGlobalContext from "../../context/CalendarGlobalContext";
 
 export const labelClasses = [
   "indigo",
-  "gray",
-  "green",
-  "blue",
   "red",
+  "blue",
+  "green",
   "purple",
+  "gray",
 ];
 
 let url;
