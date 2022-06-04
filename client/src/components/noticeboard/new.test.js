@@ -5,7 +5,7 @@ import userEvent from "@testing-library/user-event";
 
 afterEach(cleanup);
 
-test("Login has input fields for name and description", async () => {
+test("New notice page has inputs fields for title and description", async () => {
   render(<New />);
 
   const titleEl = screen.getByLabelText("title");

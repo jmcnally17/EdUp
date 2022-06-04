@@ -6,11 +6,11 @@ afterEach(cleanup);
 
 test("renders the school notice board", () => {
   render(<Noticeboard />);
-  expect(screen.getByText(/School Notice Board/i)).toBeInTheDocument();
+  expect(screen.getByText("School Notice Board")).toBeInTheDocument();
 });
 
 test("has a link to make a new notice", () => {
   render(<Noticeboard />);
-  const link = screen.getByRole("link", { name: /Add New Notice/i });
+  const link = screen.getByRole("link", { name: "Add New Notice" });
   expect(link.getAttribute("href")).toBe("/noticeboard/new");
 });
