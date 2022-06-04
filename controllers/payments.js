@@ -1,6 +1,7 @@
 const Payments = require('../models/payments')
 require('dotenv').config()
 const stripe = require('stripe')(process.env.API_KEY);
+// const User = require("../models/user");
 
 const PaymentsController = {
 
@@ -102,12 +103,12 @@ const PaymentsController = {
     res.redirect(303, sessions.url)
   },
 
-  Update: (req,res) => {
+  Update: (req, res) => {
     let redirectUrl;
     if (process.env.REACT_APP_HEROKU_URL) {
-      redirectUrl = `${process.env.REACT_APP_HEROKU_URL}/payments`; // change to cancel url when made
+      redirectUrl = `${process.env.REACT_APP_HEROKU_URL}/success`; // change to cancel url when made
     } else {
-      redirectUrl = "http://localhost:3000/payments"; // change to success url when made
+      redirectUrl = "http://localhost:3000/success"; // change to success url when made
     }
 
     Payments.updateOne(
@@ -118,31 +119,55 @@ const PaymentsController = {
         if (err) {
           throw err;
         }
+        const accountSid = process.env.ACC_SID;
+        const authToken = process.env.AUTH_TOKEN;
+        const client = require('twilio')(accountSid, authToken);
+     
+        client.messages
+          .create({
+            body: 'Thank you for your payment to EdUp! ',
+            messagingServiceSid: 'MGdb35758bd8d2c959d3deebafe7d51cb1',
+            to: `+${req.user.phoneNumber}`
+          })
+          .then(message => console.log(message.sid))
+          .done();
         res.redirect(303, redirectUrl)
       }
     )
   },
 
-
-  UpdateMany: (req,res) => {
+  UpdateMany: (req, res) => {
     let redirectUrl;
     if (process.env.REACT_APP_HEROKU_URL) {
-      redirectUrl = `${process.env.REACT_APP_HEROKU_URL}/payments`; // change to cancel url when made
+      redirectUrl = `${process.env.REACT_APP_HEROKU_URL}/success`; // change to cancel url when made
     } else {
-      redirectUrl = "http://localhost:3000/payments"; // change to success url when made
+      redirectUrl = "http://localhost:3000/success/"; // change to success url when made
     }
     Payments.updateMany(
       { payee: req.params.payee },
-      { "$set": { paid: true }},
+      { "$set": { paid: true } },
       {},
       (err, payment) => {
         if (err) {
           throw err;
         }
+        console.log(req.user.phoneNumber)
+        const accountSid = process.env.ACC_SID;
+        const authToken = process.env.AUTH_TOKEN;
+        const client = require('twilio')(accountSid, authToken);
+     
+        client.messages
+          .create({
+            body: 'Thank you for your payment to EdUp! ',
+            messagingServiceSid: 'MGdb35758bd8d2c959d3deebafe7d51cb1',
+            to: `+${req.user.phoneNumber}`
+          })
+          .then(message => console.log(message.sid))
+          .done();
         res.redirect(303, redirectUrl)
       }
     )
   },
-}
+};
 
 module.exports = PaymentsController

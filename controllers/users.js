@@ -17,6 +17,7 @@ const UsersController = {
           username: req.body.username,
           password: hashedPassword,
           admin: req.body.admin,
+          phoneNumber: req.body.phoneNumber,
         });
         await newUser.save();
         res.send("User Created");

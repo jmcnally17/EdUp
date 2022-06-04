@@ -10,6 +10,7 @@ if (process.env.REACT_APP_HEROKU_URL) {
 export default function Registration() {
   const [registerUsername, setRegisterUsername] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
+  const [registerPhoneNumber, setRegisterPhoneNumber] = useState("");
 
   const register = () => {
     fetch(url, {
@@ -20,6 +21,7 @@ export default function Registration() {
         username: registerUsername,
         password: registerPassword,
         admin: false,
+        phoneNumber: registerPhoneNumber,
       }),
     }).then((response) => console.log(response.body));
   };
@@ -41,6 +43,12 @@ export default function Registration() {
             type="password"
             placeholder="password"
             onChange={(e) => setRegisterPassword(e.target.value)}
+          ></input>
+          <h4>Phone Number</h4>
+           <input
+            type="text"
+            placeholder="Phone Number"
+            onChange={(e) => setRegisterPhoneNumber(e.target.value)}
           ></input>
         </div>
         <button
