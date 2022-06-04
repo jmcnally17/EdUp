@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import Day from "./Day";
 
 let url;
-if (process.env.HEROKU_URL) {
-  url = `${process.env.HEROKU_URL}/backend/calendar/index`;
+if (process.env.REACT_APP_HEROKU_URL) {
+  url = `${process.env.REACT_APP_HEROKU_URL}/backend/calendar/index`;
 } else {
   url = "http://localhost:9000/backend/calendar/index";
 }

@@ -16,7 +16,7 @@ var paymentsRouter = require('./routes/payments')
 
 var app = express();
 
-var url = process.env.HEROKU_URL || "http://localhost:3000";
+var url = process.env.REACT_APP_HEROKU_URL || "http://localhost:3000";
 
 app.use(logger("dev"));
 app.use(express.json());

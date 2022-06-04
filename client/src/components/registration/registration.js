@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 let url;
-if (process.env.HEROKU_URL) {
-  url = `${process.env.HEROKU_URL}/backend/users`;
+if (process.env.REACT_APP_HEROKU_URL) {
+  url = `${process.env.REACT_APP_HEROKU_URL}/backend/users`;
 } else {
   url = "http://localhost:9000/backend/users";
 }

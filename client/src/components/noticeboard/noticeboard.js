@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 
 let url;
-if (process.env.HEROKU_URL) {
-  url = `${process.env.HEROKU_URL}/backend/notices/index`;
+if (process.env.REACT_APP_HEROKU_URL) {
+  url = `${process.env.REACT_APP_HEROKU_URL}/backend/notices/index`;
 } else {
   url = "http://localhost:9000/backend/notices/index";
 }
