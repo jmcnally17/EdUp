@@ -70,7 +70,10 @@ export default function Payments( {user}) {
     async function fetchMyAPI() {
       let response = await fetch(parentsUrl)
       response = await response.json()
-      setParents(response.parents)
+      setParents(response.parents.sort((a,b) => {
+        if (a.username < b.username) return -1
+        return a.username > b.username ? 1 : 0
+      }))
     }
     fetchMyAPI()
   }, [parentsUrl])
@@ -266,7 +269,8 @@ export default function Payments( {user}) {
           <h1 class="font-bold text-2xl text-gray-700 w-4/6 text-center">
             Add an Invoice
           </h1>
-          <select className = "browser-default" value = {payee} onChange={handlePayee} >
+          <select  className = "browser-default" value = {payee} onChange={handlePayee} >
+          <option hidden value=''>Select</option> 
             {parents.map((parent) => <option key={parent.username} value={parent.username}>{parent.username}</option>)}
           </select>
           <input
