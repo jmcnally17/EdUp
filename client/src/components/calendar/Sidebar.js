@@ -3,12 +3,12 @@ import CreateEventButton from "./CreateEventButton";
 import SmallCalendar from "./SmallCalendar";
 import Label from "./Label";
 
-export default function Sidebar({ user }) {
+export default function Sidebar({ user, filter }) {
   return (
     <aside className="border p-5 w-72">
       {user.admin ? <CreateEventButton /> : null}
       <SmallCalendar />
-      <Label />
+      <Label filter={filter}/>
     </aside>
   );
 }

@@ -14,14 +14,20 @@ export default function Calendar({user}) {
   useEffect(() => {
     setCurrentMonth(getMonth(monthIndex));
   }, [monthIndex]);
+
+  const [filter, setFilter] = useState(null);
+  const applyFilter = (colour) => {
+    setFilter(colour)
+  }
+
   return (
     <React.Fragment>
       {showEventModal && <EventModal />}
       <div className="h-screen flex flex-col">
         <CalendarHeader />
         <div className="flex flex-1">
-          <Sidebar user={user}/>
-          <Month month={currentMonth} user={user}/>
+          <Sidebar user={user} filter={applyFilter}/>
+          <Month month={currentMonth} user={user} colour={filter}/>
         </div>
       </div>
     </React.Fragment>
