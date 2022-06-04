@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import CalendarGlobalContext from "./CalendarGlobalContext";
+import CalendarGlobalContext from "./calendarGlobalContext";
 import dayjs from "dayjs";
 
 export default function ContextWrapper(props) {
