@@ -279,13 +279,10 @@ export default function Payments( {user}) {
         <div class="flex flex-col items-center space-y-4">
           <h1 class="font-bold text-2xl text-gray-700 w-4/6 text-center">
             Add an Invoice
-          </h1>
-          <input
-            type="text"
-            placeholder="Payee Name"
-            class="border-2 rounded-lg w-full h-12 px-4"
-            onClick={handlePayee}
-            />
+            </h1>
+            <select className = "browser-default" value = {payee} onChange={handlePayee} >
+            {parents.map((parent) => <option key={parent.username} value={parent.username}>{parent.username}</option>)}
+          </select>
             <input
             type="text"
             placeholder="Invoice Title"
