@@ -5,6 +5,7 @@ import "./input.css";
 const Input = ({ setMessage, sendMessage, message }) => (
   <form className="form">
     <input
+      aria-label="message"
       className="input"
       type="text"
       placeholder="Type a message..."

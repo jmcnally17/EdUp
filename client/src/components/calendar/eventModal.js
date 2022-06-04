@@ -1,13 +1,13 @@
 import React, { useContext, useState } from "react";
-import CalendarGlobalContext from "../../context/CalendarGlobalContext";
+import CalendarGlobalContext from "../../context/calendarGlobalContext";
 
 export const labelClasses = [
   "indigo",
-  "gray",
-  "green",
-  "blue",
   "red",
+  "blue",
+  "green",
   "purple",
+  "gray",
 ];
 
 let url;

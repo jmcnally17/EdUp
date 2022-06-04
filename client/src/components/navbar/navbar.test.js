@@ -6,6 +6,6 @@ afterEach(cleanup);
 
 test("Navbar has links to each page", () => {
   render(<Sidenav />);
-  const linkOne = screen.getByRole("link", { name: /Noticeboard/i });
+  const linkOne = screen.getByRole("link", { name: "Noticeboard" });
   expect(linkOne.getAttribute("href")).toBe("/noticeboard");
 });
