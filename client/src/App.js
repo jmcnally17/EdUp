@@ -6,12 +6,12 @@ import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import Login from "./components/login/login";
 import Registration from "./components/registration/registration";
-import Noticeboard from "./components/noticeboard/noticeboard.js";
+import Noticeboard from "./components/noticeboard/noticeboard";
 import New from "./components/noticeboard/new.js";
 import Sidenav from "./components/navbar/navbar";
 import Header from "./components/header/header";
 import SchoolFooter from "./components/footer/footer";
-import Calendar from "./components/calendar/Calendar";
+import Calendar from "./components/calendar/calendar";
 import Join from "./components/chat/join";
 import Room from "./components/chat/room";
 import Payments from "./components/payments/payments"

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Day from "./Day";
+import Day from "./day";
 
 let url;
 if (process.env.HEROKU_URL) {

@@ -1,10 +1,10 @@
 import React, { useState, useContext, useEffect } from "react";
-import CalendarHeader from "./CalendarHeader";
-import Sidebar from "./Sidebar";
-import Month from "./Month";
+import CalendarHeader from "./calendarHeader";
+import Sidebar from "./sidebar";
+import Month from "./month";
 import { getMonth } from "../../util";
-import CalendarGlobalContext from "../../context/CalendarGlobalContext";
-import EventModal from "./EventModal";
+import CalendarGlobalContext from "../../context/calendarGlobalContext";
+import EventModal from "./eventModal";
 
 export default function Calendar({user}) {
   const [currentMonth, setCurrentMonth] = useState(getMonth());

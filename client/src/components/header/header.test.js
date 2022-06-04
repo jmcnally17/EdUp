@@ -6,5 +6,5 @@ afterEach(cleanup);
 
 test("header has the name", () => {
   render(<Header />);
-  expect(screen.getByText(/Logo/i)).toBeInTheDocument();
+  expect(screen.getByText("Logo")).toBeInTheDocument();
 });

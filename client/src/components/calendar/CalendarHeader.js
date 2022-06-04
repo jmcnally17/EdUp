@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import CalendarGlobalContext from "../../context/CalendarGlobalContext";
+import CalendarGlobalContext from "../../context/calendarGlobalContext";
 import dayjs from "dayjs";
 import logo192 from "../../logo/logo192.png";
 
