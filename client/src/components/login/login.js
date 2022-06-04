@@ -7,15 +7,15 @@ import illustration4 from "../../images/illustration4.png"
 
 
 let urlSessions;
-if (process.env.HEROKU_URL) {
-  urlSessions = `${process.env.HEROKU_URL}/backend/sessions`;
+if (process.env.REACT_APP_HEROKU_URL) {
+  urlSessions = `${process.env.REACT_APP_HEROKU_URL}/backend/sessions`;
 } else {
   urlSessions = "http://localhost:9000/backend/sessions";
 }
 
 let loggedInSession;
-if (process.env.HEROKU_URL) {
-  loggedInSession = `${process.env.HEROKU_URL}/noticeboard`;
+if (process.env.REACT_APP_HEROKU_URL) {
+  loggedInSession = `${process.env.REACT_APP_HEROKU_URL}/noticeboard`;
 } else {
   loggedInSession = "http://localhost:3000/noticeboard";
 }
