@@ -1,5 +1,4 @@
 import React from 'react'
-// import TwilioConfirmation from "./twilioConfirmation"
 import paymentconfirmation from "../../images/paymentconfirmation.png"
 
 
@@ -7,7 +6,6 @@ import paymentconfirmation from "../../images/paymentconfirmation.png"
 export default function success() {
   return (
     <div>
-      {/* <TwilioConfirmation /> */}
 <div class="hero bg-white py-5">
     
     <div class="container px-4 sm:px-8 lg:px-16 xl:px-20 mx-auto">
