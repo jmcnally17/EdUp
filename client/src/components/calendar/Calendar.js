@@ -3,7 +3,7 @@ import CalendarHeader from "./calendarHeader";
 import Sidebar from "./sidebar";
 import Month from "./month";
 import { getMonth } from "../../util";
-import CalendarGlobalContext from "../../context/CalendarGlobalContext";
+import CalendarGlobalContext from "../../context/calendarGlobalContext";
 import EventModal from "./eventModal";
 
 export default function Calendar({user}) {

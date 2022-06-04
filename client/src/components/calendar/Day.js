@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import dayjs from 'dayjs'
-import CalendarGlobalContext from '../../context/CalendarGlobalContext'
+import CalendarGlobalContext from '../../context/calendarGlobalContext'
 import Popup from 'reactjs-popup';
 
 export default function Day({ day, _key, rowIdx, data, user }) {
