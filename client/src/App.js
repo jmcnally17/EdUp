@@ -17,6 +17,7 @@ import Room from "./components/chat/room";
 import Payments from "./components/payments/payments"
 import Success from "./components/payments/success"
 import Axios from "axios";
+import NewSidebar from "./components/navbar/sidebar";
 
 export default function App() {
   let urlUsers;
