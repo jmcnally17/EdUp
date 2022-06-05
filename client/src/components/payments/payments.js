@@ -122,7 +122,7 @@ export default function Payments( {user}) {
                     <h1 class="text-gray-700 font-bold text-xl">£{total}</h1>
                     <hr class="mt-3 mb-5" />
                       <div>
-                      <form action={`${paymentUrl}many/${user.username}/${total}`} method="POST">
+                      <form action={`${paymentUrl}many/${user.username}/${total}/${user.phone}`} method="POST">
                         <button type="submit" class="px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded">Checkout</button>
                       </form>
                     </div>
@@ -151,7 +151,7 @@ export default function Payments( {user}) {
                         <h1 class="text-gray-700 font-bold text-xl">£{invoice.price}</h1>
                         <hr class="mt-3 mb-5" />
                         <div> 
-                          <form action={`${paymentUrl}/${invoice._id}/${invoice.title}/${invoice.price}`} method="POST">
+                          <form action={`${paymentUrl}/${invoice._id}/${invoice.title}/${invoice.price}/${user.phone}`} method="POST">
                             <button type="submit" class="px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded">Checkout</button>
                           </form>
                         </div>

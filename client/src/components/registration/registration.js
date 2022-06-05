@@ -21,7 +21,7 @@ export default function Registration() {
         username: registerUsername,
         password: registerPassword,
         admin: false,
-        phoneNumber: registerPhoneNumber,
+        phone: registerPhoneNumber,
       }),
     }).then((response) => console.log(response.body));
   };
