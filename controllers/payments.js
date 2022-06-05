@@ -1,7 +1,6 @@
 const Payments = require('../models/payments')
 require('dotenv').config()
 const stripe = require('stripe')(process.env.API_KEY);
-// const User = require("../models/user");
 
 const PaymentsController = {
 
@@ -61,7 +60,7 @@ const PaymentsController = {
         }
       ],
       mode: 'payment',
-      success_url: `${successUrl}/${req.params.id}`,
+      success_url: `${successUrl}/${req.params.id}/${req.params.phone}`,
       cancel_url: cancelUrl,
     });
     res.redirect(303, sessions.url)
@@ -97,7 +96,7 @@ const PaymentsController = {
         }
       ],
       mode: 'payment',
-      success_url: `${successUrl}/${req.params.payee}`,
+      success_url: `${successUrl}/${req.params.payee}/${req.params.phone}`,
       cancel_url: cancelUrl,
     });
     res.redirect(303, sessions.url)
@@ -119,19 +118,20 @@ const PaymentsController = {
         if (err) {
           throw err;
         }
-        const accountSid = process.env.ACC_SID;
-        const authToken = process.env.AUTH_TOKEN;
-        const client = require('twilio')(accountSid, authToken);
+          if (err) throw err;
+          const accountSid = process.env.ACC_SID;
+          const authToken = process.env.AUTH_TOKEN;
+          const client = require('twilio')(accountSid, authToken);
      
-        client.messages
-          .create({
-            body: 'Thank you for your payment to EdUp! ',
-            messagingServiceSid: 'MGdb35758bd8d2c959d3deebafe7d51cb1',
-            to: `+${req.user.phoneNumber}`
-          })
-          .then(message => console.log(message.sid))
-          .done();
-        res.redirect(303, redirectUrl)
+          client.messages
+            .create({
+              body: 'Thank you for your payment to EdUp! ',
+              messagingServiceSid: process.env.MESSAGE_SID,
+              to: `+${req.params.phone}`
+            })
+            .then(message => console.log(message.sid))
+            .done();
+          res.redirect(303, redirectUrl)
       }
     )
   },
@@ -151,7 +151,6 @@ const PaymentsController = {
         if (err) {
           throw err;
         }
-        console.log(req.user.phoneNumber)
         const accountSid = process.env.ACC_SID;
         const authToken = process.env.AUTH_TOKEN;
         const client = require('twilio')(accountSid, authToken);
@@ -159,8 +158,8 @@ const PaymentsController = {
         client.messages
           .create({
             body: 'Thank you for your payment to EdUp! ',
-            messagingServiceSid: 'MGdb35758bd8d2c959d3deebafe7d51cb1',
-            to: `+${req.user.phoneNumber}`
+            messagingServiceSid: process.env.MESSAGE_SID,
+            to: `+${req.params.phone}`
           })
           .then(message => console.log(message.sid))
           .done();

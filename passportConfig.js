@@ -30,6 +30,7 @@ module.exports = function (passport) {
         id: user.id,
         username: user.username,
         admin: user.admin,
+        phone: user.phone,
       };
       cb(err, userInformation);
     });
