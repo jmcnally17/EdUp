@@ -16,6 +16,7 @@ import Room from "./components/chat/room";
 import Payments from "./components/payments/payments";
 import Success from "./components/payments/success";
 import Axios from "axios";
+import Qrcode from "./components/qrcode/qrcode";
 
 export default function App() {
   let urlUsers;
@@ -73,6 +74,10 @@ export default function App() {
           <Route
             path="/success"
             element={user ? <Success /> : <Navigate to="/" />}
+          />
+          <Route 
+            path="/qrcode" 
+            element={<Qrcode />} 
           />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
