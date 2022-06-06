@@ -16,6 +16,14 @@ export default class Sidenav extends Component {
   render() {
     return (
       <div>
+        <nav>
+        <nav className="light-blue lighten-1" role="navigation">
+      <div className="nav-wrapper container">
+        <a id="logo-container" href="#" className="brand-logo">
+          
+        </a>
+     
+        <a href="#" class="brand-logo center">Logo</a>
         <ul
           ref={(Sidenav) => {
             this.Sidenav = Sidenav;
@@ -23,18 +31,6 @@ export default class Sidenav extends Component {
           id="slide-out"
           className="sidenav sidenav-close"
         >
-          <li>
-            <div className="user-view">
-              <div className="background"></div>
-              <a href="#user"></a>
-              <a href="#name">
-                <span className="white-text name">John Doe</span>
-              </a>
-              <a href="#email">
-                <span className="white-text email">jdandturk@gmail.com</span>
-              </a>
-            </div>
-          </li>
           <li>
             <a href="/">
               <i className="material-icons">home</i>Home
@@ -69,10 +65,14 @@ export default class Sidenav extends Component {
               <i className="material-icons">logout</i>Logout
             </a>
           </li>
-        </ul>
-        <a href="#!" data-target="slide-out" className="sidenav-trigger white">
+            </ul>
+           
+        <a href="#!" data-target="slide-out" className="show-on-large sidenav-trigger">
           <i className="material-icons ">menu</i>
-        </a>
+              </a>
+            </div>
+          </nav>
+          </nav>
       </div>
     );
   }
