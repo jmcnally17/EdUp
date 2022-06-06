@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import payment from "../../images/payment.png"
+import schooltrip from "../../images/schooltrip.png"
 
 export default function Payments( {user}) {
   const [title, setTitle] = useState('');
@@ -97,7 +97,7 @@ export default function Payments( {user}) {
           <br></br>
           <div class="flex flex-col mb-8 animated fadeIn sm:flex-row">
             <div class="flex items-center mb-8 sm:w-1/2 md:w-7/12 sm:order-last">
-              <img class="rounded-lg" src={payment} alt="" />
+              <img class="rounded-lg" src={schooltrip} alt="" />
             </div>
             <div class="flex flex-col justify-center mt-5 mb-8 md:mt-0 sm:w-1/2 md:w-7/12 sm:pr-16">
               <h3 class="mt-2 text-2xl sm:text-left md:text-4xl">Hello {user.username}!</h3>

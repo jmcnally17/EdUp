@@ -36,27 +36,42 @@ export default class Sidenav extends Component {
             </div>
           </li>
           <li>
-            <a href="#!">
-              <i className="material-icons">cloud</i>First Link With Icon
+            <a href="/">
+              <i className="material-icons">home</i>Home
             </a>
-          </li>
-          <li>
-            <a href="/noticeboard">Noticeboard</a>
           </li>
           <li>
             <div className="divider" />
           </li>
           <li>
-            <a className="subheader">Subheader</a>
+            <a href="/noticeboard">
+              <i className="material-icons">event_note</i>Noticeboard
+            </a>
+          </li>
+         
+          <li>
+            <a href="/payments">
+              <i className="material-icons">payments</i>Payments
+            </a>
           </li>
           <li>
-            <a className="waves-effect" href="#!">
-              Third Link With Waves
+          <li>
+            <a href="/calendar">
+              <i className="material-icons">calendar_month</i>Calendar
+            </a>
+            </li>
+            <li>
+            <a href="/chat">
+              <i className="material-icons">forum</i>Chat Rooms
+            </a>
+          </li>
+            <a href="/logout">
+              <i className="material-icons">logout</i>Logout
             </a>
           </li>
         </ul>
-        <a href="#!" data-target="slide-out" className="sidenav-trigger">
-          <i className="material-icons">menu</i>
+        <a href="#!" data-target="slide-out" className="sidenav-trigger white">
+          <i className="material-icons ">menu</i>
         </a>
       </div>
     );
