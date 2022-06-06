@@ -37,15 +37,6 @@ export default function App() {
     });
   }, [urlUsers]);
 
-  const handleSubmit = () => {
-    Axios({
-      method: "POST",
-      withCredentials: true,
-      url: "http://localhost:9000/backend/sessions/logout",
-    })
-  };
-
-
   return (
     <React.Fragment>
       <div className="App">
@@ -85,7 +76,7 @@ export default function App() {
           />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
-        <button onClick={handleSubmit}>Logout</button>
+
         <SchoolFooter />
       </div>
     </React.Fragment>

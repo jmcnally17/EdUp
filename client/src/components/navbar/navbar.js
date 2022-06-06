@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import M from "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
+import Axios from 'axios';
 
 export default class Sidenav extends Component {
   componentDidMount() {
@@ -18,6 +19,14 @@ export default class Sidenav extends Component {
     fetch("/backend/users/logout", {
       method: "POST",
     });
+  };
+
+  logOut = () => {
+    Axios({
+      method: "POST",
+      withCredentials: true,
+      url: "http://localhost:9000/backend/sessions/logout",
+    })
   };
 
   render() {
@@ -71,7 +80,7 @@ export default class Sidenav extends Component {
                       <i className="material-icons">language</i>School Website
                     </a>
                   </li>
-                  <a href="/backend/users/">
+                  <a href='/' onClick={this.logOut}>
                     <i className="material-icons">logout</i>Logout
                   </a>
                 </li>
