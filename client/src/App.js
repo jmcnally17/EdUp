@@ -27,6 +27,7 @@ export default function App() {
   }
 
   const [user, setUser] = useState({});
+
   useEffect(() => {
     Axios({
       method: "GET",
@@ -44,16 +45,43 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Login user={user} />} />
           <Route path="/registration" element={<Registration />} />
-          <Route path="/noticeboard" element = {user ? <Noticeboard user={user}/> : <Navigate to='/' />} />
-          <Route path="/noticeboard/new" element={user ? <New user={user}/> : <Navigate to='/noticeboard' />} />
-          <Route path="/calendar" element={user ? <Calendar user={user}/> : <Navigate to='/' />} />
-          <Route path="/payments" element={user ? <Payments user={user}/> : <Navigate to='/' />} />
-          <Route path="/chat" element={user ? <Join user={user}/> : <Navigate to='/' />} />
-          <Route path="/chat/room" element={user ? <Room /> : <Navigate to='/' />} />
-          <Route path="/success" element={user ? <Success /> : <Navigate to='/' />} />
-          <Route path="/qrcode" element={<Qrcode />} />
-          <Route path="*" element={<Navigate to='/' replace />} />
+          <Route
+            path="/noticeboard"
+            element={user ? <Noticeboard user={user} /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/noticeboard/new"
+            element={
+              user ? <New user={user} /> : <Navigate to="/noticeboard" />
+            }
+          />
+          <Route
+            path="/calendar"
+            element={user ? <Calendar user={user} /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/payments"
+            element={user ? <Payments user={user} /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/chat"
+            element={user ? <Join user={user} /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/chat/room"
+            element={user ? <Room /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/success"
+            element={user ? <Success /> : <Navigate to="/" />}
+          />
+          <Route 
+            path="/qrcode" 
+            element={<Qrcode />} 
+          />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
+
         <SchoolFooter />
       </div>
     </React.Fragment>

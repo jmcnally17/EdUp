@@ -14,6 +14,13 @@ const SessionsController = {
       }
     })(req, res, next);
   },
+
+  Destroy: (req, res) => {
+    res.clearCookie("connect.sid");
+    res.clearCookie("rack.session");
+    req.session.destroy();
+    res.json({ msg: "You have logged out successfully!", type: "success" });
+  },
 };
 
 module.exports = SessionsController;
