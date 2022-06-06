@@ -46,6 +46,8 @@ const PaymentsController = {
       cancelUrl = "http://localhost:3000/noticeboard"; // change to cancel url when made
     }
 
+    let priceInPounds = req.params.price * 100
+
     const sessions = await stripe.checkout.sessions.create({
       line_items: [
         {
@@ -54,7 +56,7 @@ const PaymentsController = {
             product_data: {
               name: req.params.title,
             },
-            unit_amount: req.params.price,
+            unit_amount: priceInPounds,
           },
           quantity: 1,
         }
@@ -82,6 +84,8 @@ const PaymentsController = {
       cancelUrl = "http://localhost:3000/noticeboard"; // change to cancel url when made
     }
 
+    let AllPriceInPounds = req.params.price * 100
+
     const sessions = await stripe.checkout.sessions.create({
       line_items: [
         {
@@ -90,7 +94,7 @@ const PaymentsController = {
             product_data: {
               name: "All",
             },
-            unit_amount: req.params.price,
+            unit_amount: AllPriceInPounds,
           },
           quantity: 1,
         }

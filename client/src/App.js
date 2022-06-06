@@ -8,13 +8,13 @@ import Login from "./components/login/login";
 import Registration from "./components/registration/registration";
 import Noticeboard from "./components/noticeboard/noticeboard";
 import New from "./components/noticeboard/new.js";
-import Sidenav from "./components/navbar/navbar";
+import Sidenav from "./components/navbar/navbar.js";
 import SchoolFooter from "./components/footer/footer";
 import Calendar from "./components/calendar/calendar";
 import Join from "./components/chat/join";
 import Room from "./components/chat/room";
-import Payments from "./components/payments/payments"
-import Success from "./components/payments/success"
+import Payments from "./components/payments/payments";
+import Success from "./components/payments/success";
 import Axios from "axios";
 
 export default function App() {
@@ -47,7 +47,7 @@ export default function App() {
           <Route path="/noticeboard/new" element={user ? <New user={user}/> : <Navigate to='/noticeboard' />} />
           <Route path="/calendar" element={user ? <Calendar user={user}/> : <Navigate to='/' />} />
           <Route path="/payments" element={user ? <Payments user={user}/> : <Navigate to='/' />} />
-          <Route path="/chat" element={user ? <Join /> : <Navigate to='/' />} />
+          <Route path="/chat" element={user ? <Join user={user}/> : <Navigate to='/' />} />
           <Route path="/chat/room" element={user ? <Room /> : <Navigate to='/' />} />
           <Route path="/success" element={user ? <Success /> : <Navigate to='/' />} />
           <Route path="*" element={<Navigate to='/' replace />} />
