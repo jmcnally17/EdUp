@@ -15,9 +15,12 @@ const Input = ({ setMessage, sendMessage, message }) => (
         event.key === "Enter" ? sendMessage(event) : null
       }
     />
-    <button className="sendButton" onClick={(e) => sendMessage(e)}>
+    {/* <button className="sendButton" onClick={(e) => sendMessage(e)}>
       Send
-    </button>
+    </button> */}
+    <button class="btn waves-effect waves-light" type="submit" name="action" onClick={(e) => sendMessage(e)}>Send
+    <i class="material-icons right">send</i>
+  </button>
   </form>
 );
 

@@ -2,17 +2,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #1a1a1d;
+  height: 75vh;
+  background-color: #f1f1f8;
 }
 
 .containers {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: #ffffff;
-  border-radius: 18px;
-  height: 60%;
+  background: #d7dcb4;
+  border-radius: 8px;
+  height: 70%;
   width: 35%;
 }
 
