@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "start-dev": "NODE_ENV=development node ./bin/www",
+    "test": "npx jest spec",
     "heroku-postbuild": "cd client && npm install --force && npm run build"
   },
   "dependencies": {
