@@ -45,6 +45,20 @@ export default function Noticeboard( {user} ) {
     }
   }
 
+  const addNotice = () => {
+    return (
+      <div className="row center">
+        <a
+          href="/noticeboard/new"
+          id="download-button"
+          className="btn-large waves-effect waves-light orange"
+        >
+        Add New Notice
+        </a>
+      </div>
+    )
+  }
+
   const formatDate = (date) => {
     return (
       dayjs(date).format("DD/MM/YYYY")
@@ -71,15 +85,7 @@ export default function Noticeboard( {user} ) {
             </a>
           </div> */}
           <div className="row center"></div>
-          <div className="row center">
-            <a
-              href="/noticeboard/new"
-              id="download-button"
-              className="btn-large waves-effect waves-light orange"
-            >
-              Add New Notice
-            </a>
-          </div>
+          {user.admin && addNotice()}
         </div>
       </div>
 
