@@ -29,8 +29,10 @@ export default function Join({ user }) {
               {/* <h3 class="mt-2 text-2xl sm:text-left md:text-4xl">Welcome</h3> */}
               <p class="mt-5 text-lg text-gray-700 text md:text-left">These chat rooms are designed for you to connect with our admin staff and teachers.<br></br><br></br>
                     <b>Admin</b> - For any admin related matters<br></br>
+                    <b>Reception</b> - To get in touch with our Receptoion team<br></br>
                     <b>Finance</b> - To get in touch with our finance department<br></br>
-                    <b>Class</b> - Select the appropriate class to communicate with your child's teacher</p>
+                    <b>Class</b> - Select the appropriate class to communicate with your child's teacher<br></br>
+                   </p>
                 </div>
               </div>
               
