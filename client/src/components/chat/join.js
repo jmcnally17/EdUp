@@ -13,8 +13,9 @@ export default function Join({ user }) {
   const chatRooms = [
     "Admin",
     "Finance",
-    "Reception",
-    "Year1",
+    "School reception desk",
+    "Reception Year",
+    "Year 1",
     "Year 2",
     "Year 3",
     "Year 4",
@@ -37,10 +38,15 @@ export default function Join({ user }) {
             </div>
             <div class="flex flex-col justify-center mt-5 mb-8 md:mt-0 sm:w-1/2 md:w-7/12 sm:pr-16">
               {/* <h3 class="mt-2 text-2xl sm:text-left md:text-4xl">Welcome</h3> */}
-              <p class="mt-5 text-lg text-gray-700 text md:text-left">These chat rooms are designed for you to connect with our admin staff and teachers.<br></br><br></br>
-                    <b>Admin</b> - For any admin related matters<br></br>
-                    <b>Finance</b> - To get in touch with our finance department<br></br>
-                    <b>Class</b> - Select the appropriate class to communicate with your child's teacher</p>
+              
+                <p class="mt-5 text-lg text-gray-700 text md:text-left">These chat rooms are designed for you to connect with our admin staff and teachers.<br></br><br></br>
+                  <blockquote>
+                      <b>Admin</b> - For any admin related matters<br></br>
+                      <b>Finance</b> - To get in touch with our finance department<br></br>
+                      <b>Class</b> - Select the appropriate class to communicate with your child's teacher
+                  </blockquote>
+                      </p>
+             
                 </div>
               </div>
               
