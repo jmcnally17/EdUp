@@ -6,14 +6,14 @@ export default function TextContainer({ users }) {
   return (
     <div>
       {users ? (
-        <div>
-          <h1>People Currently Chatting:</h1>
-          <div>
-            <h2 style={{ color: "hsla(232, 73%, 65%, 1)" }}>
+        <div class="container">
+          <h3>People Currently Chatting:</h3>
+          <div class="section">
+            <h5 class="flow-text" style={{ color: "hsla(232, 73%, 65%, 1)" }}>
               {users.map(({ name }) => (
                 <div key={name}>{name}</div>
               ))}
-            </h2>
+            </h5>
           </div>
         </div>
       ) : null}
