@@ -3,6 +3,13 @@ import M from "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
 import Axios from 'axios';
 
+let logOutUrl;
+if (process.env.REACT_APP_HEROKU_URL) {
+  logOutUrl = `${process.env.REACT_APP_HEROKU_URL}/backend/sessions/logout`;
+} else {
+  logOutUrl = "http://localhost:9000/backend/sessions/logout";
+}
+
 export default class Sidenav extends Component {
   componentDidMount() {
     const options = {
@@ -15,17 +22,11 @@ export default class Sidenav extends Component {
     // let instance = M.Sidenav.getInstance(this.Sidenav);
   }
 
-  handleSubmit = () => {
-    fetch("/backend/users/logout", {
-      method: "POST",
-    });
-  };
-
   logOut = () => {
     Axios({
       method: "POST",
       withCredentials: true,
-      url: "http://localhost:9000/backend/sessions/logout",
+      url: logOutUrl,
     })
   };
 
