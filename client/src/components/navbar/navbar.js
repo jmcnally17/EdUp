@@ -19,11 +19,8 @@ export default class Sidenav extends Component {
         <nav>
         <nav className="light-blue lighten-1" role="navigation">
         <div className="nav-wrapper container">
-        <a id="logo-container" href="#" className="brand-logo">
-          
-        </a>
-     
-        <a href="#" class="brand-logo center">Logo</a>
+    
+        <a href="/" class="brand-logo center"><i className="material-icons">local_library</i>EdUp</a>
         <ul
           ref={(Sidenav) => {
             this.Sidenav = Sidenav;
