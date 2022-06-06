@@ -1,32 +1,30 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Join() {
-  const [name, setName] = useState("");
+export default function Join({ user }) {
+  const [name, _setName] = useState("");
   const [room, setRoom] = useState("");
-
-  const handleName = ({ target }) => {
-    setName(target.value);
-  };
 
   const handleRoom = ({ target }) => {
     setRoom(target.value);
   };
 
-  const handleClick = (e) => {
-    return room && name ? null : e.preventDefault();
-  };
+  const chatRooms = ["Admin", "Finance", "Class X", "Class Y", "Class Z"];
 
   return (
     <div>
       <h1>Join</h1>
-      <div>
-        <input placeholder="Name" type="text" onChange={handleName} />
-      </div>
-      <div>
-        <input placeholder="Room" type="text" onChange={handleRoom} />
-      </div>
-      <Link to={`/chat/room?name=${name}&room=${room}`} onClick={handleClick}>
+      <select className="browser-default" onChange={handleRoom}>
+        <option hidden value="">
+          Select chat room
+        </option>
+        {chatRooms.map((chatRoom) => (
+          <option key={chatRoom} value={chatRoom}>
+            {chatRoom}
+          </option>
+        ))}
+      </select>
+      <Link to={`/chat/room?name=${user.username}&room=${room}`}>
         <button type="submit">Sign in</button>
       </Link>
     </div>

@@ -13,8 +13,8 @@ import SchoolFooter from "./components/footer/footer";
 import Calendar from "./components/calendar/calendar";
 import Join from "./components/chat/join";
 import Room from "./components/chat/room";
-import Payments from "./components/payments/payments"
-import Success from "./components/payments/success"
+import Payments from "./components/payments/payments";
+import Success from "./components/payments/success";
 import Axios from "axios";
 
 export default function App() {
@@ -45,9 +45,9 @@ export default function App() {
           <Route path="/registration" element={<Registration />} />
           <Route path="/noticeboard" element={<Noticeboard />} />
           <Route path="/noticeboard/new" element={<New />} />
-          <Route path="/calendar" element={<Calendar user={user}/>} />
-          <Route path="/payments" element={<Payments user={user}/>} />
-          <Route path="/chat" element={<Join />} />
+          <Route path="/calendar" element={<Calendar user={user} />} />
+          <Route path="/payments" element={<Payments user={user} />} />
+          <Route path="/chat" element={<Join user={user} />} />
           <Route path="/chat/room" element={<Room />} />
           <Route path="/success" element={<Success />} />
         </Routes>
