@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import illustration4 from "../../images/illustration4.png"
-
-// import Typed from "react-typed"
-
-
+import Typed from 'typed.js';
+// import TypedReactDemo from "./typed.js"
 
 let urlSessions;
 if (process.env.REACT_APP_HEROKU_URL) {
@@ -24,12 +22,38 @@ export default function Login({user}) {
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
 
-  // const steps = [
-  //   'Kids', 1500,
-  //   'School', 1500,
-  //   'Teachers', 1500,
-  //   'Community', 1500,
-  // ];
+  const TypedReactHooksDemo = () => {
+
+    const el = React.useRef(null);
+
+    const typed = React.useRef(null);
+  
+    React.useEffect(() => {
+      const options = {
+        strings: [
+          "Kids",
+          "School",
+          "Community"
+        ],
+        typeSpeed: 50,
+        backSpeed: 50,
+        loop: true
+      };
+      
+    
+      typed.current = new Typed(el.current, options);
+      
+      return () => {
+     
+        typed.current.destroy();
+      }
+    }, [])
+    return (
+      <div className="type-wrap font-serif">
+      <span style={{ whiteSpace: 'pre' }} ref={el} />
+    </div>
+    )
+  }
 
   const login = () => {
     Axios({
@@ -56,6 +80,7 @@ export default function Login({user}) {
         <div className="w-full h-100 object-position: top;">
           <h5 className="font-bold font-serif object-position: top">Keeping you connected to your...</h5>
 
+            <TypedReactHooksDemo />
           {/* <p><Typed className="font-serif"
             strings={[
               "Kids",
@@ -66,9 +91,6 @@ export default function Login({user}) {
             backSpeed={50}
             loop />
           </p> */}
-
-
-
           <h1 className="text-xl md:text-2xl font-bold leading-tight mt-12">Log in to your account</h1>
             <div>
               <label className="block text-gray-700">Username</label>
@@ -104,37 +126,3 @@ export default function Login({user}) {
     </div>  
   );
 }
-
-  //   <div>
-  //     <div className="container">
-  //       <h1>Login</h1>
-  //       <div className="input-field col s12">
-  //         <h4>Username</h4>
-
-  //         <input
-  //           placeholder="username"
-  //           onChange={(e) => setLoginUsername(e.target.value)}
-  //         ></input>
-  //         <h4>Password</h4>
-  //         <input
-  //           type="password"
-  //           placeholder="password"
-  //           onChange={(e) => setLoginPassword(e.target.value)}
-  //         ></input>
-  //         <button
-  //           className="btn waves-effect waves-light"
-  //           type="submit"
-  //           name="action"
-  //           onClick={login}
-  //         >
-  //           Submit
-  //           <i className="material-icons right">send</i>
-  //         </button>
-  //       </div>
-  //       <div>
-  //         <h1>Get User</h1>
-  //         {user ? <h1>Welcome Back {user.username}</h1> : null}
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
