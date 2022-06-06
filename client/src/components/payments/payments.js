@@ -53,7 +53,6 @@ export default function Payments( {user} ) {
     async function fetchMyAPI() {
       let response = await fetch(invoicesUrl)
       response = await response.json()
-      console.log(response.payments);
       setInvoices(response.payments.filter((invoice) => invoice.payee === user.username))
     }
     fetchMyAPI()
