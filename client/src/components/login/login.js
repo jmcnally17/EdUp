@@ -61,12 +61,6 @@ export default function Login({ user }) {
     });
   };
 
-  const handleSubmit = () => {
-    fetch("http://localhost:9000/backend/users/logout", {
-      method: "POST",
-    });
-  };
-
   const loginForm = () => {
     return (
       <div>
