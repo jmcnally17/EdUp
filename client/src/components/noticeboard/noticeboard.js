@@ -28,7 +28,7 @@ export default function Noticeboard() {
               Keep up to date with your School{" "}
             </h5>
           </div>
-          <div className="row center">
+          {/* <div className="row center">
             <a
               href="https://makers.tech"
               id="download-button"
@@ -36,7 +36,7 @@ export default function Noticeboard() {
             >
               School website
             </a>
-          </div>
+          </div> */}
           <div className="row center"></div>
           <div className="row center">
             <a

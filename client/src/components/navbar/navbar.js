@@ -18,7 +18,7 @@ export default class Sidenav extends Component {
       <div>
         <nav>
         <nav className="light-blue lighten-1" role="navigation">
-      <div className="nav-wrapper container">
+        <div className="nav-wrapper container">
         <a id="logo-container" href="#" className="brand-logo">
           
         </a>
@@ -59,6 +59,11 @@ export default class Sidenav extends Component {
             <li>
             <a href="/chat">
               <i className="material-icons">forum</i>Chat Rooms
+            </a>
+                  </li>
+                  <li>
+            <a href="http://makers.tech">
+              <i className="material-icons">language</i>School Website
             </a>
           </li>
             <a href="/logout">
