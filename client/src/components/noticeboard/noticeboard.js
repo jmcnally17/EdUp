@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import dayjs from 'dayjs'
 
 let url;
 if (process.env.REACT_APP_HEROKU_URL) {
@@ -6,7 +7,7 @@ if (process.env.REACT_APP_HEROKU_URL) {
 } else {
   url = "http://localhost:9000/backend/notices/index";
 }
-export default function Noticeboard() {
+export default function Noticeboard( {user} ) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -17,6 +18,38 @@ export default function Noticeboard() {
     }
     fetchMyAPI();
   }, []);
+
+  let deleteUrl;
+  if (process.env.REACT_APP_HEROKU_URL) {
+    deleteUrl = `${process.env.REACT_APP_HEROKU_URL}/backend/notices/delete`;
+  } else {
+    deleteUrl = "http://localhost:9000/backend/notices/delete";
+  }
+
+  const handleDelete = (noticeId) => {
+    fetch(`${deleteUrl}/${noticeId}`, {
+      method: "DELETE",
+    })
+    window.location.reload(false);
+  }
+
+  const ifAdmin = (noticeId) => {
+    if (user.admin) {
+      return (
+        <button type="submit" onClick={() => {handleDelete(noticeId)}}>
+          <span className="material-icons-outlined text-gray-400">
+            delete
+          </span>
+        </button>
+      )
+    }
+  }
+
+  const formatDate = (date) => {
+    return (
+      dayjs(date).format("DD/MM/YYYY")
+    )
+  }
 
   return (
     <div>
@@ -61,7 +94,9 @@ export default function Noticeboard() {
                       <div className="col s12">
                         <div className="icon-block">
                           <h5 className="center">{noticeInfo.title} </h5>
-                          <p className="center"> {noticeInfo.description} </p>
+                          <p className="center">{noticeInfo.description} </p>
+                          <p className="center">{formatDate(noticeInfo.createdAt)} </p>
+                          {ifAdmin(noticeInfo._id)}
                         </div>
                       </div>
                     </li>

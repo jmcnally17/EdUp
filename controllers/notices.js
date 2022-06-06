@@ -24,6 +24,13 @@ const NoticesController = {
       res.status(201).redirect("/");
     });
   },
+
+  Delete: (req, res) => {
+    Notice.findByIdAndRemove(req.params.id, function (err, docs) {
+      if (err) res.json(err);
+      else res.status(201);
+    });
+  }
 };
 
 module.exports = NoticesController;
