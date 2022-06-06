@@ -10,10 +10,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: #d7dcb4;
-  border-radius: 8px;
+  background: #ffffff;
+  border-radius: 2px;
   height: 70%;
   width: 35%;
+  border-style: dotted;
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
