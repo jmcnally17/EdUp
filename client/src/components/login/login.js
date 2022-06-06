@@ -68,6 +68,43 @@ export default function Login({user}) {
     })
   };
 
+  const loginForm = () => {
+    return (
+      <div>
+        <h1 className="text-xl md:text-2xl font-bold leading-tight mt-12">Log in to your account</h1>
+        <div>
+          <label className="block text-gray-700">Username</label>
+          <input
+            aria-label="username"
+            placeholder="Enter Username"
+            onChange={(e) => setLoginUsername(e.target.value)}
+            className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autoFocus required>
+          </input>
+        </div>
+        <div className="mt-4">
+          <label className="block text-gray-700">Password</label>
+          <input
+            aria-label="password"
+            type="password"
+            placeholder="Enter Password"
+            onChange={(e) => setLoginPassword(e.target.value)}
+            minLength="6" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
+            focus:bg-white focus:outline-none" required>
+          </input>
+        </div>
+        <button className="w-full block bg-blue-500 hover:bg-blue-400 focus:bg-blue-400 text-white font-semibold rounded-lg
+          px-4 py-3 mt-6" type="submit" name="action" onClick={login}>Log In
+        </button>
+      </div>
+    )
+  }
+
+  const welcomeBack = () => {
+    return (
+      <h5>Welcome Back {user.username}</h5>
+    )
+  }
+
   return (
     <div>
     <section className="flex flex-col md:flex-row h-screen items-center">
@@ -80,6 +117,8 @@ export default function Login({user}) {
           <h5 className="font-bold font-serif object-position: top">Keeping you connected to your...</h5>
 
             <TypedString />
+
+            {user ? welcomeBack() : loginForm() }
           {/* <p><Typed className="font-serif"
             strings={[
               "Kids",
@@ -90,35 +129,12 @@ export default function Login({user}) {
             backSpeed={50}
             loop />
           </p> */}
-          <h1 className="text-xl md:text-2xl font-bold leading-tight mt-12">Log in to your account</h1>
-            <div>
-              <label className="block text-gray-700">Username</label>
-              <input
-                aria-label="username"
-                placeholder="Enter Username"
-                onChange={(e) => setLoginUsername(e.target.value)}
-                className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autoFocus required>
-              </input>
-            </div>
-            <div className="mt-4">
-              <label className="block text-gray-700">Password</label>
-              <input
-                aria-label="password"
-                type="password"
-                placeholder="Enter Password"
-                onChange={(e) => setLoginPassword(e.target.value)}
-                minLength="6" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
-                focus:bg-white focus:outline-none" required>
-              </input>
-            </div>
-            <button className="w-full block bg-blue-500 hover:bg-blue-400 focus:bg-blue-400 text-white font-semibold rounded-lg
-              px-4 py-3 mt-6" type="submit" name="action" onClick={login}>Log In
-            </button>
+
             <hr className="my-6 border-gray-300 w-full" />
             {/* <p className="mt-8">Need an account? <a href="#" className="text-blue-500 hover:text-blue-700 font-semibold">Create an
                     account</a></p> */}
             <p className="text-sm text-gray-500 font-serif mt-12">&copy; 2022 EdUp - All Rights Reserved.</p>
-              {user ? <h5>Welcome Back {user.username}</h5> : null}
+ 
           </div>
         </div>
       </section>
