@@ -38,12 +38,13 @@ export default function App() {
   }, [urlUsers]);
 
   const handleSubmit = () => {
-    fetch("http://localhost:9000/backend/users/logout", {
+    Axios({
       method: "POST",
-    }).then(() => {
-      setUser({});
-    });
+      withCredentials: true,
+      url: "http://localhost:9000/backend/sessions/logout",
+    })
   };
+
 
   return (
     <React.Fragment>
