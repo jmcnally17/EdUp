@@ -9,7 +9,17 @@ export default function Join({ user }) {
     setRoom(target.value);
   };
 
-  const chatRooms = ["Admin", "Finance", "Class X", "Class Y", "Class Z"];
+  const chatRooms = [
+    "Admin",
+    "Finance",
+    "Reception",
+    "Year1",
+    "Year 2",
+    "Year 3",
+    "Year 4",
+    "Year 5",
+    "Year 6",
+  ];
 
   return (
     <div>
