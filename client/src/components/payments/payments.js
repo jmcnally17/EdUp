@@ -216,9 +216,11 @@ export default function Payments( {user} ) {
 
   return (
     <div>
+      <center>
       <section class="py-20 bg-white">
         {user.admin? createInvoice() : payInvoice()}
-      </section>
+        </section>
+        </center>
     </div>
   )
 }
