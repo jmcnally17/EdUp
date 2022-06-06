@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import dayjs from 'dayjs'
 
 let url;
 if (process.env.REACT_APP_HEROKU_URL) {
@@ -44,6 +45,12 @@ export default function Noticeboard( {user} ) {
     }
   }
 
+  const formatDate = (date) => {
+    return (
+      dayjs(date).format("DD/MM/YYYY")
+    )
+  }
+
   return (
     <div>
       <div className="section no-pad-bot" id="index-banner">
@@ -87,7 +94,8 @@ export default function Noticeboard( {user} ) {
                       <div className="col s12">
                         <div className="icon-block">
                           <h5 className="center">{noticeInfo.title} </h5>
-                          <p className="center"> {noticeInfo.description} </p>
+                          <p className="center">{noticeInfo.description} </p>
+                          <p className="center">{formatDate(noticeInfo.createdAt)} </p>
                           {ifAdmin(noticeInfo._id)}
                         </div>
                       </div>
