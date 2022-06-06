@@ -2,8 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #1a1a1d;
+  height: 75vh;
+  background-color: #f1f1f8;
 }
 
 .containers {
@@ -11,9 +11,10 @@
   flex-direction: column;
   justify-content: space-between;
   background: #ffffff;
-  border-radius: 18px;
-  height: 60%;
+  border-radius: 2px;
+  height: 70%;
   width: 35%;
+  border-style: dotted;
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
