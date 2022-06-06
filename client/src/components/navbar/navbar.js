@@ -60,6 +60,11 @@ export default class Sidenav extends Component {
             <a href="/chat">
               <i className="material-icons">forum</i>Chat Rooms
             </a>
+                  </li>
+                  <li>
+            <a href="http://makers.tech">
+              <i className="material-icons">language</i>School Website
+            </a>
           </li>
             <a href="/logout">
               <i className="material-icons">logout</i>Logout
