@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Axios from "axios";
 import illustration4 from "../../images/illustration4.png"
 import Typed from 'typed.js';
-// import TypedReactDemo from "./typed.js"
 
 let urlSessions;
 if (process.env.REACT_APP_HEROKU_URL) {
@@ -22,7 +21,7 @@ export default function Login({user}) {
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
 
-  const TypedReactHooksDemo = () => {
+  const TypedString = () => {
 
     const el = React.useRef(null);
 
@@ -80,7 +79,7 @@ export default function Login({user}) {
         <div className="w-full h-100 object-position: top;">
           <h5 className="font-bold font-serif object-position: top">Keeping you connected to your...</h5>
 
-            <TypedReactHooksDemo />
+            <TypedString />
           {/* <p><Typed className="font-serif"
             strings={[
               "Kids",
