@@ -71,18 +71,18 @@ Here are some images to show what our app looks like:
 - Logged in users are able to access the navigation bar at the side to navigate around the website
 - If you are not logged in, you are redirected to the login page
 - Users are split into two different user groups - admins (teachers) and non-admins (parents)
-- Admins are able to create notices on the noticeboard
-- Admins are able to delete notices from the noticeboard
+- Teachers are able to create notices on the noticeboard
+- Teachers are able to delete notices from the noticeboard
 - Parents are able to see notices that have been created with the date that they were created on
 - Parents who try to go on the URL to create notices are redirected back to the noticeboard
-- Admins are able to create calendar events with a title, description and a label 
-- Admins are able to delete calendar events
+- Teachers are able to create calendar events with a title, description and a label 
+- Teachers are able to delete calendar events
 - Parents are able to see calendar events that have been created
 - Calendar events with titles that are too long are shortened and then given a `...` at the end of them
 - Clicking a event on the calendar brings up the event with it's full title and description
 - Clicking the labels at the legend filters the events to only display what is chosen
 - Clicking 'Today' takes the user back to the current day/month
-- Admins are able to create invoices by selecting the parent the invoice is for, then adding a title and a amount
+- Teachers are able to create invoices by selecting the parent the invoice is for, then adding a title and a amount
 - Parents are listed in alphabetical order when selecting them to create the invoice
 - Parents are able to see only their invoices
 - Parents are able to see the sum of their invoices and be able to pay it in a single transaction, rather than paying one by one
