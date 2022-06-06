@@ -127,14 +127,14 @@ const PaymentsController = {
           const authToken = process.env.AUTH_TOKEN;
           const client = require('twilio')(accountSid, authToken);
      
-          client.messages
-            .create({
-              body: 'Thank you for your payment to EdUp! ',
-              messagingServiceSid: process.env.MESSAGE_SID,
-              to: `+${req.params.phone}`
-            })
-            .then(message => console.log(message.sid))
-            .done();
+          client.messages 
+          .create({ 
+            body: 'Thank you for your payment to EdUp! ', 
+            from: 'whatsapp:+14155238886',       
+            to: 'whatsapp:+447824701051' 
+          }) 
+          .then(message => console.log(message.sid)) 
+          .done();
           res.redirect(303, redirectUrl)
       }
     )
@@ -159,13 +159,13 @@ const PaymentsController = {
         const authToken = process.env.AUTH_TOKEN;
         const client = require('twilio')(accountSid, authToken);
      
-        client.messages
-          .create({
-            body: 'Thank you for your payment to EdUp! ',
-            messagingServiceSid: process.env.MESSAGE_SID,
-            to: `+${req.params.phone}`
-          })
-          .then(message => console.log(message.sid))
+        client.messages 
+          .create({ 
+            body: 'Thank you for your payment to EdUp! ', 
+            from: 'whatsapp:+14155238886',       
+            to: 'whatsapp:+447824701051' 
+          }) 
+          .then(message => console.log(message.sid)) 
           .done();
         res.redirect(303, redirectUrl)
       }

@@ -78,7 +78,8 @@ export default function Join({ user }) {
         </div>
             </div>
             
-        
+               
+
       </div>
     
       </section>
