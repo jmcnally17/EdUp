@@ -23,7 +23,7 @@ export default class Sidenav extends Component {
           
         </a>
      
-        <a href="#" class="brand-logo center">Logo</a>
+        <a href="#" class="brand-logo center"><i className="material-icons">local_library</i>EdUp</a>
         <ul
           ref={(Sidenav) => {
             this.Sidenav = Sidenav;
