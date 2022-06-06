@@ -66,15 +66,7 @@ export default function SchoolFooter() {
         </div>
       </div>
       <div className="footer-copyright">
-        <div className="container">
-          Made by{" "}
-          <a
-            className="orange-text text-lighten-3"
-            href="http://materializecss.com"
-          >
-            Materialize
-          </a>
-        </div>
+        
       </div>
     </footer>
   );
