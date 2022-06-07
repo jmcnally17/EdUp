@@ -97,3 +97,5 @@ Here are some images to show what our app looks like:
 - There is a message in the chatroom for when a user joins or leaves
 - Teachers are able to generate QR codes
 
+## Notes
+Due to the nature of our product, we do not want people who are not authorised to be able to sign up - and so, only teachers/admins will be able to create user accounts for parents. In order for the general public to see our webpage and experience it, we have included a registration page (`/registration`) which can be used to create a teacher/admin account - this will not be in the final website. This admin account can then be logged into and then be used to create regular accounts intended for parents.
