@@ -24,11 +24,13 @@ Technologies used:
 - [MongoDB Atlas](https://www.mongodb.com/atlas/database) for hosting our database
 - [MaterializeCSS](https://materializecss.com/) for CSS
 - [TailwindCSS](https://tailwindcss.com/) for CSS
+- [UnDraw](https://undraw.co/) for illustrations
 - [StripeAPI](https://stripe.com/) for our Payment system
 - [TwilioAPI](https://www.twilio.com/) for our text confirmation system
 - [Jest](https://jestjs.io/) for testing
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) for testing
 - [Github](https://github.com/jmcnally17/EdUp) for hosting our code, version control and GithubActions used for CD
+
 
 
 ## Instructions

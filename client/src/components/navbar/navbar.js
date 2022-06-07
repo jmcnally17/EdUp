@@ -92,6 +92,11 @@ export default class Sidenav extends Component {
                     </a>
                   </li>
                   <li>
+                    <a href="/updatePassword">
+                      <i className="material-icons">lock</i>Update Password
+                    </a>
+                  </li>
+                  <li>
                     <a href="http://makers.tech">
                       <i className="material-icons">language</i>School Website
                     </a>

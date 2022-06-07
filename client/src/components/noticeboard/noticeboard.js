@@ -86,7 +86,7 @@ export default function Noticeboard( {user} ) {
           <h1 className="header center orange-text">School Notice Board</h1>
           <div className="row center">
             <h5 className="header col s12 light">
-              Keep up to date with your School{" "}
+              Keep up to date with your School
             </h5>
           </div>
           <div className="row center"></div>
