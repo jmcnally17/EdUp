@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import dayjs from "dayjs";
+import dayjs from 'dayjs'
 
 let url;
 if (process.env.REACT_APP_HEROKU_URL) {
@@ -7,7 +7,7 @@ if (process.env.REACT_APP_HEROKU_URL) {
 } else {
   url = "http://localhost:9000/backend/notices/index";
 }
-export default function Noticeboard({ user }) {
+export default function Noticeboard( {user} ) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -29,24 +29,19 @@ export default function Noticeboard({ user }) {
   const handleDelete = (noticeId) => {
     fetch(`${deleteUrl}/${noticeId}`, {
       method: "DELETE",
-    });
+    })
     window.location.reload(false);
-  };
+  }
 
-  const ifAdminDelete = (noticeId) => {
+  const ifAdmin = (noticeId) => {
     if (user.admin) {
       return (
-        <button
-          type="submit"
-          onClick={() => {
-            handleDelete(noticeId);
-          }}
-        >
-          <span className="material-icons-outlined text-gray-400">delete</span>
-        </button>
-      );
+        <a className="btn-floating btn-large waves-effect waves-light orange right" type="submit" onClick={() => {handleDelete(noticeId)}}>
+          <i className="material-icons-two-tone">delete_forever</i>
+        </a>
+      )
     }
-  };
+  }
 
   const addNotice = () => {
     return (
@@ -59,26 +54,15 @@ export default function Noticeboard({ user }) {
         Add New Notice
         </a>
       </div>
-    );
-  };
+    )
+  }
 
   const formatDate = (date) => {
-    return dayjs(date).format("DD/MM/YYYY");
-  };
-
-  const ifAdminQr = () => {
     return (
-      <div className="row center">
-        <a
-          href="/qrcode"
-          id="qr-code"
-          className="btn-large waves-effect waves-light orange"
-        >
-          Create A QRCode
-        </a>
-      </div>
-    );
-  };
+      dayjs(date).format("DD/MM/YYYY")
+    )
+  }
+
   return (
     <div>
       <div className="section no-pad-bot" id="index-banner">
@@ -86,9 +70,10 @@ export default function Noticeboard({ user }) {
           <h1 className="header center orange-text">School Notice Board</h1>
           <div className="row center">
             <h5 className="header col s12 light">
-              Keep up to date with your School
+              Keep up to date with your School{" "}
             </h5>
           </div>
+
           <div className="row center"></div>
           {user.admin && addNotice()}
         </div>
@@ -106,10 +91,8 @@ export default function Noticeboard({ user }) {
                         <div className="icon-block">
                           <h5 className="center">{noticeInfo.title} </h5>
                           <p className="center">{noticeInfo.description} </p>
-                          <p className="center">
-                            {formatDate(noticeInfo.createdAt)}{" "}
-                          </p>
-                          {ifAdminDelete(noticeInfo._id)}
+                          <p className="center">{formatDate(noticeInfo.createdAt)} </p>
+                          {ifAdmin(noticeInfo._id)}
                         </div>
                       </div>
                     </li>
