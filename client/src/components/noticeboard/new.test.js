@@ -6,7 +6,11 @@ import userEvent from "@testing-library/user-event";
 afterEach(cleanup);
 
 test("New notice page has inputs fields for title and description", async () => {
-  render(<New />);
+  const fakeUser = {
+    admin: true
+  }
+
+  render(<New user={fakeUser} />);
 
   const titleEl = screen.getByLabelText("title");
   expect(titleEl.value).toBe("");
