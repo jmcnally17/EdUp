@@ -34,7 +34,27 @@ const UsersController = {
         parents: parents
       })
     }
-  )}
+    )
+  },
+  UpdatePassword: (req, res) => {
+    User.findOne({ id: req.body.id }, async (err, doc) => {
+      if (err) throw err;
+      {
+        const hashedPassword = await bcrypt.hash(req.body.password, 10);
+        User.updateOne(
+          { _id: req.body.id },
+          { password: hashedPassword },
+          {},
+          (err, doc) => {
+            if (err) {
+              throw err;
+            }
+            console.log(req.body.id);
+          }
+        );
+      }
+    })
+  }
 };
 
 module.exports = UsersController;
