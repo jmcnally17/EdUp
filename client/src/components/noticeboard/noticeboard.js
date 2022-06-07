@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import dayjs from 'dayjs'
+import dayjs from "dayjs";
 
 let url;
 if (process.env.REACT_APP_HEROKU_URL) {
@@ -7,7 +7,7 @@ if (process.env.REACT_APP_HEROKU_URL) {
 } else {
   url = "http://localhost:9000/backend/notices/index";
 }
-export default function Noticeboard( {user} ) {
+export default function Noticeboard({ user }) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -29,21 +29,24 @@ export default function Noticeboard( {user} ) {
   const handleDelete = (noticeId) => {
     fetch(`${deleteUrl}/${noticeId}`, {
       method: "DELETE",
-    })
+    });
     window.location.reload(false);
-  }
+  };
 
   const ifAdminDelete = (noticeId) => {
     if (user.admin) {
       return (
-        <button type="submit" onClick={() => {handleDelete(noticeId)}}>
-          <span className="material-icons-outlined text-gray-400">
-            delete
-          </span>
+        <button
+          type="submit"
+          onClick={() => {
+            handleDelete(noticeId);
+          }}
+        >
+          <span className="material-icons-outlined text-gray-400">delete</span>
         </button>
-      )
+      );
     }
-  }
+  };
 
   const addNotice = () => {
     return (
@@ -53,17 +56,15 @@ export default function Noticeboard( {user} ) {
           id="download-button"
           className="btn-large waves-effect waves-light orange"
         >
-        Add New Notices
+          Add New Notices
         </a>
       </div>
-    )
-  }
+    );
+  };
 
   const formatDate = (date) => {
-    return (
-      dayjs(date).format("DD/MM/YYYY")
-    )
-  }
+    return dayjs(date).format("DD/MM/YYYY");
+  };
 
   const ifAdminQr = () => {
     return (
@@ -73,11 +74,11 @@ export default function Noticeboard( {user} ) {
           id="qr-code"
           className="btn-large waves-effect waves-light orange"
         >
-        Create A QRCode 
+          Create A QRCode
         </a>
       </div>
-    )
-  }
+    );
+  };
 
   return (
     <div>
@@ -89,15 +90,6 @@ export default function Noticeboard( {user} ) {
               Keep up to date with your School{" "}
             </h5>
           </div>
-          {/* <div className="row center">
-            <a
-              href="https://makers.tech"
-              id="download-button"
-              className="btn-large waves-effect waves-light orange"
-            >
-              School website
-            </a>
-          </div> */}
           <div className="row center"></div>
           {user.admin && addNotice()}
           {user.admin && ifAdminQr()}
@@ -116,7 +108,9 @@ export default function Noticeboard( {user} ) {
                         <div className="icon-block">
                           <h5 className="center">{noticeInfo.title} </h5>
                           <p className="center">{noticeInfo.description} </p>
-                          <p className="center">{formatDate(noticeInfo.createdAt)} </p>
+                          <p className="center">
+                            {formatDate(noticeInfo.createdAt)}{" "}
+                          </p>
                           {ifAdminDelete(noticeInfo._id)}
                         </div>
                       </div>
