@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import M from "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
-import Axios from 'axios';
+import Axios from "axios";
 
 let logOutUrl;
 if (process.env.REACT_APP_HEROKU_URL) {
@@ -11,6 +11,9 @@ if (process.env.REACT_APP_HEROKU_URL) {
 }
 
 export default class Sidenav extends Component {
+  constructor(props) {
+    super(props);
+  }
   componentDidMount() {
     const options = {
       inDuration: 250,
@@ -27,7 +30,19 @@ export default class Sidenav extends Component {
       method: "POST",
       withCredentials: true,
       url: logOutUrl,
-    })
+    });
+  };
+
+  ifAdmin = () => {
+    if (this.props.user.admin === true) {
+      return (
+        <li>
+          <a href="/parent-registration">
+            <i className="material-icons">person_add</i>New Parent Account
+          </a>
+        </li>
+      );
+    }
   };
 
   render() {
@@ -85,8 +100,9 @@ export default class Sidenav extends Component {
                     <a href="http://makers.tech">
                       <i className="material-icons">language</i>School Website
                     </a>
+                    {this.ifAdmin()}
                   </li>
-                  <a href='/' onClick={this.logOut}>
+                  <a href="/" onClick={this.logOut}>
                     <i className="material-icons">logout</i>Logout
                   </a>
                 </li>

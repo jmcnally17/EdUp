@@ -33,7 +33,7 @@ export default function Noticeboard( {user} ) {
     window.location.reload(false);
   }
 
-  const ifAdmin = (noticeId) => {
+  const ifAdminDelete = (noticeId) => {
     if (user.admin) {
       return (
         <button type="submit" onClick={() => {handleDelete(noticeId)}}>
@@ -53,7 +53,7 @@ export default function Noticeboard( {user} ) {
           id="download-button"
           className="btn-large waves-effect waves-light orange"
         >
-        Add New Notice
+        Add New Notices
         </a>
       </div>
     )
@@ -62,6 +62,20 @@ export default function Noticeboard( {user} ) {
   const formatDate = (date) => {
     return (
       dayjs(date).format("DD/MM/YYYY")
+    )
+  }
+
+  const ifAdminQr = () => {
+    return (
+      <div className="row center">
+        <a
+          href="/qrcode"
+          id="qr-code"
+          className="btn-large waves-effect waves-light orange"
+        >
+        Create A QRCode 
+        </a>
+      </div>
     )
   }
 
@@ -77,6 +91,7 @@ export default function Noticeboard( {user} ) {
           </div>
           <div className="row center"></div>
           {user.admin && addNotice()}
+          {user.admin && ifAdminQr()}
         </div>
       </div>
 
@@ -93,7 +108,7 @@ export default function Noticeboard( {user} ) {
                           <h5 className="center">{noticeInfo.title} </h5>
                           <p className="center">{noticeInfo.description} </p>
                           <p className="center">{formatDate(noticeInfo.createdAt)} </p>
-                          {ifAdmin(noticeInfo._id)}
+                          {ifAdminDelete(noticeInfo._id)}
                         </div>
                       </div>
                     </li>

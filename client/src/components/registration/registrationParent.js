@@ -20,7 +20,7 @@ export default function Registration() {
       body: JSON.stringify({
         username: registerUsername,
         password: registerPassword,
-        admin: true,
+        admin: false,
         phone: registerPhoneNumber,
       }),
     }).then((response) => console.log(response.body));
@@ -29,7 +29,7 @@ export default function Registration() {
   return (
     <div>
       <div className="container">
-        <h1>Register</h1>
+        <h1>Register Parent Account</h1>
         <div className="input-field col s12">
           <h4>Username</h4>
           <input
@@ -45,7 +45,7 @@ export default function Registration() {
             onChange={(e) => setRegisterPassword(e.target.value)}
           ></input>
           <h4>Phone Number</h4>
-           <input
+          <input
             type="text"
             placeholder="Phone Number"
             onChange={(e) => setRegisterPhoneNumber(e.target.value)}

@@ -162,8 +162,8 @@ const PaymentsController = {
         client.messages 
           .create({ 
             body: 'Thank you for your payment to EdUp! ', 
-            from: 'whatsapp:+14155238886',       
-            to: 'whatsapp:+447824701051' 
+            from: process.env.TWILIO_WHATSAPP,     
+            to: process.env.WHATSAPP,
           }) 
           .then(message => console.log(message.sid)) 
           .done();
