@@ -63,11 +63,16 @@ export default class Sidenav extends Component {
               >
                 <li>
                   <a href="/">
-                    <i className="material-icons">home</i>Home
+                    <i className="material-icons">local_library</i>EdUp
                   </a>
                 </li>
                 <li>
                   <div className="divider" />
+                </li>
+                <li>
+                  <a href="/">
+                    <i className="material-icons">home</i>Home
+                  </a>
                 </li>
                 <li>
                   <a href="/noticeboard">
