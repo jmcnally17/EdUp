@@ -20,7 +20,7 @@ export default function Registration() {
       body: JSON.stringify({
         username: registerUsername,
         password: registerPassword,
-        admin: false,
+        admin: true,
         phone: registerPhoneNumber,
       }),
     }).then((response) => console.log(response.body));
