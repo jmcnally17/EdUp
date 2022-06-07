@@ -21,8 +21,6 @@ export default class Sidenav extends Component {
       draggable: true,
     };
     M.Sidenav.init(this.Sidenav, options);
-
-    // let instance = M.Sidenav.getInstance(this.Sidenav);
   }
 
   logOut = () => {
