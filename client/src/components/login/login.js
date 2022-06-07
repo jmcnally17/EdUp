@@ -47,7 +47,7 @@ export default function Login({ user }) {
     );
   };
 
-  const login = () => {
+  const login = (err, data) => {
     Axios({
       method: "POST",
       data: {
@@ -56,9 +56,12 @@ export default function Login({ user }) {
       },
       withCredentials: true,
       url: urlSessions,
-    }).then(() => {
-      window.location.href = `${loggedInSession}`;
-    });
+    })
+      .catch(error => {
+        window.alert("Invalid credentials. Please try again")
+      }).then(() => {
+        window.location.href = `${loggedInSession}`;
+      })
   };
 
   const loginForm = () => {
