@@ -1,5 +1,5 @@
 import React from "react";
-import CreateEventButton from "./CreateEventButton";
+import CreateEventButton from "./createEventButton";
 import { render, screen, cleanup } from "@testing-library/react";
 
 afterEach(cleanup);
