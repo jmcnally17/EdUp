@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import chat from "../../images/chat.png"
 
 export default function Join({ user }) {
-  const [name, _setName] = useState("");
   const [room, setRoom] = useState("");
 
   const handleRoom = ({ target }) => {
@@ -69,9 +68,11 @@ export default function Join({ user }) {
           </option>
         ))}
       </select>
-      <Link to={`/chat/room?name=${user.username}&room=${room}`} >
+      <a href={`/chat/room?name=${user.username}&room=${room}`} className="bg-black text-white rounded-md hover:bg-red-500 font-semibold px-4 py-3 w-full">Sign in</a>
+
+      {/* <Link to={`/chat/room?name=${user.username}&room=${room}`} >
         <button className="bg-black text-white rounded-md hover:bg-red-500 font-semibold px-4 py-3 w-full" type="submit">Sign in</button>
-      </Link>
+      </Link> */}
               </div>
               </div>
               

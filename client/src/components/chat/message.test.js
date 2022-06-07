@@ -5,15 +5,12 @@ import { render, screen, cleanup } from "@testing-library/react";
 afterEach(cleanup);
 
 describe("Message", () => {
-  it("Message", () => {
-    const fakeText = "Testing text";
-    const fakeUser = "Test username"
-    const fakeName = "Test name";
-    const fakeMessage = { fakeText, fakeUser };
-    console.log(fakeMessage);
-    console.log("hello");
+  it("renders message details", () => {
+    const fakeName = "Test username";
+    const fakeMessage = { user: "Test username", text: "Testing text" };
     render(<Message message={fakeMessage} name={fakeName} />);
 
-    expect(screen.getByText("testing text")).toBeInTheDocument();
+    expect(screen.getByText("Test username")).toBeInTheDocument();
+    expect(screen.getByText("Testing text")).toBeInTheDocument();
   });
 });

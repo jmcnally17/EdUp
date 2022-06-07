@@ -1,8 +1,6 @@
 import React from "react";
 import Join from "./join";
-import { Routes, Route } from "react-router-dom";
 import { render, screen, cleanup } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 
 afterEach(cleanup);
 
@@ -11,10 +9,11 @@ describe("Join", () => {
     const fakeUser = {
       username: "Test"
     }
-    render(<div>
-    <Routes>
-    <Route path="/" element={<Join user={fakeUser} />} />
-    </Routes>
-    </div>);
+    render(<Join user={fakeUser} />);
+
+    expect(screen.getByText("Join a chat room")).toBeInTheDocument();
+    expect(screen.getAllByRole("option").length).toBe(10)
+    expect(screen.getByRole('link', { name: "Sign in" })).toBeInTheDocument();
+
   });
 });

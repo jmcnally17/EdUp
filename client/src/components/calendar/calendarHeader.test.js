@@ -5,7 +5,7 @@ import { render, screen, cleanup } from "@testing-library/react";
 afterEach(cleanup);
 
 describe("Calendar Header", () => {
-  it("Header has the title Calendar", () => {
+  it("has the buttons to navigate between months", () => {
     render(<CalendarHeader />);
     expect(screen.getByText("Calendar")).toBeInTheDocument();
   
