@@ -70,8 +70,8 @@ export default class Sidenav extends Component {
                 className="sidenav sidenav-close"
               >
                 <li>
-                  <a href="/">
-                    <i className="material-icons">local_library</i>EdUp
+                  <a href="/" className="orange-text">
+                    <i className="material-icons orange-text">local_library</i>EdUp
                   </a>
                 </li>
                 <li>
