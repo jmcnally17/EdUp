@@ -77,7 +77,7 @@ export default function App() {
           />
           <Route 
             path="/qrcode" 
-            element={<Qrcode />} 
+            element={user ? <Qrcode user={user}/> : <Navigate to="/" />} 
           />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
