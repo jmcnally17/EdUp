@@ -20,4 +20,3 @@ describe("Input", () => {
     expect(sendButton).toBeInTheDocument();
   });
 });
-

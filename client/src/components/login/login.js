@@ -47,7 +47,7 @@ export default function Login({ user }) {
     );
   };
 
-  const login = () => {
+  const login = (err, data) => {
     Axios({
       method: "POST",
       data: {
@@ -56,9 +56,12 @@ export default function Login({ user }) {
       },
       withCredentials: true,
       url: urlSessions,
-    }).then(() => {
-      window.location.href = `${loggedInSession}`;
-    });
+    })
+      .catch(error => {
+        window.alert("Invalid credentials. Please try again")
+      }).then(() => {
+        window.location.href = `${loggedInSession}`;
+      })
   };
 
   const loginForm = () => {
@@ -130,20 +133,7 @@ export default function Login({ user }) {
             <TypedString />
 
             {user ? welcomeBack() : loginForm()}
-            {/* <p><Typed className="font-serif"
-            strings={[
-              "Kids",
-              "School",
-              "Community"
-            ]}
-            typeSpeed={50}
-            backSpeed={50}
-            loop />
-          </p> */}
-
             <hr className="my-6 border-gray-300 w-full" />
-            {/* <p className="mt-8">Need an account? <a href="#" className="text-blue-500 hover:text-blue-700 font-semibold">Create an
-                    account</a></p> */}
             <p className="text-sm text-gray-500 font-serif mt-12">
               &copy; 2022 EdUp - All Rights Reserved.
             </p>

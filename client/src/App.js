@@ -17,6 +17,9 @@ import Payments from "./components/payments/payments";
 import Success from "./components/payments/success";
 import Axios from "axios";
 import Qrcode from "./components/qrcode/qrcode";
+import UpdatePassword from "./components/registration/updatePassword";
+import ParentRegistration from "./components/registration/registrationParent";
+
 
 export default function App() {
   let urlUsers;
@@ -41,7 +44,7 @@ export default function App() {
   return (
     <React.Fragment>
       <div className="App">
-        {user ? <Sidenav /> : null}
+        {user ? <Sidenav user={user} /> : null}
         <Routes>
           <Route path="/" element={<Login user={user} />} />
           <Route path="/registration" element={<Registration />} />
@@ -75,11 +78,19 @@ export default function App() {
             path="/success"
             element={user ? <Success /> : <Navigate to="/" />}
           />
-          <Route 
-            path="/qrcode" 
-            element={<Qrcode />} 
+          <Route
+            path="/qrcode"
+            element={user ? <Qrcode user={user} /> : <Navigate to="/" />}
           />
           <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="/updatePassword" element={user ? <UpdatePassword user={user} /> : <Navigate to="/" />} />
+          <Route
+            path="/parent-registration"
+            element={
+              user ? <ParentRegistration user={user} /> : <Navigate to="/" />
+            }
+          />
+          ;
         </Routes>
 
         <SchoolFooter />

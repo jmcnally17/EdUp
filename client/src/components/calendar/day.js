@@ -66,7 +66,7 @@ export default function Day({ day, _key, rowIdx, data, user }) {
    
           return (
             <div key={key}>
-              <Popup trigger={<button className={`bg-${event.selectedLabel}-200 w-full`}>
+              <Popup trigger={<button className={`bg-${event.selectedLabel}-500 w-full text-white`}>
                 {event.day === day.format("DD") && event.month === day.format("MM") && event.year === day.format("YY") ? shorten : null}
               </button>}
                 position="left center"

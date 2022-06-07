@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import CalendarGlobalContext from "../../context/calendarGlobalContext";
 import dayjs from "dayjs";
-import logo192 from "../../logo/logo192.png";
+import local192 from "../../logo/local192.png";
 
 export default function CalendarHeader() {
   const { monthIndex, setMonthIndex } = useContext(CalendarGlobalContext);
@@ -20,9 +20,9 @@ export default function CalendarHeader() {
   }
   return (
     <header className="px-4 py-2 flex items-center">
-      <img src={logo192} alt="calendar" className="mr-2 w-20 h-20" />
-      <h1 className="mr-10 text-xl text-gray-500 fond-bold">Calendar</h1>
-      <button onClick={handleReset} className="border rounded py-2 px-4 mr-5">
+      <img src={local192} alt="calendar" className="mr-2 w-15 h-15" />
+      <h1 className="mr-12 text-xl text-gray-800 fond-bold">  Calendar</h1>
+      <button onClick={handleReset} className="border rounded py-3 px-6 mr-7">
         Today
       </button>
       <button onClick={handlePrevMonth}>

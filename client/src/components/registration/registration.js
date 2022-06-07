@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Axios from "axios";
 
 let url;
 if (process.env.REACT_APP_HEROKU_URL) {
@@ -12,6 +13,34 @@ export default function Registration() {
   const [registerPassword, setRegisterPassword] = useState("");
   const [registerPhoneNumber, setRegisterPhoneNumber] = useState("");
 
+  let urlSessions;
+  if (process.env.REACT_APP_HEROKU_URL) {
+    urlSessions = `${process.env.REACT_APP_HEROKU_URL}/backend/sessions`;
+  } else {
+    urlSessions = "http://localhost:9000/backend/sessions";
+  }
+
+  let loggedInSession;
+  if (process.env.REACT_APP_HEROKU_URL) {
+    loggedInSession = `${process.env.REACT_APP_HEROKU_URL}/noticeboard`;
+  } else {
+    loggedInSession = "http://localhost:3000/noticeboard";
+  }
+
+  const login = (user, pass) => {
+    Axios({
+      method: "POST",
+      data: {
+        username: user,
+        password: pass,
+      },
+      withCredentials: true,
+      url: urlSessions,
+    }).then(() => {
+      window.location.href = `${loggedInSession}`;
+    });
+  };
+
   const register = () => {
     fetch(url, {
       method: "POST",
@@ -20,10 +49,12 @@ export default function Registration() {
       body: JSON.stringify({
         username: registerUsername,
         password: registerPassword,
-        admin: false,
+        admin: true,
         phone: registerPhoneNumber,
       }),
-    }).then((response) => console.log(response.body));
+    }).then(() => {
+      login(registerUsername, registerPassword)
+    });
   };
 
   return (

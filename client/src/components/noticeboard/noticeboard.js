@@ -36,11 +36,9 @@ export default function Noticeboard( {user} ) {
   const ifAdmin = (noticeId) => {
     if (user.admin) {
       return (
-        <button type="submit" onClick={() => {handleDelete(noticeId)}}>
-          <span className="material-icons-outlined text-gray-400">
-            delete
-          </span>
-        </button>
+        <a className="btn-floating btn-large waves-effect waves-light orange right" type="submit" onClick={() => {handleDelete(noticeId)}}>
+          <i className="material-icons-two-tone">delete_forever</i>
+        </a>
       )
     }
   }
@@ -75,15 +73,7 @@ export default function Noticeboard( {user} ) {
               Keep up to date with your School{" "}
             </h5>
           </div>
-          {/* <div className="row center">
-            <a
-              href="https://makers.tech"
-              id="download-button"
-              className="btn-large waves-effect waves-light orange"
-            >
-              School website
-            </a>
-          </div> */}
+
           <div className="row center"></div>
           {user.admin && addNotice()}
         </div>

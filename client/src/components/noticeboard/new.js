@@ -8,7 +8,7 @@ if (process.env.REACT_APP_HEROKU_URL) {
   url = "http://localhost:9000/backend/notices";
 }
 
-export default function New( {user} ) {
+export default function New({ user }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
@@ -93,17 +93,11 @@ export default function New( {user} ) {
             </div>
           </form>
         </div>
-      )
+      );
     } else if (user.admin === false) {
-      return (
-        <Navigate to='/noticeboard'/>
-      )
+      return <Navigate to="/noticeboard" />;
     }
-  }
+  };
 
-  return (
-    <div>
-      {ifAdmin()}
-    </div>
-  );
+  return <div>{ifAdmin()}</div>;
 }

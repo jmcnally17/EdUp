@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import M from "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
-import Axios from 'axios';
+import Axios from "axios";
 
 let logOutUrl;
 if (process.env.REACT_APP_HEROKU_URL) {
@@ -11,6 +11,9 @@ if (process.env.REACT_APP_HEROKU_URL) {
 }
 
 export default class Sidenav extends Component {
+  constructor(props) {
+    super(props);
+  }
   componentDidMount() {
     const options = {
       inDuration: 250,
@@ -18,8 +21,6 @@ export default class Sidenav extends Component {
       draggable: true,
     };
     M.Sidenav.init(this.Sidenav, options);
-
-    // let instance = M.Sidenav.getInstance(this.Sidenav);
   }
 
   logOut = () => {
@@ -27,7 +28,29 @@ export default class Sidenav extends Component {
       method: "POST",
       withCredentials: true,
       url: logOutUrl,
-    })
+    });
+  };
+
+  ifAdmin = () => {
+    if (this.props.user.admin === true) {
+      return (
+        <div>
+          <li>
+            <div className="divider" />
+          </li>
+          <li>
+            <a href="/parent-registration">
+              <i className="material-icons">person_add</i>New Parent Account
+            </a>
+          </li>
+          <li>
+            <a href="/qrcode">
+              <i className="material-icons">dashboard</i>QRCode
+            </a>
+          </li>
+        </div>
+      );
+    }
   };
 
   render() {
@@ -47,46 +70,56 @@ export default class Sidenav extends Component {
                 className="sidenav sidenav-close"
               >
                 <li>
-                  <a href="/">
-                    <i className="material-icons">home</i>Home
+                  <a href="/" className="orange-text">
+                    <i className="material-icons orange-text">local_library</i>EdUp
                   </a>
                 </li>
                 <li>
                   <div className="divider" />
                 </li>
                 <li>
+                  <a href="/">
+                    <i className="material-icons">home</i>Home
+                  </a>
+                </li>
+                <li>
                   <a href="/noticeboard">
                     <i className="material-icons">event_note</i>Noticeboard
                   </a>
                 </li>
-
                 <li>
                   <a href="/payments">
                     <i className="material-icons">payments</i>Payments
                   </a>
                 </li>
-                <li>
-                  <a href="/calendar">
-                    <i className="material-icons">calendar_month</i>Calendar
+                  <li>
+                    <a href="/calendar">
+                      <i className="material-icons">calendar_month</i>Calendar
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/chat">
+                      <i className="material-icons">forum</i>Chat Rooms
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/updatePassword">
+                      <i className="material-icons">lock</i>Update Password
+                    </a>
+                  </li>
+                  <li>
+                    <a href="http://makers.tech">
+                      <i className="material-icons">language</i>School Website
+                    </a>
+                  </li>
+                  {this.ifAdmin()}
+                  <li>
+                    <div className="divider" />
+                  </li>
+                  <a href="/" onClick={this.logOut}>
+                    <i className="material-icons">logout</i>Logout
                   </a>
-                </li>
-                <li>
-                  <a href="/chat">
-                    <i className="material-icons">forum</i>Chat Rooms
-                  </a>
-                </li>
-                <li>
-                  <a href="http://makers.tech">
-                    <i className="material-icons">language</i>School Website
-                  </a>
-                </li>
-                <li>
-                <a href='/' onClick={this.logOut}>
-                  <i className="material-icons">logout</i>Logout
-                </a>
-                </li>
               </ul>
-
               <a
                 href="#!"
                 data-target="slide-out"
