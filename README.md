@@ -2,6 +2,8 @@
 ![Screenshot](https://i.imgur.com/cUOGM1Y.png)
 
 ## Task
+[Welcome to Ed Up!](https://edup-schools.herokuapp.com/)
+
 For our final project on the Makers Academy course, we are five students from the March 2022 cohort who have chosen to create a web app that will primarily be used for communication between schools and parents. Parents will be able to login to their accounts to check the latest notices, have a calendar with important dates and events marked by teachers, make payments to pay for any invoices for their child's education with text confirmation and also be able to have a live chat with staff from school.\
 \
 On the other hand, teachers will be able to login to their account, create notices to be displayed on the noticeboard, delete notices that are no longer applicable, mark important event and dates on the calendar for parents to see, delete marked calendar events, create invoices for parents to pay, and also be able to live chat with parents who wish to speak to them.\
@@ -62,17 +64,21 @@ If you wish to clear the database, use the command `mongo` while in the terminal
 \
 Here are some images to show what our app looks like:
 ![Screenshot](https://i.imgur.com/CkkrsLz.png)
-![Screenshot](https://i.imgur.com/hfHuHKC.png)
+![Screenshot](https://i.imgur.com/ohengg0.png)
 
 ## Features
+- Users are able to register
 - Users are not able to create an account if the email has already been used to create an existing account
 - Passwords are stored encrypted
 - Users can log in and log out
+- Users are able to change their passwords
 - Logging in redirects to Noticeboard
 - Logging out redirects to Landing Page
 - Logged in users are able to access the navigation bar at the side to navigate around the website
 - If you are not logged in, you are redirected to the login page
 - Users are split into two different user groups - admins (teachers) and non-admins (parents)
+- Users who sign up with the registration page (`/registration`) are classed as admins/teachers
+- Teachers are able to create accounts for parents 
 - Teachers are able to create notices on the noticeboard
 - Teachers are able to delete notices from the noticeboard
 - Parents are able to see notices that have been created with the date that they were created on
@@ -91,4 +97,7 @@ Here are some images to show what our app looks like:
 - Users are able to join a chat room by selecting the one they wish to join and speak to others live
 - Users who are in the chat room are displayed towards the right
 - There is a message in the chatroom for when a user joins or leaves
+- Teachers are able to generate QR codes
 
+## Notes
+Due to the nature of our product, we do not want people who are not authorised to be able to sign up - and so, only teachers/admins will be able to create user accounts for parents. In order for the general public to see our webpage and experience it, we have included a registration page (`/registration`) which can be used to create a teacher/admin account - this will not be in the final website. This admin account can then be logged into and then be used to create regular accounts intended for parents.

@@ -53,7 +53,7 @@ export default function Noticeboard( {user} ) {
           id="download-button"
           className="btn-large waves-effect waves-light orange"
         >
-        Add New Notices
+        Add New Notice
         </a>
       </div>
     )
@@ -62,20 +62,6 @@ export default function Noticeboard( {user} ) {
   const formatDate = (date) => {
     return (
       dayjs(date).format("DD/MM/YYYY")
-    )
-  }
-
-  const ifAdminQr = () => {
-    return (
-      <div className="row center">
-        <a
-          href="/qrcode"
-          id="qr-code"
-          className="btn-large waves-effect waves-light orange"
-        >
-        Create A QRCode 
-        </a>
-      </div>
     )
   }
 
@@ -91,7 +77,6 @@ export default function Noticeboard( {user} ) {
           </div>
           <div className="row center"></div>
           {user.admin && addNotice()}
-          {user.admin && ifAdminQr()}
         </div>
       </div>
 
