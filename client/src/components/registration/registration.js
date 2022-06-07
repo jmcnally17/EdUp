@@ -54,6 +54,9 @@ export default function Registration() {
       }),
     }).then(() => {
       login(registerUsername, registerPassword)
+    })
+    .then(() => {
+      window.alert("User already exists")
     });
   };
 
