@@ -83,7 +83,9 @@ export default function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
           <Route
             path="/parent-registration"
-            element={<ParentRegistration user={user} />}
+            element={
+              user ? <ParentRegistration user={user} /> : <Navigate to="/" />
+            }
           />
           ;
         </Routes>
