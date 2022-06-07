@@ -17,7 +17,9 @@ import Payments from "./components/payments/payments";
 import Success from "./components/payments/success";
 import Axios from "axios";
 import Qrcode from "./components/qrcode/qrcode";
+import UpdatePassword from "./components/registration/updatePassword";
 import ParentRegistration from "./components/registration/registrationParent";
+
 
 export default function App() {
   let urlUsers;
@@ -81,6 +83,7 @@ export default function App() {
             element={user ? <Qrcode user={user} /> : <Navigate to="/" />}
           />
           <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="/updatePassword" element={user ? <UpdatePassword user={user} /> : <Navigate to="/" />} />
           <Route
             path="/parent-registration"
             element={

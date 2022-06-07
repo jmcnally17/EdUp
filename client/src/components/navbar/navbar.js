@@ -34,11 +34,21 @@ export default class Sidenav extends Component {
   ifAdmin = () => {
     if (this.props.user.admin === true) {
       return (
-        <li>
-          <a href="/parent-registration">
-            <i className="material-icons">person_add</i>New Parent Account
-          </a>
-        </li>
+        <div>
+          <li>
+            <div className="divider" />
+          </li>
+          <li>
+            <a href="/parent-registration">
+              <i className="material-icons">person_add</i>New Parent Account
+            </a>
+          </li>
+          <li>
+            <a href="/qrcode">
+              <i className="material-icons">dashboard</i>QRCode
+            </a>
+          </li>
+        </div>
       );
     }
   };
@@ -61,11 +71,16 @@ export default class Sidenav extends Component {
               >
                 <li>
                   <a href="/">
-                    <i className="material-icons">home</i>Home
+                    <i className="material-icons">local_library</i>EdUp
                   </a>
                 </li>
                 <li>
                   <div className="divider" />
+                </li>
+                <li>
+                  <a href="/">
+                    <i className="material-icons">home</i>Home
+                  </a>
                 </li>
                 <li>
                   <a href="/noticeboard">
@@ -90,10 +105,18 @@ export default class Sidenav extends Component {
                     </a>
                   </li>
                   <li>
+                    <a href="/updatePassword">
+                      <i className="material-icons">lock</i>Update Password
+                    </a>
+                  </li>
+                  <li>
                     <a href="http://makers.tech">
                       <i className="material-icons">language</i>School Website
                     </a>
-                    {this.ifAdmin()}
+                  </li>
+                  {this.ifAdmin()}
+                  <li>
+                    <div className="divider" />
                   </li>
                   <a href="/" onClick={this.logOut}>
                     <i className="material-icons">logout</i>Logout

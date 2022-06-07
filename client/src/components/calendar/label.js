@@ -4,30 +4,34 @@ export default function Label( {filter} ) {
   return (
     <div>
       <br></br>
-      <button
+      <a
         onClick={() => filter(null)}
-        className={`bg-white-200 w-full text-gray-500 font-bold mt-10"`}
-      >
-        Departments
-      </button>
+        class="waves-effect waves-light btn-small"
+      ><i class="material-icons-outlined right">event_available</i> Show all the Events
+      </a>
       <br></br>
       <br></br>
-      <button onClick={() => filter('indigo')} className={`bg-indigo-200 w-full`}>
+      <button onClick={() => filter('indigo')} className={`bg-indigo-500 w-full h-7 white-text`}>
         General
       </button>
-      <button onClick={() => filter('red')} className={`bg-red-200 w-full`}>
+      <div class="row center"></div>
+      <button onClick={() => filter('red')} className={`bg-red-500 w-full h-7 white-text`}>
         Maths
       </button>
-      <button onClick={() => filter('blue')} className={`bg-blue-200 w-full`}>
+      <div class="row center"></div>
+      <button onClick={() => filter('blue')} className={`bg-blue-500 w-full h-7 white-text`}>
         Sports
       </button>
-      <button onClick={() => filter('green')} className={`bg-green-200 w-full`}>
+      <div class="row center"></div>
+      <button onClick={() => filter('green')} className={`bg-green-500 w-full h-7 white-text`}>
         Languages
       </button>
-      <button onClick={() => filter('purple')} className={`bg-purple-200 w-full`}>
+      <div class="row center"></div>
+      <button onClick={() => filter('purple')} className={`bg-purple-500 w-full h-7 white-text`}>
         History
       </button>
-      <button onClick={() => filter('gray')} className={`bg-gray-200 w-full`}>
+      <div class="row center"></div>
+      <button onClick={() => filter('gray')} className={`bg-gray-500 w-full h-7 white-text`}>
         Geography
       </button>
     </div>
