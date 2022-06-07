@@ -5,15 +5,22 @@ import userEvent from "@testing-library/user-event";
 
 afterEach(cleanup);
 
-test("Input has a field and button for sending a message", async () => {
-  render(<Input />);
+describe("Input", () => {
+  it("Input has a field and button for sending a message", async () => {
+    const fakeSetMessage = (value) => {
+      return;
+    }
 
-  const messageEl = screen.getByLabelText("message");
-  expect(messageEl.value).toBe("");
-  expect(messageEl.placeholder).toBe("Type a message...");
-  // await userEvent.type(messageEl, "testing");
-  // expect(messageEl.value).toBe("testing");
-
-  const sendButton = screen.getByRole("button", { name: "Send" });
-  expect(sendButton).toBeInTheDocument();
+    render(<Input setMessage={fakeSetMessage} />);
+  
+    const messageEl = screen.getByLabelText("message");
+    expect(messageEl.value).toBe("");
+    expect(messageEl.placeholder).toBe("Type a message...");
+    await userEvent.type(messageEl, "testing");
+    expect(messageEl.value).toBe("testing");
+  
+    const sendButton = screen.getByRole("button", { name: "Send send" });
+    expect(sendButton).toBeInTheDocument();
+  });
 });
+
