@@ -1,19 +1,20 @@
 import React from "react";
 import Join from "./join";
+import { Routes, Route } from "react-router-dom";
 import { render, screen, cleanup } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 afterEach(cleanup);
 
-xtest("Join", () => {
-  render(<Join />);
-
-  // const messageEl = screen.getByLabelText("message");
-  // expect(messageEl.value).toBe("");
-  // expect(messageEl.placeholder).toBe("Type a message...");
-  // // await userEvent.type(messageEl, "testing");
-  // // expect(messageEl.value).toBe("testing");
-
-  // const sendButton = screen.getByRole("button", { name: "Send" });
-  // expect(sendButton).toBeInTheDocument();
+describe("Join", () => {
+  it("shows a list of chat rooms", () => {
+    const fakeUser = {
+      username: "Test"
+    }
+    render(<div>
+    <Routes>
+    <Route path="/" element={<Join user={fakeUser} />} />
+    </Routes>
+    </div>);
+  });
 });

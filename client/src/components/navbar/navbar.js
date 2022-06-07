@@ -80,9 +80,11 @@ export default class Sidenav extends Component {
                     <i className="material-icons">language</i>School Website
                   </a>
                 </li>
+                <li>
                 <a href='/' onClick={this.logOut}>
                   <i className="material-icons">logout</i>Logout
                 </a>
+                </li>
               </ul>
 
               <a

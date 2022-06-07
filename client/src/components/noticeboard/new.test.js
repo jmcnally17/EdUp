@@ -9,7 +9,6 @@ test("New notice page has inputs fields for title and description", async () => 
   const fakeUser = {
     admin: true
   }
-
   render(<New user={fakeUser} />);
 
   const titleEl = screen.getByLabelText("title");

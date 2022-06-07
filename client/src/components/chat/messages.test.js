@@ -5,6 +5,9 @@ import userEvent from "@testing-library/user-event";
 
 afterEach(cleanup);
 
-xtest("Messages", () => {
-  render(<Messages />);
+describe("Messages", () => {
+  it("renders each individual message", () => {
+    const fakeMessages = []
+    render(<Messages />);
+  });
 });
