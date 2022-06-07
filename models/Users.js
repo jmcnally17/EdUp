@@ -8,7 +8,7 @@ const addUser = ({ id, name, room }) => {
     (user) => user.room === room && user.name === name
   );
 
-  if (!name || !room) return { error: "Username and room are required." };
+  if (!name || !room) return { error: "You have to select a chat room from the previous page" };
   if (existingUser) return { error: "Username is taken" };
 
   const user = { id, name, room };
