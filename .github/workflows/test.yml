@@ -42,4 +42,4 @@ jobs:
           
       - run: npm install
       
-      - run: jest spec
+      - run: npm test
