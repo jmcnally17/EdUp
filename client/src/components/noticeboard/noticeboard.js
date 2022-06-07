@@ -75,15 +75,6 @@ export default function Noticeboard( {user} ) {
               Keep up to date with your School{" "}
             </h5>
           </div>
-          {/* <div className="row center">
-            <a
-              href="https://makers.tech"
-              id="download-button"
-              className="btn-large waves-effect waves-light orange"
-            >
-              School website
-            </a>
-          </div> */}
           <div className="row center"></div>
           {user.admin && addNotice()}
         </div>
