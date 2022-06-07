@@ -4,7 +4,19 @@ import { render, screen, cleanup } from "@testing-library/react";
 
 afterEach(cleanup);
 
-test("Header has the title Calendar", () => {
-  render(<CalendarHeader />);
-  expect(screen.getByText("Calendar")).toBeInTheDocument();
-});
+describe("Calendar Header", () => {
+  it("Header has the title Calendar", () => {
+    render(<CalendarHeader />);
+    expect(screen.getByText("Calendar")).toBeInTheDocument();
+  
+    const reset = screen.getByRole('button', {name: "Today"});
+    expect(reset).toBeInTheDocument();
+  
+    const nextMonth = screen.getByRole('button', {name: "chevron_right"});
+    expect(nextMonth).toBeInTheDocument();
+  
+    const prevMonth = screen.getByRole('button', {name: "chevron_left"});
+    expect(prevMonth).toBeInTheDocument();
+  });
+})
+
