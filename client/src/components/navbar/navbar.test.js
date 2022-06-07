@@ -6,7 +6,10 @@ afterEach(cleanup);
 
 describe("Sidenav", () => {
   it("has links to each page", () => {
-    render(<Sidenav />);
+    const fakeUser = {
+      admin: true
+    }
+    render(<Sidenav user={fakeUser} />);
     const linkOne = screen.getByRole("link", { name: "home Home" });
     expect(linkOne.getAttribute("href")).toBe("/");
 
