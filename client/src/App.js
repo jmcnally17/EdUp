@@ -86,7 +86,9 @@ export default function App() {
           <Route path="/updatePassword" element={user ? <UpdatePassword user={user} /> : <Navigate to="/" />} />
           <Route
             path="/parent-registration"
-            element={<ParentRegistration user={user} />}
+            element={
+              user ? <ParentRegistration user={user} /> : <Navigate to="/" />
+            }
           />
           ;
         </Routes>
