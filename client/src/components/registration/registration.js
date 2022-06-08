@@ -36,6 +36,9 @@ export default function Registration() {
       },
       withCredentials: true,
       url: urlSessions,
+    }).catch((err) => {
+      window.alert("User already exists");
+      throw err;
     }).then(() => {
       window.location.href = `${loggedInSession}`;
     });
@@ -52,9 +55,9 @@ export default function Registration() {
         admin: true,
         phone: registerPhoneNumber,
       }),
-    }).then(() => {
+    }).then((res) => {
       login(registerUsername, registerPassword)
-    });
+    })
   };
 
   return (

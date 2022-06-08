@@ -34,16 +34,16 @@ const PaymentsController = {
   Pay: async (req, res) => {
     let successUrl;
     if (process.env.REACT_APP_HEROKU_URL) {
-      successUrl = `${process.env.REACT_APP_HEROKU_URL}/backend/payments/update`; // change to cancel url when made
+      successUrl = `${process.env.REACT_APP_HEROKU_URL}/backend/payments/update`; 
     } else {
-      successUrl = "http://localhost:9000/backend/payments/update"; // change to success url when made
+      successUrl = "http://localhost:9000/backend/payments/update";
     }
 
     let cancelUrl;
     if (process.env.REACT_APP_HEROKU_URL) {
-      cancelUrl = `${process.env.REACT_APP_HEROKU_URL}`; // change to cancel url when made
+      cancelUrl = `${process.env.REACT_APP_HEROKU_URL}/payments`; 
     } else {
-      cancelUrl = "http://localhost:3000/noticeboard"; // change to cancel url when made
+      cancelUrl = "http://localhost:3000/payments";
     }
 
     let priceInPounds = req.params.price * 100
@@ -72,16 +72,16 @@ const PaymentsController = {
   PayAll: async (req, res) => {
     let successUrl;
     if (process.env.REACT_APP_HEROKU_URL) {
-      successUrl = `${process.env.REACT_APP_HEROKU_URL}/backend/payments/updatemany/`; // change to cancel url when made
+      successUrl = `${process.env.REACT_APP_HEROKU_URL}/backend/payments/updatemany/`; 
     } else {
-      successUrl = "http://localhost:9000/backend/payments/updatemany"; // change to success url when made
+      successUrl = "http://localhost:9000/backend/payments/updatemany"; 
     }
 
     let cancelUrl;
     if (process.env.REACT_APP_HEROKU_URL) {
-      cancelUrl = `${process.env.REACT_APP_HEROKU_URL}`; // change to cancel url when made
+      cancelUrl = `${process.env.REACT_APP_HEROKU_URL}/payments`; 
     } else {
-      cancelUrl = "http://localhost:3000/noticeboard"; // change to cancel url when made
+      cancelUrl = "http://localhost:3000/payments";
     }
 
     let AllPriceInPounds = req.params.price * 100
@@ -109,9 +109,9 @@ const PaymentsController = {
   Update: (req, res) => {
     let redirectUrl;
     if (process.env.REACT_APP_HEROKU_URL) {
-      redirectUrl = `${process.env.REACT_APP_HEROKU_URL}/success`; // change to cancel url when made
+      redirectUrl = `${process.env.REACT_APP_HEROKU_URL}/success`; 
     } else {
-      redirectUrl = "http://localhost:3000/success"; // change to success url when made
+      redirectUrl = "http://localhost:3000/success"; 
     }
 
     Payments.updateOne(
@@ -143,9 +143,9 @@ const PaymentsController = {
   UpdateMany: (req, res) => {
     let redirectUrl;
     if (process.env.REACT_APP_HEROKU_URL) {
-      redirectUrl = `${process.env.REACT_APP_HEROKU_URL}/success`; // change to cancel url when made
+      redirectUrl = `${process.env.REACT_APP_HEROKU_URL}/success`; 
     } else {
-      redirectUrl = "http://localhost:3000/success/"; // change to success url when made
+      redirectUrl = "http://localhost:3000/success/";
     }
     Payments.updateMany(
       { payee: req.params.payee },

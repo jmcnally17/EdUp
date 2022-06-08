@@ -24,7 +24,9 @@ export default function Registration({ user }) {
         admin: false,
         phone: registerPhoneNumber,
       }),
-    }).then((response) => console.log(response.body));
+    }).then((res) => {
+      window.alert("User has been created");
+    });
   };
 
   const isAdmin = () => {
@@ -37,14 +39,14 @@ export default function Registration({ user }) {
               <h4>Username</h4>
               <input
                 aria-label="username"
-                placeholder="username"
+                placeholder="Username"
                 onChange={(e) => setRegisterUsername(e.target.value)}
               ></input>
               <h4>Password</h4>
               <input
                 aria-label="password"
                 type="password"
-                placeholder="password"
+                placeholder="Password"
                 onChange={(e) => setRegisterPassword(e.target.value)}
               ></input>
               <h4>Phone Number</h4>
