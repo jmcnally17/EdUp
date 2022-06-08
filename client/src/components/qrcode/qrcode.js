@@ -24,7 +24,7 @@ function Qrcode({ user }) {
     );
   };
 
-  const ifAdmin = () => {
+  const generateQR = () => {
     if (user.admin === true) {
       return (
         <div className="container">
@@ -73,6 +73,6 @@ function Qrcode({ user }) {
       );
     }
   };
-  return <div>{ifAdmin()}</div>;
+  return <div>{generateQR()}</div>;
 }
 export default Qrcode;

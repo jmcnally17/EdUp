@@ -24,7 +24,7 @@ export default function Day({ day, _key, rowIdx, data, user }) {
     window.location.reload(false);
   }
 
-  const ifAdmin = (eventId) => {
+  const deleteIfAdmin = (eventId) => {
     if (user.admin) {
       return (
         <button type="submit" onClick={() => {handleDelete(eventId)}}>
@@ -36,7 +36,7 @@ export default function Day({ day, _key, rowIdx, data, user }) {
     }
   }
 
-  const ifAdmin2 = () => {
+  const createEvent = () => {
     if (user.admin) {
       setDaySelected(day)
       setShowEventModal(true)
@@ -65,33 +65,32 @@ export default function Day({ day, _key, rowIdx, data, user }) {
           }
    
           return (
-            <div key={key}>
-              <Popup trigger={<button className={`bg-${event.selectedLabel}-500 w-full text-white`}>
-                {event.day === day.format("DD") && event.month === day.format("MM") && event.year === day.format("YY") ? shorten : null}
-              </button>}
-                position="left center"
-                on="click">
-                <div>
-                  <div className="col s12 m7 width-2">
-                    <div className="card horizontal">
-                      <div className="card-image">
-                      </div>
-                      <div className="card-stacked max-w-md ">
-                        <div className="card-content">
-                          <p className="font-bold">{event.title}:</p>
-                          <p>{event.description}</p>
-                          {ifAdmin(event._id)}
-                        </div>
+            <Popup trigger={<button className={`bg-${event.selectedLabel}-500 w-full text-white`}>
+              {event.day === day.format("DD") && event.month === day.format("MM") && event.year === day.format("YY") ? shorten : null}
+            </button>}
+              position="left center"
+              on="click"
+              key={key}>
+              <div>
+                <div className="col s12 m7 width-2">
+                  <div className="card horizontal">
+                    <div className="card-image">
+                    </div>
+                    <div className="card-stacked max-w-md ">
+                      <div className="card-content">
+                        <p className="font-bold">{event.title}:</p>
+                        <p>{event.description}</p>
+                        {deleteIfAdmin(event._id)}
                       </div>
                     </div>
                   </div>
                 </div>
-              </Popup>
-            </div>
+              </div>
+            </Popup>
           )
         })}
       </header>
-      <div className="flex-1 cursor-pointer" onClick = {ifAdmin2}>
+      <div className="flex-1 cursor-pointer" onClick = {createEvent}>
       </div>
 
     </div>
