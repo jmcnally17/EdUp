@@ -23,13 +23,18 @@ export default function Calendar({user}) {
   return (
     <React.Fragment>
       {showEventModal && <EventModal />}
+      {/* <div class="h-fit"> */}
       <div className="h-screen flex flex-col">
         <CalendarHeader />
         <div className="flex flex-1">
           <Sidebar user={user} filter={applyFilter}/>
-          <Month month={currentMonth} user={user} colour={filter}/>
+          <Month month={currentMonth} user={user} colour={filter} />
+          <div className="row center"></div>
+          <div className="row center"></div>
+          <div className="row center"></div>
         </div>
-      </div>
+        </div>
+        {/* </div> */}
     </React.Fragment>
   );
 }

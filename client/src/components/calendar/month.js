@@ -37,7 +37,7 @@ export default function Month({ month, user, colour }) {
       {month.map((row, i) => (
         <React.Fragment key={i}>
           {row.map((day, idx) => (
-            <Day day={day} key={idx} rowIdx={i} data={colour ? filtered : data} user={user} />
+            <Day day={day} key={idx} rowIdx={i} data={colour ? filtered : data} user={user} aria-label={`day-${i}`}/>
           ))}
         </React.Fragment>
       ))}

@@ -24,7 +24,7 @@ export default function Day({ day, _key, rowIdx, data, user }) {
     window.location.reload(false);
   }
 
-  const ifAdmin = (eventId) => {
+  const deleteIfAdmin = (eventId) => {
     if (user.admin) {
       return (
         <button type="submit" onClick={() => { handleDelete(eventId) }}>
@@ -37,7 +37,7 @@ export default function Day({ day, _key, rowIdx, data, user }) {
     }
   }
 
-  const ifAdmin2 = () => {
+  const createEvent = () => {
     if (user.admin) {
       setDaySelected(day)
       setShowEventModal(true)
@@ -57,7 +57,7 @@ export default function Day({ day, _key, rowIdx, data, user }) {
         <p className={`text-sm p-1 my-1 text-center ${getCurrentDayClass()}`}>
           {day.format('DD')}
         </p>
-        {data.map((event) => {
+        {data.map((event, key) => {
           let shorten;
           if (event.title.length > 12) {
             shorten = `${event.title.slice(0,12)}...`
@@ -70,7 +70,8 @@ export default function Day({ day, _key, rowIdx, data, user }) {
               {event.day === day.format("DD") && event.month === day.format("MM") && event.year === day.format("YY") ? shorten : null}
             </button>}
               position="left center"
-              on="click">
+              on="click"
+              key={key}>
               <div>
                 <div className="col s12 m7 width-2">
                   <div className="card horizontal">
@@ -80,7 +81,7 @@ export default function Day({ day, _key, rowIdx, data, user }) {
                       <div className="card-content">
                         <p className="font-bold">{event.title}:</p>
                         <p>{event.description}</p>
-                        {ifAdmin(event._id)}
+                        {deleteIfAdmin(event._id)}
                       </div>
                     </div>
                   </div>
@@ -90,7 +91,7 @@ export default function Day({ day, _key, rowIdx, data, user }) {
           )
         })}
       </header>
-      <div className="flex-1 cursor-pointer" onClick = {ifAdmin2}>
+      <div className="flex-1 cursor-pointer" onClick = {createEvent}>
       </div>
 
     </div>

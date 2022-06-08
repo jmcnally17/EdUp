@@ -35,7 +35,7 @@ export default function New({ user }) {
     alert();
   };
 
-  const ifAdmin = () => {
+  const renderForm = () => {
     if (user.admin === true) {
       return (
         <div className="row">
@@ -99,5 +99,5 @@ export default function New({ user }) {
     }
   };
 
-  return <div>{ifAdmin()}</div>;
+  return <div>{renderForm()}</div>;
 }

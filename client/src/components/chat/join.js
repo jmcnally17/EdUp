@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import chat from "../../images/chat.png"
 
 export default function Join({ user }) {
-  const [name, _setName] = useState("");
   const [room, setRoom] = useState("");
 
   const handleRoom = ({ target }) => {
@@ -26,29 +24,29 @@ export default function Join({ user }) {
   return (
     <div>
       <div>
-    <section class="py-20 bg-white">
-      <div class="flex flex-col px-8 mx-auto space-y-12 max-w-7xl xl:px-12">
-        <div class="relative">
-          <h2 class="w-full text-3xl font-bold text-center sm:text-4xl md:text-5xl">EdUp Chat Rooms</h2>
+    <section className="py-20 bg-white">
+      <div className="flex flex-col px-8 mx-auto space-y-12 max-w-7xl xl:px-12">
+        <div className="relative">
+          <h2 className="w-full text-3xl font-bold text-center sm:text-4xl md:text-5xl">EdUp Chat Rooms</h2>
           <br></br>
-          <div class="flex flex-col mb-8 animated fadeIn sm:flex-row">
-            <div class="flex items-center mb-8 sm:w-1/2 md:w-7/12 sm:order-last">
-              <img class="rounded-lg" src={chat} alt="" />
+          <div className="flex flex-col mb-8 animated fadeIn sm:flex-row">
+            <div className="flex items-center mb-8 sm:w-1/2 md:w-7/12 sm:order-last">
+              <img className="rounded-lg" src={chat} alt="" />
             </div>
-            <div class="flex flex-col justify-center mt-5 mb-8 md:mt-0 sm:w-1/2 md:w-7/12 sm:pr-16">
-                <p class="mt-5 text-lg text-gray-700 text md:text-left">These chat rooms are designed for you to connect with our admin staff and teachers.<br></br><br></br>
+            <div className="flex flex-col justify-center mt-5 mb-8 md:mt-0 sm:w-1/2 md:w-7/12 sm:pr-16">              
+                <div className="mt-5 text-lg text-gray-700 text md:text-left">These chat rooms are designed for you to connect with our admin staff and teachers.<br></br><br></br>
                   <blockquote>
                       <b>Admin</b> - For any admin related matters<br></br>
                       <b>Finance</b> - To get in touch with our finance department<br></br>
                       <b>Class</b> - Select the appropriate class to communicate with your child's teacher
                   </blockquote>
-                      </p>
+                      </div>
                 </div>
               </div>
-              <div>
-      <div class="bg-white rounded-2xl border shadow-x1 p-10 ">
-        <div class="flex flex-col items-center space-y-4">
-          <h1 class="font-bold text-2xl text-gray-700 w-4/6 text-center">
+              <div> 
+      <div className="bg-white rounded-2xl border shadow-x1 p-10 ">
+        <div className="flex flex-col items-center space-y-4">
+          <h1 className="font-bold text-2xl text-gray-700 w-4/6 text-center">
             Join a chat room
           </h1>
           <select className="browser-default" onChange={handleRoom}>
@@ -61,9 +59,7 @@ export default function Join({ user }) {
           </option>
         ))}
       </select>
-      <Link to={`/chat/room?name=${user.username}&room=${room}`} >
-        <button class="bg-black text-white rounded-md hover:bg-red-500 font-semibold px-4 py-3 w-full" type="submit">Sign in</button>
-      </Link>
+      <a href={`/chat/room?name=${user.username}&room=${room}`} className="bg-black text-white rounded-md hover:bg-red-500 font-semibold px-4 py-3 w-1/12 center">Join</a>
         </div>
         </div>   
         </div>

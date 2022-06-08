@@ -33,7 +33,7 @@ export default function Noticeboard( {user} ) {
     window.location.reload(false);
   }
 
-  const ifAdmin = (noticeId) => {
+  const deleteIfAdmin = (noticeId) => {
     if (user.admin) {
       return (
         <a className="btn-floating btn-large waves-effect waves-light orange right" type="submit" onClick={() => {handleDelete(noticeId)}}>
@@ -92,7 +92,7 @@ export default function Noticeboard( {user} ) {
                           <h5 className="center">{noticeInfo.title} </h5>
                           <p className="center">{noticeInfo.description} </p>
                           <p className="center">{formatDate(noticeInfo.createdAt)} </p>
-                          {ifAdmin(noticeInfo._id)}
+                          {deleteIfAdmin(noticeInfo._id)}
                         </div>
                       </div>
                     </li>
