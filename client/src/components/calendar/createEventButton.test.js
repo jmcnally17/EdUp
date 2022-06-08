@@ -7,7 +7,7 @@ afterEach(cleanup);
 describe("Create Event Button", () => {
   it("renders a create button", () => {
     render(<CreateEventButton />);
-    const button = screen.getByRole("button", { name: "Create"})
+    const button = screen.getByRole("button", { name: "Create" });
     expect(button).toBeInTheDocument();
   });
 });

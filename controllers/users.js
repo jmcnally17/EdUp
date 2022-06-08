@@ -31,10 +31,9 @@ const UsersController = {
         throw err;
       }
       res.json({
-        parents: parents
-      })
-    }
-    )
+        parents: parents,
+      });
+    });
   },
   UpdatePassword: (req, res) => {
     User.findOne({ id: req.body.id }, async (err, doc) => {
@@ -53,8 +52,8 @@ const UsersController = {
           }
         );
       }
-    })
-  }
+    });
+  },
 };
 
 module.exports = UsersController;

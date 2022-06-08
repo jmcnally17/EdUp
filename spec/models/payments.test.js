@@ -1,6 +1,6 @@
 const Payments = require("../../models/payments");
 require("../mongodb_helper");
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 describe(Payments, () => {
   beforeEach((done) => {
@@ -13,11 +13,11 @@ describe(Payments, () => {
     const payment = new Payments({
       title: "School fair",
       price: 200,
-      paid: false
+      paid: false,
     });
 
     expect(payment.title).toBe("School fair");
     expect(payment.price).toBe(200);
-    expect(payment.paid).toBe(false)
+    expect(payment.paid).toBe(false);
   });
 });

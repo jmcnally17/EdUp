@@ -7,8 +7,8 @@ afterEach(cleanup);
 describe("Qrcode", () => {
   it("renders a field to enter an event for a qrcode", () => {
     const fakeUser = {
-      admin: true
-    }
+      admin: true,
+    };
     render(<Qrcode user={fakeUser} />);
     expect(screen.getByText("QR Generator")).toBeInTheDocument();
     const input = screen.getByLabelText("name");

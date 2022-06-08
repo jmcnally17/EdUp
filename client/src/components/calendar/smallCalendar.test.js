@@ -14,7 +14,7 @@ describe("Small Calendar", () => {
     const twentyFourButton = screen.getByRole("button", { name: "24" });
     expect(twentyFourButton).toBeInTheDocument();
   });
-  
+
   it("has buttons to flick through months", () => {
     render(<SmallCalendar />);
     const leftButton = screen.getByRole("button", { name: "chevron_left" });

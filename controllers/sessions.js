@@ -6,12 +6,12 @@ const SessionsController = {
       if (err) {
         throw err;
       }
-      if (!user) res.status(400).send("No user exists")
+      if (!user) res.status(400).send("No user exists");
       else {
         req.logIn(user, (err) => {
           if (err) {
             throw err;
-          };
+          }
           res.send("Successfully Authenticated");
           console.log(req.user);
         });

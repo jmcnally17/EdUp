@@ -8,7 +8,7 @@ export default function Sidebar({ user, filter }) {
     <aside className="border p-5 w-72">
       {user.admin ? <CreateEventButton /> : null}
       <SmallCalendar />
-      <Label filter={filter}/>
+      <Label filter={filter} />
     </aside>
   );
 }
