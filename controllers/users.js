@@ -9,7 +9,7 @@ const UsersController = {
   Create: (req, res) => {
     User.findOne({ username: req.body.username }, async (err, doc) => {
       if (err) throw err;
-      if (doc) res.json({message:"User Already Exists"});
+      if (doc) res.send("User Already Exists");
       if (!doc) {
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
 

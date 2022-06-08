@@ -24,9 +24,9 @@ export default function Registration({ user }) {
         admin: false,
         phone: registerPhoneNumber,
       }),
-    }).catch(error => {
-      window.alert("Username already exists")
-    }).then((response) => console.log(response.body));
+    }).then((res) => {
+      window.alert("User has been created")
+    });
   };
 
   const isAdmin = () => {

@@ -41,9 +41,9 @@ const PaymentsController = {
 
     let cancelUrl;
     if (process.env.REACT_APP_HEROKU_URL) {
-      cancelUrl = `${process.env.REACT_APP_HEROKU_URL}`; // change to cancel url when made
+      cancelUrl = `${process.env.REACT_APP_HEROKU_URL}/payments`; // change to cancel url when made
     } else {
-      cancelUrl = "http://localhost:3000/noticeboard"; // change to cancel url when made
+      cancelUrl = "http://localhost:3000/payments"; // change to cancel url when made
     }
 
     let priceInPounds = req.params.price * 100
@@ -79,9 +79,9 @@ const PaymentsController = {
 
     let cancelUrl;
     if (process.env.REACT_APP_HEROKU_URL) {
-      cancelUrl = `${process.env.REACT_APP_HEROKU_URL}`; // change to cancel url when made
+      cancelUrl = `${process.env.REACT_APP_HEROKU_URL}/payments`; // change to cancel url when made
     } else {
-      cancelUrl = "http://localhost:3000/noticeboard"; // change to cancel url when made
+      cancelUrl = "http://localhost:3000/payments"; // change to cancel url when made
     }
 
     let AllPriceInPounds = req.params.price * 100
