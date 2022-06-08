@@ -13,6 +13,6 @@ describe("Qrcode", () => {
     expect(screen.getByText("QR Generator")).toBeInTheDocument();
     const input = screen.getByLabelText("name");
     expect(input.value).toBe("");
-    expect(input.placeholder).toBe("Year 5 Annual play");
+    expect(input.placeholder).toBe("Event");
   });
 });

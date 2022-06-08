@@ -40,8 +40,8 @@ function Qrcode({ user }) {
               onChange={(e) => setUrl(e.target.value)}
             />
           </div>
-          <a class="waves-effect waves-light btn" onClick={GenerateQRCode}>
-            Generate<i class="material-icons right">build</i>
+          <a className="waves-effect waves-light btn" onClick={GenerateQRCode}>
+            Generate<i className="material-icons right">build</i>
           </a>
           <div className="row center"></div>
           <div className="row center"></div>
@@ -50,12 +50,12 @@ function Qrcode({ user }) {
               <img src={qr} />
               <div className="row center"></div>
               <a
-                class="waves-effect waves-light btn"
+                className="waves-effect waves-light btn"
                 type="submit"
                 href={qr}
                 download="schoolqrcode.png"
               >
-                Download<i class="material-icons right">file_download</i>
+                Download<i className="material-icons right">file_download</i>
               </a>
             </>
           )}
