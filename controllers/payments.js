@@ -72,7 +72,7 @@ const PaymentsController = {
   PayAll: async (req, res) => {
     let successUrl;
     if (process.env.REACT_APP_HEROKU_URL) {
-      successUrl = `${process.env.REACT_APP_HEROKU_URL}/backend/payments/updatemany/`; 
+      successUrl = `${process.env.REACT_APP_HEROKU_URL}/backend/payments/updatemany`; 
     } else {
       successUrl = "http://localhost:9000/backend/payments/updatemany"; 
     }
