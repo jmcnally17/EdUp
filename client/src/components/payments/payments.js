@@ -86,6 +86,22 @@ export default function Payments( {user} ) {
     paymentUrl = "http://localhost:9000/backend/payments/checkout";
   }
 
+  const payAllButton = () => {
+    if (invoices.length === 0) {
+      return (
+        <form action={`${paymentUrl}many/${user.username}/${total}/${user.phone}`} method="POST">
+        <button disabled type="submit" className="px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded">Checkout</button>
+      </form>
+      )
+    } else {
+      return (
+        <form action={`${paymentUrl}many/${user.username}/${total}/${user.phone}`} method="POST">
+        <button type="submit" className="px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded">Checkout</button>
+      </form>
+      )
+    }
+  }
+
   const payInvoice = () => {
     return (
       <div className="flex flex-col px-8 mx-auto space-y-12 max-w-7xl xl:px-12">
@@ -119,9 +135,7 @@ export default function Payments( {user} ) {
                   <h1 className="text-gray-700 font-bold text-xl">£{total}</h1>
                   <hr className="mt-3 mb-5" />
                     <div>
-                    <form action={`${paymentUrl}many/${user.username}/${total}/${user.phone}`} method="POST">
-                      <button type="submit" className="px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded">Checkout</button>
-                    </form>
+                    {payAllButton()}
                   </div>
                 </div>
               </div>
