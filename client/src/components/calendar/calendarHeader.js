@@ -22,7 +22,7 @@ export default function CalendarHeader() {
     <header className="px-4 py-2 flex items-center">
       <img src={local192} alt="calendar" className="mr-2 w-15 h-15" />
       <h1 className="mr-12 text-xl text-gray-800 fond-bold">  Calendar</h1>
-      <button onClick={handleReset} className="border rounded py-3 px-6 mr-7">
+      <button onClick={handleReset} className="border rounded py-3 px-6 mr-7 white">
         Today
       </button>
       <button onClick={handlePrevMonth}>
