@@ -27,13 +27,17 @@ export default function Day({ day, _key, rowIdx, data, user }) {
   const deleteIfAdmin = (eventId) => {
     if (user.admin) {
       return (
-        <button type="submit" onClick={() => { handleDelete(eventId) }}>
-        <a className="btn-smalls white right">
-        <i className="material-icons-two-tone">delete_forever</i>
-      </a>
-      </button>
-
-      )
+        <button
+          type="submit"
+          onClick={() => {
+            handleDelete(eventId);
+          }}
+        >
+          <a className="btn-smalls white right">
+            <i className="material-icons-two-tone">delete_forever</i>
+          </a>
+        </button>
+      );
     }
   };
 

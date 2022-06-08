@@ -4,8 +4,11 @@ export default function Label({ filter }) {
   return (
     <div>
       <br></br>
-      <button onClick={() => filter(null)} className={`bg-amber-500 w-full h-7 white-text amber`}>
-      Show All Events
+      <button
+        onClick={() => filter(null)}
+        className={`bg-amber-500 w-full h-7 white-text amber`}
+      >
+        Show All Events
       </button>
       <br></br>
       <br></br>
