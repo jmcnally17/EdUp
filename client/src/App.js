@@ -43,7 +43,7 @@ export default function App() {
   return (
     <React.Fragment>
       <div className="App">
-      <div class="flex flex-col min-h-screen">
+        <div class="flex flex-col min-h-screen">
           {user ? <Sidenav user={user} /> : null}
           <Routes>
             <Route path="/" element={<Login user={user} />} />
@@ -96,7 +96,7 @@ export default function App() {
               element={user ? <Calendar user={user} /> : <Navigate to="/" />}
             />
             ;
-        </Routes>
+          </Routes>
           <SchoolFooter />
         </div>
       </div>
