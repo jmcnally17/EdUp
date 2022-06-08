@@ -4,11 +4,9 @@ export default function Label( {filter} ) {
   return (
     <div>
       <br></br>
-      <a
-        onClick={() => filter(null)}
-        class="waves-effect waves-light btn-small"
-      ><i class="material-icons-outlined right">event_available</i> Show all the Events
-      </a>
+      <button onClick={() => filter(null)} className={`bg-amber-500 w-full h-7 white-text amber`}>
+      Show All Events
+      </button>
       <br></br>
       <br></br>
       <button onClick={() => filter('indigo')} className={`bg-indigo-500 w-full h-7 white-text`}>
