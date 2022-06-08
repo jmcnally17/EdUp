@@ -64,17 +64,19 @@ function Chat() {
   }
 
   return (
-    <div className="outerContainers">
-      <div className="containers">
-        <InfoBar room={room} />
-        <Messages messages={messages} name={name} />
-        <Input
-          message={message}
-          sendMessage={sendMessage}
-          setMessage={setMessage}
-        ></Input>
+    <div className="min-h-max">
+      <div className="outerContainers">
+        <div className="containers">
+          <InfoBar room={room} />
+          <Messages messages={messages} name={name} />
+          <Input
+            message={message}
+            sendMessage={sendMessage}
+            setMessage={setMessage}
+          ></Input>
+        </div>
+        <TextContainer users={users} />
       </div>
-      <TextContainer users={users} />
     </div>
   );
 }

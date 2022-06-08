@@ -24,9 +24,9 @@ export default function EventModal() {
   const [selectedLabel, setSelectedLabel] = useState(labelClasses[0]);
 
   const handleSubmit = () => {
-    const day = daySelected.format("DD")
-    const month = daySelected.format("MM")
-    const year = daySelected.format("YY")
+    const day = daySelected.format("DD");
+    const month = daySelected.format("MM");
+    const year = daySelected.format("YY");
     fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },

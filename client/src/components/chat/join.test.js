@@ -7,12 +7,12 @@ afterEach(cleanup);
 describe("Join", () => {
   it("shows a list of chat rooms", () => {
     const fakeUser = {
-      username: "Test"
-    }
+      username: "Test",
+    };
     render(<Join user={fakeUser} />);
 
     expect(screen.getByText("Join a chat room")).toBeInTheDocument();
-    expect(screen.getAllByRole("option").length).toBe(10)
-    expect(screen.getByRole('link', { name: "Sign in" })).toBeInTheDocument();
+    expect(screen.getAllByRole("option").length).toBe(10);
+    expect(screen.getByRole("link", { name: "Sign in" })).toBeInTheDocument();
   });
 });

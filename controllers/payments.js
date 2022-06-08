@@ -1,17 +1,16 @@
-const Payments = require('../models/payments')
-require('dotenv').config()
-const stripe = require('stripe')(process.env.API_KEY);
+const Payments = require("../models/payments");
+require("dotenv").config();
+const stripe = require("stripe")(process.env.API_KEY);
 
 const PaymentsController = {
-
   Index: (req, res) => {
     Payments.find({ paid: false }).exec((err, payments) => {
       if (err) {
         throw err;
       }
       res.json({
-        payments: payments
-      })
+        payments: payments,
+      });
     });
   },
 
@@ -22,31 +21,31 @@ const PaymentsController = {
       payee: req.body.payee,
       paid: false,
     };
-    const payment = new Payments(item)
+    const payment = new Payments(item);
     payment.save((err) => {
       if (err) {
         throw err;
       }
-      res.status(200)
-    })
+      res.status(200);
+    });
   },
 
   Pay: async (req, res) => {
     let successUrl;
     if (process.env.REACT_APP_HEROKU_URL) {
-      successUrl = `${process.env.REACT_APP_HEROKU_URL}/backend/payments/update`; 
+      successUrl = `${process.env.REACT_APP_HEROKU_URL}/backend/payments/update`;
     } else {
       successUrl = "http://localhost:9000/backend/payments/update";
     }
 
     let cancelUrl;
     if (process.env.REACT_APP_HEROKU_URL) {
-      cancelUrl = `${process.env.REACT_APP_HEROKU_URL}/payments`; 
+      cancelUrl = `${process.env.REACT_APP_HEROKU_URL}/payments`;
     } else {
       cancelUrl = "http://localhost:3000/payments";
     }
 
-    let priceInPounds = req.params.price * 100
+    let priceInPounds = req.params.price * 100;
 
     const sessions = await stripe.checkout.sessions.create({
       line_items: [
@@ -59,32 +58,31 @@ const PaymentsController = {
             unit_amount: priceInPounds,
           },
           quantity: 1,
-        }
+        },
       ],
-      mode: 'payment',
+      mode: "payment",
       success_url: `${successUrl}/${req.params.id}/${req.params.phone}`,
       cancel_url: cancelUrl,
     });
-    res.redirect(303, sessions.url)
-  
+    res.redirect(303, sessions.url);
   },
 
   PayAll: async (req, res) => {
     let successUrl;
     if (process.env.REACT_APP_HEROKU_URL) {
-      successUrl = `${process.env.REACT_APP_HEROKU_URL}/backend/payments/updatemany`; 
+      successUrl = `${process.env.REACT_APP_HEROKU_URL}/backend/payments/updatemany`;
     } else {
-      successUrl = "http://localhost:9000/backend/payments/updatemany"; 
+      successUrl = "http://localhost:9000/backend/payments/updatemany";
     }
 
     let cancelUrl;
     if (process.env.REACT_APP_HEROKU_URL) {
-      cancelUrl = `${process.env.REACT_APP_HEROKU_URL}/payments`; 
+      cancelUrl = `${process.env.REACT_APP_HEROKU_URL}/payments`;
     } else {
       cancelUrl = "http://localhost:3000/payments";
     }
 
-    let AllPriceInPounds = req.params.price * 100
+    let AllPriceInPounds = req.params.price * 100;
 
     const sessions = await stripe.checkout.sessions.create({
       line_items: [
@@ -97,21 +95,21 @@ const PaymentsController = {
             unit_amount: AllPriceInPounds,
           },
           quantity: 1,
-        }
+        },
       ],
-      mode: 'payment',
+      mode: "payment",
       success_url: `${successUrl}/${req.params.payee}/${req.params.phone}`,
       cancel_url: cancelUrl,
     });
-    res.redirect(303, sessions.url)
+    res.redirect(303, sessions.url);
   },
 
   Update: (req, res) => {
     let redirectUrl;
     if (process.env.REACT_APP_HEROKU_URL) {
-      redirectUrl = `${process.env.REACT_APP_HEROKU_URL}/success`; 
+      redirectUrl = `${process.env.REACT_APP_HEROKU_URL}/success`;
     } else {
-      redirectUrl = "http://localhost:3000/success"; 
+      redirectUrl = "http://localhost:3000/success";
     }
 
     Payments.updateOne(
@@ -122,34 +120,33 @@ const PaymentsController = {
         if (err) {
           throw err;
         }
-          if (err) throw err;
-          const accountSid = process.env.ACC_SID;
-          const authToken = process.env.AUTH_TOKEN;
-          const client = require('twilio')(accountSid, authToken);
-     
-          client.messages 
-          .create({ 
-            body: 'Thank you for your payment to EdUp! ', 
-            from: process.env.TWILIO_WHATSAPP,     
+        if (err) throw err;
+        const accountSid = process.env.ACC_SID;
+        const authToken = process.env.AUTH_TOKEN;
+        const client = require("twilio")(accountSid, authToken);
+
+        client.messages
+          .create({
+            body: "Thank you for your payment to EdUp! ",
+            from: process.env.TWILIO_WHATSAPP,
             to: process.env.WHATSAPP,
-          }) 
-          .then(message => console.log(message.sid)) 
+          })
           .done();
-          res.redirect(303, redirectUrl)
+        res.redirect(303, redirectUrl);
       }
-    )
+    );
   },
 
   UpdateMany: (req, res) => {
     let redirectUrl;
     if (process.env.REACT_APP_HEROKU_URL) {
-      redirectUrl = `${process.env.REACT_APP_HEROKU_URL}/success`; 
+      redirectUrl = `${process.env.REACT_APP_HEROKU_URL}/success`;
     } else {
       redirectUrl = "http://localhost:3000/success/";
     }
     Payments.updateMany(
       { payee: req.params.payee },
-      { "$set": { paid: true } },
+      { $set: { paid: true } },
       {},
       (err, payment) => {
         if (err) {
@@ -157,20 +154,19 @@ const PaymentsController = {
         }
         const accountSid = process.env.ACC_SID;
         const authToken = process.env.AUTH_TOKEN;
-        const client = require('twilio')(accountSid, authToken);
-     
-        client.messages 
-          .create({ 
-            body: 'Thank you for your payment to EdUp! ', 
-            from: process.env.TWILIO_WHATSAPP,     
+        const client = require("twilio")(accountSid, authToken);
+
+        client.messages
+          .create({
+            body: "Thank you for your payment to EdUp! ",
+            from: process.env.TWILIO_WHATSAPP,
             to: process.env.WHATSAPP,
-          }) 
-          .then(message => console.log(message.sid)) 
+          })
           .done();
-        res.redirect(303, redirectUrl)
+        res.redirect(303, redirectUrl);
       }
-    )
+    );
   },
 };
 
-module.exports = PaymentsController
+module.exports = PaymentsController;

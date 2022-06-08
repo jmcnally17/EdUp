@@ -1,7 +1,7 @@
 // Controls the states
 
 import React from "react";
-import dayjs from 'dayjs';
+import dayjs from "dayjs";
 
 const CalendarGlobalContext = React.createContext({
   monthIndex: 0,

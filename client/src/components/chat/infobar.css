@@ -2,7 +2,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(90deg, hsla(232, 73%, 65%, 1) 0%, hsla(279, 33%, 48%, 1) 100%);
+  background: linear-gradient(
+    90deg,
+    hsla(232, 73%, 65%, 1) 0%,
+    hsla(279, 33%, 48%, 1) 100%
+  );
   border-radius: 15px 15px 0 0;
   height: 60px;
   width: 100%;

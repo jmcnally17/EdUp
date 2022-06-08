@@ -7,17 +7,17 @@ afterEach(cleanup);
 describe("Sidebar", () => {
   it("renders the sidebar components", () => {
     const fakeUser = {
-      admin: true
-    }
+      admin: true,
+    };
     render(<Sidebar user={fakeUser} />);
     const button = screen.getByRole("button", { name: "Create" });
     expect(button).toBeInTheDocument();
-    
+
     expect(screen.getByText("W")).toBeInTheDocument();
     expect(screen.getByText("4")).toBeInTheDocument();
     expect(screen.getByText("7")).toBeInTheDocument();
     expect(screen.getByText("W")).toBeInTheDocument();
-    
+
     const nextMonth = screen.getByRole("button", { name: "chevron_right" });
     expect(nextMonth).toBeInTheDocument();
     const prevMonth = screen.getByRole("button", { name: "chevron_left" });

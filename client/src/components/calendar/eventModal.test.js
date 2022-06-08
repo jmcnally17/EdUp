@@ -6,15 +6,15 @@ afterEach(cleanup);
 
 describe("EventModal", () => {
   it("renders a form to create an event", () => {
-    render(<EventModal />)
+    render(<EventModal />);
 
-    const button = screen.getByRole('button', {name: "close"})
+    const button = screen.getByRole("button", { name: "close" });
     expect(button).toBeInTheDocument();
 
     const titleEl = screen.getByLabelText("title");
     expect(titleEl.value).toBe("");
     expect(titleEl.placeholder).toBe("Add Title");
-  
+
     const descriptionEl = screen.getByLabelText("description");
     expect(descriptionEl.value).toBe("");
     expect(descriptionEl.placeholder).toBe("Add a description");
@@ -22,7 +22,7 @@ describe("EventModal", () => {
     const labelEl = screen.getByLabelText("label-0");
     expect(labelEl).toBeInTheDocument();
 
-    const submitEl = screen.getByRole("button", {name: "Save"});
+    const submitEl = screen.getByRole("button", { name: "Save" });
     expect(submitEl).toBeInTheDocument();
   });
-})
+});

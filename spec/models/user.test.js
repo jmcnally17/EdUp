@@ -1,6 +1,6 @@
 const User = require("../../models/user");
 require("../mongodb_helper");
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 describe(User, () => {
   beforeEach((done) => {
@@ -14,7 +14,7 @@ describe(User, () => {
       username: "bob",
       password: "password",
       admin: false,
-      phone: 111
+      phone: 111,
     });
 
     expect(user.username).toBe("bob");
