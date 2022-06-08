@@ -2,7 +2,7 @@ import React from "react";
 
 export default function SchoolFooter() {
   return (
-    <footer className="page-footer orange">
+    <footer className="page-footer sticky top-[100vh] orange">
       <div className="container">
         <div className="row">
           <div className="col l9 s12">

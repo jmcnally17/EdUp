@@ -68,9 +68,9 @@ export default function Join({ user }) {
                     </select>
                     <a
                       href={`/chat/room?name=${user.username}&room=${room}`}
-                      className="bg-black text-white rounded-md hover:bg-red-500 font-semibold px-4 py-3 w-full"
+                      className="bg-black text-white rounded-md hover:bg-red-500 font-semibold px-4 py-3 w-1/12 center"
                     >
-                      Sign in
+                      Join
                     </a>
                   </div>
                 </div>

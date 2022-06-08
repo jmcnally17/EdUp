@@ -27,7 +27,7 @@ export default function Calendar({ user }) {
           <Sidebar user={user} filter={applyFilter} />
           <Month month={currentMonth} user={user} colour={filter} />
         </div>
-      </div>
+        </div>
     </React.Fragment>
   );
 }

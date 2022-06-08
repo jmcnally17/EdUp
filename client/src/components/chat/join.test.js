@@ -13,6 +13,6 @@ describe("Join", () => {
 
     expect(screen.getByText("Join a chat room")).toBeInTheDocument();
     expect(screen.getAllByRole("option").length).toBe(10);
-    expect(screen.getByRole("link", { name: "Sign in" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Join" })).toBeInTheDocument();
   });
 });

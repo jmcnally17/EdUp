@@ -43,7 +43,7 @@ export default function App() {
   return (
     <React.Fragment>
       <div className="App">
-        <div class="flex flex-col h-screen justify-between">
+      <div class="flex flex-col min-h-screen">
           {user ? <Sidenav user={user} /> : null}
           <Routes>
             <Route path="/" element={<Login user={user} />} />
@@ -57,10 +57,6 @@ export default function App() {
               element={
                 user ? <New user={user} /> : <Navigate to="/noticeboard" />
               }
-            />
-            <Route
-              path="/calendar"
-              element={user ? <Calendar user={user} /> : <Navigate to="/" />}
             />
             <Route
               path="/payments"
@@ -95,8 +91,12 @@ export default function App() {
                 user ? <ParentRegistration user={user} /> : <Navigate to="/" />
               }
             />
+            <Route
+              path="/calendar"
+              element={user ? <Calendar user={user} /> : <Navigate to="/" />}
+            />
             ;
-          </Routes>
+        </Routes>
           <SchoolFooter />
         </div>
       </div>
