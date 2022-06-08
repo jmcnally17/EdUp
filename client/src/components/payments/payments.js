@@ -86,42 +86,56 @@ export default function Payments( {user} ) {
     paymentUrl = "http://localhost:9000/backend/payments/checkout";
   }
 
+  const payAllButton = () => {
+    if (invoices.length === 0) {
+      return (
+        <form action={`${paymentUrl}many/${user.username}/${total}/${user.phone}`} method="POST">
+        <button disabled type="submit" className="px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded">Checkout</button>
+      </form>
+      )
+    } else {
+      return (
+        <form action={`${paymentUrl}many/${user.username}/${total}/${user.phone}`} method="POST">
+        <button type="submit" className="px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded">Checkout</button>
+      </form>
+      )
+    }
+  }
+
   const payInvoice = () => {
     return (
-      <div class="flex flex-col px-8 mx-auto space-y-12 max-w-7xl xl:px-12">
-        <div class="relative">
-          <h2 class="w-full text-3xl font-bold text-center sm:text-4xl md:text-5xl">Payment Portal</h2>
+      <div className="flex flex-col px-8 mx-auto space-y-12 max-w-7xl xl:px-12">
+        <div className="relative">
+          <h2 className="w-full text-3xl font-bold text-center sm:text-4xl md:text-5xl">Payment Portal</h2>
           <br></br>
-          <div class="flex flex-col mb-8 animated fadeIn sm:flex-row">
-            <div class="flex items-center mb-8 sm:w-1/2 md:w-7/12 sm:order-last">
-              <img class="rounded-lg" src={schooltrip} alt="" />
+          <div className="flex flex-col mb-8 animated fadeIn sm:flex-row">
+            <div className="flex items-center mb-8 sm:w-1/2 md:w-7/12 sm:order-last">
+              <img className="rounded-lg" src={schooltrip} alt="" />
             </div>
-            <div class="flex flex-col justify-center mt-5 mb-8 md:mt-0 sm:w-1/2 md:w-7/12 sm:pr-16">
-              <h3 class="mt-2 text-2xl sm:text-left md:text-4xl">Hello {user.username}!</h3>
-              <p class="mt-5 text-lg text-gray-700 text md:text-left">Here you can pay for your child's tuition, sports fee's, activities and more!
+            <div className="flex flex-col justify-center mt-5 mb-8 md:mt-0 sm:w-1/2 md:w-7/12 sm:pr-16">
+              <h3 className="mt-2 text-2xl sm:text-left md:text-4xl">Hello {user.username}!</h3>
+              <p className="mt-5 text-lg text-gray-700 text md:text-left">Here you can pay for your child's tuition, sports fee's, activities and more!
               You can view your statements below.</p>
             </div>
           </div>
         </div>
-        <div class="flex flex-col mb-8 animated fadeIn sm:flex-row">
-          <div class="flex items-center mb-8 sm:w-1/2 md:w-5/12 sm:order-last">
-            <h3 class="mt-2 text-2xl sm:text-left md:text-4xl center">Pay your total outstanding payments</h3>
+        <div className="flex flex-col mb-8 animated fadeIn sm:flex-row">
+          <div className="flex items-center mb-8 sm:w-1/2 md:w-5/12 sm:order-last">
+            <h3 className="mt-2 text-2xl sm:text-left md:text-4xl center">Pay your total outstanding payments</h3>
           </div>
-          <div class="flex flex-col justify-center mt-5 mb-8 md:mt-0 sm:w-1/2 md:w-7/12 sm:pr-16">
+          <div className="flex flex-col justify-center mt-5 mb-8 md:mt-0 sm:w-1/2 md:w-7/12 sm:pr-16">
             {invoices.forEach((invoice) => {
               total += invoice.price
             })}
             <center>
-            <div class="shadow-lg bg-white rounded-md overflow-hidden max-w-xs auto">
-              <div class="w-2/3 p-4">
-                <div class="text-gray-900 font-bold text-2xl">
+            <div className="shadow-lg bg-white rounded-md overflow-hidden max-w-xs auto">
+              <div className="w-2/3 p-4">
+                <div className="text-gray-900 font-bold text-2xl">
                   <span>Total amount owing</span>
-                  <h1 class="text-gray-700 font-bold text-xl">£{total}</h1>
-                  <hr class="mt-3 mb-5" />
+                  <h1 className="text-gray-700 font-bold text-xl">£{total}</h1>
+                  <hr className="mt-3 mb-5" />
                     <div>
-                    <form action={`${paymentUrl}many/${user.username}/${total}/${user.phone}`} method="POST">
-                      <button type="submit" class="px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded">Checkout</button>
-                    </form>
+                    {payAllButton()}
                   </div>
                 </div>
               </div>
@@ -129,27 +143,26 @@ export default function Payments( {user} ) {
             </center>
           </div>
         </div>
-        <div class="flex flex-col mb-8 animated fadeIn sm:flex-row">
-          <div class="flex items-center mb-8 sm:w-1/2 md:w-5/12">
-            <h3 class="mt-2 text-2xl sm:text-left md:text-4xl">Pay your payments individually</h3>
+        <div className="flex flex-col mb-8 animated fadeIn sm:flex-row">
+          <div className="flex items-center mb-8 sm:w-1/2 md:w-5/12">
+            <h3 className="mt-2 text-2xl sm:text-left md:text-4xl">Pay your payments individually</h3>
           </div>
-          <div class="flex flex-col justify-center mt-5 mb-8 md:mt-0 sm:w-1/2 md:w-7/12 sm:pl-16">
-            <p class="mt-5 text-lg text-gray-700 text md:text-left">
-            <div>
+          <div className="flex flex-col justify-center mt-5 mb-8 md:mt-0 sm:w-1/2 md:w-7/12 sm:pl-16">
+            <div className="mt-5 text-lg text-gray-700 text md:text-left">
               {invoices.map((invoice) => {
                 return (
                   <center>
                   <br></br>
-                  <div class="shadow-lg bg-white rounded-md overflow-hidden max-w-xs mx-auto">
-                    <div class="w-2/3 p-4">
-                      <div class="text-gray-900 font-bold text-2xl">
+                  <div className="shadow-lg bg-white rounded-md overflow-hidden max-w-xs mx-auto">
+                    <div className="w-2/3 p-4">
+                      <div className="text-gray-900 font-bold text-2xl">
                         <span>{invoice.title}</span>
                       </div>
-                      <h1 class="text-gray-700 font-bold text-xl">£{invoice.price}</h1>
-                      <hr class="mt-3 mb-5" />
+                      <h1 className="text-gray-700 font-bold text-xl">£{invoice.price}</h1>
+                      <hr className="mt-3 mb-5" />
                       <div> 
                         <form action={`${paymentUrl}/${invoice._id}/${invoice.title}/${invoice.price}/${user.phone}`} method="POST">
-                          <button type="submit" class="px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded">Checkout</button>
+                          <button type="submit" className="px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded">Checkout</button>
                         </form>
                       </div>
                     </div>
@@ -158,7 +171,6 @@ export default function Payments( {user} ) {
                 )
               })}
             </div>
-            </p>
           </div>
         </div>
       </div>
@@ -167,22 +179,22 @@ export default function Payments( {user} ) {
 
   const createInvoice = () => {
     return(
-      <div class="flex flex-col px-8 mx-auto space-y-12 max-w-7xl xl:px-12">
-        <div class="relative">
-        <h2 class="w-full text-3xl font-bold text-center sm:text-4xl md:text-5xl">Payment Portal</h2>
+      <div className="flex flex-col px-8 mx-auto space-y-12 max-w-7xl xl:px-12">
+        <div className="relative">
+        <h2 className="w-full text-3xl font-bold text-center sm:text-4xl md:text-5xl">Payment Portal</h2>
         <br></br>
-        <div class="flex flex-col mb-8 animated fadeIn sm:flex-row">
-          <div class="flex items-center mb-8 sm:w-1/2 md:w-7/12 sm:order-last">
-            <img class="rounded-lg" src={schooltrip} alt="" />
+        <div className="flex flex-col mb-8 animated fadeIn sm:flex-row">
+          <div className="flex items-center mb-8 sm:w-1/2 md:w-7/12 sm:order-last">
+            <img className="rounded-lg" src={schooltrip} alt="" />
           </div>
-          <div class="flex flex-col justify-center mt-5 mb-8 md:mt-0 sm:w-1/2 md:w-7/12 sm:pr-16">
-            <h3 class="mt-2 text-2xl sm:text-left md:text-4xl">Hello {user.username}!</h3>
-            <p class="mt-5 text-lg text-gray-700 text md:text-left">Here you can create an invoice for parents to pay</p>
+          <div className="flex flex-col justify-center mt-5 mb-8 md:mt-0 sm:w-1/2 md:w-7/12 sm:pr-16">
+            <h3 className="mt-2 text-2xl sm:text-left md:text-4xl">Hello {user.username}!</h3>
+            <p className="mt-5 text-lg text-gray-700 text md:text-left">Here you can create an invoice for parents to pay</p>
           </div>
         </div>
-        <div class="bg-white rounded-2xl border shadow-x1 p-10 max-w-lg">
-          <div class="flex flex-col items-center space-y-4">
-            <h1 class="font-bold text-2xl text-gray-700 w-4/6 text-center">
+        <div className="bg-white rounded-2xl border shadow-x1 p-10 max-w-lg">
+          <div className="flex flex-col items-center space-y-4">
+            <h1 className="font-bold text-2xl text-gray-700 w-4/6 text-center">
               Add an Invoice
             </h1>
             <select  className = "browser-default" value = {payee} onChange={handlePayee} >
@@ -190,19 +202,21 @@ export default function Payments( {user} ) {
               {parents.map((parent) => <option key={parent.username} value={parent.username}>{parent.username}</option>)}
             </select>
             <input
+            aria-label="title"
             type="text"
             placeholder="Invoice Title"
-            class="border-2 rounded-lg w-full h-12 px-4"
+            className="border-2 rounded-lg w-full h-12 px-4"
             onChange={handleTitle} 
             />
             <input
+            aria-label="amount"
             type="number"
             placeholder="Amount"
-            class="border-2 rounded-lg w-full h-12 px-4"
+            className="border-2 rounded-lg w-full h-12 px-4"
             onChange={handlePrice}
             />
             <button onClick={handleSubmit}
-              class="bg-black text-white rounded-md hover:bg-red-500 font-semibold px-4 py-3 w-full"
+              className="bg-black text-white rounded-md hover:bg-red-500 font-semibold px-4 py-3 w-full"
             >
               Submit
             </button>
@@ -216,7 +230,7 @@ export default function Payments( {user} ) {
   return (
     <div>
       <center>
-      <section class="py-20 bg-white">
+      <section className="py-20 bg-white">
         {user.admin? createInvoice() : payInvoice()}
         </section>
         </center>

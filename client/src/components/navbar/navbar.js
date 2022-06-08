@@ -59,7 +59,7 @@ export default class Sidenav extends Component {
         <nav>
           <nav className="light-blue lighten-1" role="navigation">
             <div className="nav-wrapper container">
-              <a href="/" class="brand-logo center">
+              <a href="/" className="brand-logo center">
                 <i className="material-icons">local_library</i>EdUp
               </a>
               <ul
@@ -71,7 +71,8 @@ export default class Sidenav extends Component {
               >
                 <li>
                   <a href="/" className="orange-text">
-                    <i className="material-icons orange-text">local_library</i>EdUp
+                    <i className="material-icons orange-text">local_library</i>
+                    EdUp
                   </a>
                 </li>
                 <li>
@@ -87,43 +88,41 @@ export default class Sidenav extends Component {
                     <i className="material-icons">event_note</i>Noticeboard
                   </a>
                 </li>
-
                 <li>
                   <a href="/payments">
                     <i className="material-icons">payments</i>Payments
                   </a>
                 </li>
                 <li>
-                  <li>
-                    <a href="/calendar">
-                      <i className="material-icons">calendar_month</i>Calendar
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/chat">
-                      <i className="material-icons">forum</i>Chat Rooms
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/updatePassword">
-                      <i className="material-icons">lock</i>Update Password
-                    </a>
-                  </li>
-                  <li>
-                    <a href="http://makers.tech">
-                      <i className="material-icons">language</i>School Website
-                    </a>
-                  </li>
-                  {this.ifAdmin()}
-                  <li>
-                    <div className="divider" />
-                  </li>
+                  <a href="/calendar">
+                    <i className="material-icons">calendar_month</i>Calendar
+                  </a>
+                </li>
+                <li>
+                  <a href="/chat">
+                    <i className="material-icons">forum</i>Chat Rooms
+                  </a>
+                </li>
+                <li>
+                  <a href="/updatePassword">
+                    <i className="material-icons">lock</i>Update Password
+                  </a>
+                </li>
+                <li>
+                  <a href="http://makers.tech">
+                    <i className="material-icons">language</i>School Website
+                  </a>
+                </li>
+                {this.ifAdmin()}
+                <li>
+                  <div className="divider" />
+                </li>
+                <li>
                   <a href="/" onClick={this.logOut}>
                     <i className="material-icons">logout</i>Logout
                   </a>
                 </li>
               </ul>
-
               <a
                 href="#!"
                 data-target="slide-out"

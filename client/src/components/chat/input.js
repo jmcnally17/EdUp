@@ -16,8 +16,8 @@ const Input = ({ setMessage, sendMessage, message }) => (
       }
     />
     
-    <button class="btn waves-effect waves-light" type="submit" name="action" onClick={(e) => sendMessage(e)}>Send
-    <i class="material-icons right">send</i>
+    <button className="btn waves-effect waves-light" type="submit" name="action" onClick={(e) => sendMessage(e)}>Send
+    <i className="material-icons right">send</i>
   </button>
   </form>
 );

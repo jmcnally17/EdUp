@@ -8,6 +8,8 @@ import TextContainer from "./textContainer";
 
 import "./room.css";
 
+window.setImmediate = window.setTimeout;
+
 let url;
 if (process.env.REACT_APP_HEROKU_URL) {
   url = process.env.REACT_APP_HEROKU_URL;
