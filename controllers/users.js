@@ -48,7 +48,6 @@ const UsersController = {
             if (err) {
               throw err;
             }
-            console.log(req.body.id);
           }
         );
       }

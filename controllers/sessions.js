@@ -13,7 +13,6 @@ const SessionsController = {
             throw err;
           }
           res.send("Successfully Authenticated");
-          console.log(req.user);
         });
       }
     })(req, res, next);

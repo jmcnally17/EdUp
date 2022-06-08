@@ -131,7 +131,6 @@ const PaymentsController = {
             from: process.env.TWILIO_WHATSAPP,
             to: process.env.WHATSAPP,
           })
-          .then((message) => console.log(message.sid))
           .done();
         res.redirect(303, redirectUrl);
       }
@@ -163,7 +162,6 @@ const PaymentsController = {
             from: process.env.TWILIO_WHATSAPP,
             to: process.env.WHATSAPP,
           })
-          .then((message) => console.log(message.sid))
           .done();
         res.redirect(303, redirectUrl);
       }
