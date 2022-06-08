@@ -65,29 +65,28 @@ export default function Day({ day, _key, rowIdx, data, user }) {
           }
    
           return (
-            <div key={key}>
-              <Popup trigger={<button className={`bg-${event.selectedLabel}-500 w-full text-white`}>
-                {event.day === day.format("DD") && event.month === day.format("MM") && event.year === day.format("YY") ? shorten : null}
-              </button>}
-                position="left center"
-                on="click">
-                <div>
-                  <div className="col s12 m7 width-2">
-                    <div className="card horizontal">
-                      <div className="card-image">
-                      </div>
-                      <div className="card-stacked max-w-md ">
-                        <div className="card-content">
-                          <p className="font-bold">{event.title}:</p>
-                          <p>{event.description}</p>
-                          {ifAdmin(event._id)}
-                        </div>
+            <Popup trigger={<button className={`bg-${event.selectedLabel}-500 w-full text-white`}>
+              {event.day === day.format("DD") && event.month === day.format("MM") && event.year === day.format("YY") ? shorten : null}
+            </button>}
+              position="left center"
+              on="click"
+              key={key}>
+              <div>
+                <div className="col s12 m7 width-2">
+                  <div className="card horizontal">
+                    <div className="card-image">
+                    </div>
+                    <div className="card-stacked max-w-md ">
+                      <div className="card-content">
+                        <p className="font-bold">{event.title}:</p>
+                        <p>{event.description}</p>
+                        {ifAdmin(event._id)}
                       </div>
                     </div>
                   </div>
                 </div>
-              </Popup>
-            </div>
+              </div>
+            </Popup>
           )
         })}
       </header>
