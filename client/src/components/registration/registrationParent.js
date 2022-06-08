@@ -24,7 +24,9 @@ export default function Registration({ user }) {
         admin: false,
         phone: registerPhoneNumber,
       }),
-    }).then((response) => console.log(response.body));
+    }).then((res) => {
+      window.alert("User has been created")
+    });
   };
 
   const isAdmin = () => {
