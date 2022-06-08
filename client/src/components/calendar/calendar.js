@@ -21,7 +21,6 @@ export default function Calendar({ user }) {
   return (
     <React.Fragment>
       {showEventModal && <EventModal />}
-      {/* <div class="h-fit"> */}
       <div className="h-screen flex flex-col">
         <CalendarHeader />
         <div className="flex flex-1">
@@ -29,7 +28,6 @@ export default function Calendar({ user }) {
           <Month month={currentMonth} user={user} colour={filter} />
         </div>
         </div>
-        {/* </div> */}
     </React.Fragment>
   );
 }

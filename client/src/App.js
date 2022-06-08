@@ -44,7 +44,6 @@ export default function App() {
     <React.Fragment>
       <div className="App">
       <div class="flex flex-col min-h-screen">
-      {/* <div class="flex flex-col justify-between"> */}
           {user ? <Sidenav user={user} /> : null}
           <Routes>
             <Route path="/" element={<Login user={user} />} />
