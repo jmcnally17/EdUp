@@ -36,12 +36,14 @@ export default function Registration() {
       },
       withCredentials: true,
       url: urlSessions,
-    }).catch((err) => {
-      window.alert("User already exists");
-      throw err;
-    }).then(() => {
-      window.location.href = `${loggedInSession}`;
-    });
+    })
+      .catch((err) => {
+        window.alert("User already exists");
+        throw err;
+      })
+      .then(() => {
+        window.location.href = `${loggedInSession}`;
+      });
   };
 
   const register = () => {
@@ -56,8 +58,8 @@ export default function Registration() {
         phone: registerPhoneNumber,
       }),
     }).then((res) => {
-      login(registerUsername, registerPassword)
-    })
+      login(registerUsername, registerPassword);
+    });
   };
 
   return (
@@ -79,7 +81,7 @@ export default function Registration() {
             onChange={(e) => setRegisterPassword(e.target.value)}
           ></input>
           <h4>Phone Number</h4>
-           <input
+          <input
             type="text"
             placeholder="Phone Number"
             onChange={(e) => setRegisterPhoneNumber(e.target.value)}

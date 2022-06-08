@@ -57,11 +57,12 @@ export default function Login({ user }) {
       withCredentials: true,
       url: urlSessions,
     })
-      .catch(error => {
-        window.alert("Invalid credentials. Please try again")
-      }).then(() => {
-        window.location.href = `${loggedInSession}`;
+      .catch((error) => {
+        window.alert("Invalid credentials. Please try again");
       })
+      .then(() => {
+        window.location.href = `${loggedInSession}`;
+      });
   };
 
   const loginForm = () => {

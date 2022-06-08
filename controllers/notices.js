@@ -30,7 +30,7 @@ const NoticesController = {
       if (err) res.json(err);
       else res.status(201);
     });
-  }
+  },
 };
 
 module.exports = NoticesController;

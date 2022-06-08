@@ -15,7 +15,6 @@ export default function UpdatePassword({ user }) {
   };
 
   const update = () => {
-    console.log(user.id);
     fetch(url, {
       method: "POST",
       credentials: "include",

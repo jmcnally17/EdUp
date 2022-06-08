@@ -1,24 +1,24 @@
-import React from 'react'
-import Typed from 'typed.js';
-import ReactDOM from 'react-dom'
+import React from "react";
+import Typed from "typed.js";
+import ReactDOM from "react-dom";
 
 export class TypedReactDemo extends React.Component {
   componentDidMount() {
-  	// If you want to pass more options as props, simply add
+    // If you want to pass more options as props, simply add
     // your desired props to this destructuring assignment.
     const strings = this.props;
     // You can pass other options here, such as typing speed, back speed, etc.
     const options = {
-    	strings: strings,
+      strings: strings,
       typeSpeed: 50,
-      backSpeed: 50
+      backSpeed: 50,
     };
     // this.el refers to the <span> in the render() method
     this.typed = new Typed(this.el, options);
   }
 
   componentWillUnmount() {
-  	// Make sure to destroy Typed instance on unmounting
+    // Make sure to destroy Typed instance on unmounting
     // to prevent memory leaks
     this.typed.destroy();
   }
@@ -29,8 +29,10 @@ export class TypedReactDemo extends React.Component {
         <h1>Typed.js</h1>
         <div className="type-wrap">
           <span
-            style={{ whiteSpace: 'pre' }}
-            ref={(el) => { this.el = el; }}
+            style={{ whiteSpace: "pre" }}
+            ref={(el) => {
+              this.el = el;
+            }}
           />
         </div>
         <button onClick={() => this.typed.toggle()}>Toggle</button>
@@ -44,12 +46,12 @@ export class TypedReactDemo extends React.Component {
 }
 
 ReactDOM.render(
-	<TypedReactDemo
+  <TypedReactDemo
     strings={[
-    	'Some <i>strings</i> are slanted',
-      'Some <strong>strings</strong> are bold',
-      'HTML characters &times; &copy;'
+      "Some <i>strings</i> are slanted",
+      "Some <strong>strings</strong> are bold",
+      "HTML characters &times; &copy;",
     ]}
   />,
-  document.getElementById('react-root')
+  document.getElementById("react-root")
 );

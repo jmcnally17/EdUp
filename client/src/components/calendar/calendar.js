@@ -6,19 +6,17 @@ import { getMonth } from "../../util";
 import CalendarGlobalContext from "../../context/calendarGlobalContext";
 import EventModal from "./eventModal";
 
-export default function Calendar({user}) {
+export default function Calendar({ user }) {
   const [currentMonth, setCurrentMonth] = useState(getMonth());
-  const { monthIndex, showEventModal } = useContext(
-    CalendarGlobalContext
-  );
+  const { monthIndex, showEventModal } = useContext(CalendarGlobalContext);
   useEffect(() => {
     setCurrentMonth(getMonth(monthIndex));
   }, [monthIndex]);
 
   const [filter, setFilter] = useState(null);
   const applyFilter = (colour) => {
-    setFilter(colour)
-  }
+    setFilter(colour);
+  };
 
   return (
     <React.Fragment>
@@ -27,11 +25,8 @@ export default function Calendar({user}) {
       <div className="h-screen flex flex-col">
         <CalendarHeader />
         <div className="flex flex-1">
-          <Sidebar user={user} filter={applyFilter}/>
+          <Sidebar user={user} filter={applyFilter} />
           <Month month={currentMonth} user={user} colour={filter} />
-          <div className="row center"></div>
-          <div className="row center"></div>
-          <div className="row center"></div>
         </div>
         </div>
         {/* </div> */}

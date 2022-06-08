@@ -12,7 +12,7 @@ var calendarRouter = require("./routes/calendar");
 var sessionsRouter = require("./routes/sessions");
 var noticesRouter = require("./routes/notices");
 var chatRouter = require("./routes/chat");
-var paymentsRouter = require('./routes/payments')
+var paymentsRouter = require("./routes/payments");
 
 var app = express();
 

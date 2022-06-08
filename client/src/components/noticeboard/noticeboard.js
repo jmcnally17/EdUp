@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import dayjs from 'dayjs'
+import dayjs from "dayjs";
 
 let url;
 if (process.env.REACT_APP_HEROKU_URL) {
@@ -7,7 +7,7 @@ if (process.env.REACT_APP_HEROKU_URL) {
 } else {
   url = "http://localhost:9000/backend/notices/index";
 }
-export default function Noticeboard( {user} ) {
+export default function Noticeboard({ user }) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -29,19 +29,25 @@ export default function Noticeboard( {user} ) {
   const handleDelete = (noticeId) => {
     fetch(`${deleteUrl}/${noticeId}`, {
       method: "DELETE",
-    })
+    });
     window.location.reload(false);
-  }
+  };
 
   const deleteIfAdmin = (noticeId) => {
     if (user.admin) {
       return (
-        <a className="btn-floating btn-large waves-effect waves-light orange right" type="submit" onClick={() => {handleDelete(noticeId)}}>
+        <a
+          className="btn-floating btn-large waves-effect waves-light orange right"
+          type="submit"
+          onClick={() => {
+            handleDelete(noticeId);
+          }}
+        >
           <i className="material-icons-two-tone">delete_forever</i>
         </a>
-      )
+      );
     }
-  }
+  };
 
   const addNotice = () => {
     return (
@@ -51,17 +57,15 @@ export default function Noticeboard( {user} ) {
           id="download-button"
           className="btn-large waves-effect waves-light orange"
         >
-        Add New Notice
+          Add New Notice
         </a>
       </div>
-    )
-  }
+    );
+  };
 
   const formatDate = (date) => {
-    return (
-      dayjs(date).format("DD/MM/YYYY")
-    )
-  }
+    return dayjs(date).format("DD/MM/YYYY");
+  };
 
   return (
     <div>
@@ -91,7 +95,9 @@ export default function Noticeboard( {user} ) {
                         <div className="icon-block">
                           <h5 className="center">{noticeInfo.title} </h5>
                           <p className="center">{noticeInfo.description} </p>
-                          <p className="center">{formatDate(noticeInfo.createdAt)} </p>
+                          <p className="center">
+                            {formatDate(noticeInfo.createdAt)}{" "}
+                          </p>
                           {deleteIfAdmin(noticeInfo._id)}
                         </div>
                       </div>
