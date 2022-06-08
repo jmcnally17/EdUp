@@ -24,7 +24,7 @@ export default function Day({ day, _key, rowIdx, data, user }) {
     window.location.reload(false);
   }
 
-  const ifAdmin = (eventId) => {
+  const deleteIfAdmin = (eventId) => {
     if (user.admin) {
       return (
         <button type="submit" onClick={() => {handleDelete(eventId)}}>
@@ -36,7 +36,7 @@ export default function Day({ day, _key, rowIdx, data, user }) {
     }
   }
 
-  const ifAdmin2 = () => {
+  const createEvent = () => {
     if (user.admin) {
       setDaySelected(day)
       setShowEventModal(true)
@@ -80,7 +80,7 @@ export default function Day({ day, _key, rowIdx, data, user }) {
                       <div className="card-content">
                         <p className="font-bold">{event.title}:</p>
                         <p>{event.description}</p>
-                        {ifAdmin(event._id)}
+                        {deleteIfAdmin(event._id)}
                       </div>
                     </div>
                   </div>
@@ -90,7 +90,7 @@ export default function Day({ day, _key, rowIdx, data, user }) {
           )
         })}
       </header>
-      <div className="flex-1 cursor-pointer" onClick = {ifAdmin2}>
+      <div className="flex-1 cursor-pointer" onClick = {createEvent}>
       </div>
 
     </div>
