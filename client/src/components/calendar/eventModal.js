@@ -56,6 +56,7 @@ export default function EventModal() {
           <div className="grid grid-cols-1/5 items-end gap-y-7">
             <div></div>
             <input
+              aria-label="title"
               type="text"
               name="title"
               placeholder="Add Title"
@@ -72,6 +73,7 @@ export default function EventModal() {
               segment
             </span>
             <input
+              aria-label="description"
               type="text"
               name="description"
               placeholder="Add a description"
@@ -86,6 +88,7 @@ export default function EventModal() {
             <div className="flex gap-x-2">
               {labelClasses.map((lblClass, i) => (
                 <span
+                  aria-label={`label-${i}`}
                   key={i}
                   onClick={() => setSelectedLabel(lblClass)}
                   className={`bg-${lblClass}-500 w-6 h-6 rounded-full flex items-center justify-center cursor-pointer`}
