@@ -134,8 +134,7 @@ export default function Payments( {user} ) {
             <h3 className="mt-2 text-2xl sm:text-left md:text-4xl">Pay your payments individually</h3>
           </div>
           <div className="flex flex-col justify-center mt-5 mb-8 md:mt-0 sm:w-1/2 md:w-7/12 sm:pl-16">
-            <p className="mt-5 text-lg text-gray-700 text md:text-left">
-            <div>
+            <div className="mt-5 text-lg text-gray-700 text md:text-left">
               {invoices.map((invoice) => {
                 return (
                   <center>
@@ -158,7 +157,6 @@ export default function Payments( {user} ) {
                 )
               })}
             </div>
-            </p>
           </div>
         </div>
       </div>

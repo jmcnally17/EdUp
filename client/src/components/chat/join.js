@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import chat from "../../images/chat.png"
 
 export default function Join({ user }) {
@@ -35,13 +34,13 @@ export default function Join({ user }) {
               <img className="rounded-lg" src={chat} alt="" />
             </div>
             <div className="flex flex-col justify-center mt-5 mb-8 md:mt-0 sm:w-1/2 md:w-7/12 sm:pr-16">              
-                <p className="mt-5 text-lg text-gray-700 text md:text-left">These chat rooms are designed for you to connect with our admin staff and teachers.<br></br><br></br>
+                <div className="mt-5 text-lg text-gray-700 text md:text-left">These chat rooms are designed for you to connect with our admin staff and teachers.<br></br><br></br>
                   <blockquote>
                       <b>Admin</b> - For any admin related matters<br></br>
                       <b>Finance</b> - To get in touch with our finance department<br></br>
                       <b>Class</b> - Select the appropriate class to communicate with your child's teacher
                   </blockquote>
-                      </p>
+                      </div>
                 </div>
               </div>
               <div> 
