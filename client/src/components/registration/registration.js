@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import Axios from "axios";
 
 let url;
-if (process.env.REACT_APP_HEROKU_URL) {
-  url = `${process.env.REACT_APP_HEROKU_URL}/backend/users`;
+if (process.env.REACT_APP_URL) {
+  url = `${process.env.REACT_APP_URL}/backend/users`;
 } else {
   url = "http://localhost:9000/backend/users";
 }
@@ -14,15 +14,15 @@ export default function Registration() {
   const [registerPhoneNumber, setRegisterPhoneNumber] = useState("");
 
   let urlSessions;
-  if (process.env.REACT_APP_HEROKU_URL) {
-    urlSessions = `${process.env.REACT_APP_HEROKU_URL}/backend/sessions`;
+  if (process.env.REACT_APP_URL) {
+    urlSessions = `${process.env.REACT_APP_URL}/backend/sessions`;
   } else {
     urlSessions = "http://localhost:9000/backend/sessions";
   }
 
   let loggedInSession;
-  if (process.env.REACT_APP_HEROKU_URL) {
-    loggedInSession = `${process.env.REACT_APP_HEROKU_URL}/noticeboard`;
+  if (process.env.REACT_APP_URL) {
+    loggedInSession = `${process.env.REACT_APP_URL}/noticeboard`;
   } else {
     loggedInSession = "http://localhost:3000/noticeboard";
   }

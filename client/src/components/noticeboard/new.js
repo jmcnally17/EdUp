@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
 
 let url;
-if (process.env.REACT_APP_HEROKU_URL) {
-  url = `${process.env.REACT_APP_HEROKU_URL}/backend/notices`;
+if (process.env.REACT_APP_URL) {
+  url = `${process.env.REACT_APP_URL}/backend/notices`;
 } else {
   url = "http://localhost:9000/backend/notices";
 }

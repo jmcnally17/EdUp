@@ -4,8 +4,8 @@ import "materialize-css/dist/css/materialize.min.css";
 import Axios from "axios";
 
 let logOutUrl;
-if (process.env.REACT_APP_HEROKU_URL) {
-  logOutUrl = `${process.env.REACT_APP_HEROKU_URL}/backend/sessions/logout`;
+if (process.env.REACT_APP_URL) {
+  logOutUrl = `${process.env.REACT_APP_URL}/backend/sessions/logout`;
 } else {
   logOutUrl = "http://localhost:9000/backend/sessions/logout";
 }

@@ -22,8 +22,8 @@ import ParentRegistration from "./components/registration/registrationParent";
 
 export default function App() {
   let urlUsers;
-  if (process.env.REACT_APP_HEROKU_URL) {
-    urlUsers = `${process.env.REACT_APP_HEROKU_URL}/backend/users`;
+  if (process.env.REACT_APP_URL) {
+    urlUsers = `${process.env.REACT_APP_URL}/backend/users`;
   } else {
     urlUsers = "http://localhost:9000/backend/users";
   }

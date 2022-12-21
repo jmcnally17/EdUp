@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 let url;
-if (process.env.REACT_APP_HEROKU_URL) {
-  url = `${process.env.REACT_APP_HEROKU_URL}/backend/users/updatePassword`;
+if (process.env.REACT_APP_URL) {
+  url = `${process.env.REACT_APP_URL}/backend/users/updatePassword`;
 } else {
   url = `http://localhost:9000/backend/users/updatePassword/`;
 }

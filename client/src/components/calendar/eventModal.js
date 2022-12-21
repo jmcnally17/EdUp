@@ -11,8 +11,8 @@ export const labelClasses = [
 ];
 
 let url;
-if (process.env.REACT_APP_HEROKU_URL) {
-  url = `${process.env.REACT_APP_HEROKU_URL}/backend/calendar`;
+if (process.env.REACT_APP_URL) {
+  url = `${process.env.REACT_APP_URL}/backend/calendar`;
 } else {
   url = "http://localhost:9000/backend/calendar";
 }

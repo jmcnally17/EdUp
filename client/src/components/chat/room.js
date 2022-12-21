@@ -11,8 +11,8 @@ import "./room.css";
 window.setImmediate = window.setTimeout;
 
 let url;
-if (process.env.REACT_APP_HEROKU_URL) {
-  url = process.env.REACT_APP_HEROKU_URL;
+if (process.env.REACT_APP_URL) {
+  url = process.env.REACT_APP_URL;
 } else {
   url = "http://localhost:9000";
 }

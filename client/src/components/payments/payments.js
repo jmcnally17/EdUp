@@ -23,8 +23,8 @@ export default function Payments({ user }) {
   };
 
   let createInvoiceUrl;
-  if (process.env.REACT_APP_HEROKU_URL) {
-    createInvoiceUrl = `${process.env.REACT_APP_HEROKU_URL}/backend/payments/createInvoice`;
+  if (process.env.REACT_APP_URL) {
+    createInvoiceUrl = `${process.env.REACT_APP_URL}/backend/payments/createInvoice`;
   } else {
     createInvoiceUrl = "http://localhost:9000/backend/payments/createInvoice";
   }
@@ -43,8 +43,8 @@ export default function Payments({ user }) {
   };
 
   let invoicesUrl;
-  if (process.env.REACT_APP_HEROKU_URL) {
-    invoicesUrl = `${process.env.REACT_APP_HEROKU_URL}/backend/payments/payments`;
+  if (process.env.REACT_APP_URL) {
+    invoicesUrl = `${process.env.REACT_APP_URL}/backend/payments/payments`;
   } else {
     invoicesUrl = "http://localhost:9000/backend/payments/payments";
   }
@@ -61,8 +61,8 @@ export default function Payments({ user }) {
   }, [invoicesUrl, user]);
 
   let parentsUrl;
-  if (process.env.REACT_APP_HEROKU_URL) {
-    parentsUrl = `${process.env.REACT_APP_HEROKU_URL}/backend/users/parents`;
+  if (process.env.REACT_APP_URL) {
+    parentsUrl = `${process.env.REACT_APP_URL}/backend/users/parents`;
   } else {
     parentsUrl = "http://localhost:9000/backend/users/parents";
   }
@@ -84,8 +84,8 @@ export default function Payments({ user }) {
   let total = 0;
 
   let paymentUrl;
-  if (process.env.REACT_APP_HEROKU_URL) {
-    paymentUrl = `${process.env.REACT_APP_HEROKU_URL}/backend/payments/checkout`;
+  if (process.env.REACT_APP_URL) {
+    paymentUrl = `${process.env.REACT_APP_URL}/backend/payments/checkout`;
   } else {
     paymentUrl = "http://localhost:9000/backend/payments/checkout";
   }

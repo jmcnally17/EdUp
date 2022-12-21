@@ -32,15 +32,15 @@ const PaymentsController = {
 
   Pay: async (req, res) => {
     let successUrl;
-    if (process.env.REACT_APP_HEROKU_URL) {
-      successUrl = `${process.env.REACT_APP_HEROKU_URL}/backend/payments/update`;
+    if (process.env.REACT_APP_URL) {
+      successUrl = `${process.env.REACT_APP_URL}/backend/payments/update`;
     } else {
       successUrl = "http://localhost:9000/backend/payments/update";
     }
 
     let cancelUrl;
-    if (process.env.REACT_APP_HEROKU_URL) {
-      cancelUrl = `${process.env.REACT_APP_HEROKU_URL}/payments`;
+    if (process.env.REACT_APP_URL) {
+      cancelUrl = `${process.env.REACT_APP_URL}/payments`;
     } else {
       cancelUrl = "http://localhost:3000/payments";
     }
@@ -69,15 +69,15 @@ const PaymentsController = {
 
   PayAll: async (req, res) => {
     let successUrl;
-    if (process.env.REACT_APP_HEROKU_URL) {
-      successUrl = `${process.env.REACT_APP_HEROKU_URL}/backend/payments/updatemany`;
+    if (process.env.REACT_APP_URL) {
+      successUrl = `${process.env.REACT_APP_URL}/backend/payments/updatemany`;
     } else {
       successUrl = "http://localhost:9000/backend/payments/updatemany";
     }
 
     let cancelUrl;
-    if (process.env.REACT_APP_HEROKU_URL) {
-      cancelUrl = `${process.env.REACT_APP_HEROKU_URL}/payments`;
+    if (process.env.REACT_APP_URL) {
+      cancelUrl = `${process.env.REACT_APP_URL}/payments`;
     } else {
       cancelUrl = "http://localhost:3000/payments";
     }
@@ -106,8 +106,8 @@ const PaymentsController = {
 
   Update: (req, res) => {
     let redirectUrl;
-    if (process.env.REACT_APP_HEROKU_URL) {
-      redirectUrl = `${process.env.REACT_APP_HEROKU_URL}/success`;
+    if (process.env.REACT_APP_URL) {
+      redirectUrl = `${process.env.REACT_APP_URL}/success`;
     } else {
       redirectUrl = "http://localhost:3000/success";
     }
@@ -139,8 +139,8 @@ const PaymentsController = {
 
   UpdateMany: (req, res) => {
     let redirectUrl;
-    if (process.env.REACT_APP_HEROKU_URL) {
-      redirectUrl = `${process.env.REACT_APP_HEROKU_URL}/success`;
+    if (process.env.REACT_APP_URL) {
+      redirectUrl = `${process.env.REACT_APP_URL}/success`;
     } else {
       redirectUrl = "http://localhost:3000/success/";
     }

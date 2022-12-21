@@ -8,7 +8,7 @@
     "test:unit": "npx jest spec",
     "test-client": "cd client && CI=true npm test",
     "test": "npm run test:unit && npm run test-client",
-    "heroku-postbuild": "cd client && npm install --force && npm run build"
+    "build": "npm install && cd client && npm install --force && npm run build"
   },
   "dependencies": {
     "axios": "^0.27.2",

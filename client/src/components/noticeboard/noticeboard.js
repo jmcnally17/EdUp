@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import dayjs from "dayjs";
 
 let url;
-if (process.env.REACT_APP_HEROKU_URL) {
-  url = `${process.env.REACT_APP_HEROKU_URL}/backend/notices/index`;
+if (process.env.REACT_APP_URL) {
+  url = `${process.env.REACT_APP_URL}/backend/notices/index`;
 } else {
   url = "http://localhost:9000/backend/notices/index";
 }
@@ -20,8 +20,8 @@ export default function Noticeboard({ user }) {
   }, []);
 
   let deleteUrl;
-  if (process.env.REACT_APP_HEROKU_URL) {
-    deleteUrl = `${process.env.REACT_APP_HEROKU_URL}/backend/notices/delete`;
+  if (process.env.REACT_APP_URL) {
+    deleteUrl = `${process.env.REACT_APP_URL}/backend/notices/delete`;
   } else {
     deleteUrl = "http://localhost:9000/backend/notices/delete";
   }

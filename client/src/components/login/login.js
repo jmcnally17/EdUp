@@ -4,15 +4,15 @@ import illustration4 from "../../images/illustration4.png";
 import Typed from "typed.js";
 
 let urlSessions;
-if (process.env.REACT_APP_HEROKU_URL) {
-  urlSessions = `${process.env.REACT_APP_HEROKU_URL}/backend/sessions`;
+if (process.env.REACT_APP_URL) {
+  urlSessions = `${process.env.REACT_APP_URL}/backend/sessions`;
 } else {
   urlSessions = "http://localhost:9000/backend/sessions";
 }
 
 let loggedInSession;
-if (process.env.REACT_APP_HEROKU_URL) {
-  loggedInSession = `${process.env.REACT_APP_HEROKU_URL}/noticeboard`;
+if (process.env.REACT_APP_URL) {
+  loggedInSession = `${process.env.REACT_APP_URL}/noticeboard`;
 } else {
   loggedInSession = "http://localhost:3000/noticeboard";
 }
