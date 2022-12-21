@@ -4,7 +4,7 @@
 
 ## Task
 
-[Welcome to Ed Up!](https://edup-schools.herokuapp.com/)
+[Welcome to Ed Up!](https://edup.onrender.com)
 
 For our final project on the Makers Academy course, we are five students from the March 2022 cohort who have chosen to create a web app that will primarily be used for communication between schools and parents. Parents will be able to login to their accounts to check the latest notices, have a calendar with important dates and events marked by teachers, make payments to pay for any invoices for their child's education with text confirmation and also be able to have a live chat with staff from school.\
 \
@@ -20,7 +20,7 @@ This is our team which worked on this project:
 
 Technologies used:
 
-- [Heroku](https://edup-schools.herokuapp.com/) for hosting our app
+- [Render](https://render.com/) for hosting our app
 - [Trello](https://trello.com/b/hBC2RJnc/final-project) for planning
 - [Mongoose](https://mongoosejs.com) to model objects in MongoDB
 - [Express](https://expressjs.com/) web framework for Node.js
